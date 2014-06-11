@@ -8,16 +8,23 @@ Polity
 Let's shine by being thoughtful with our commits guys!! Start all commit messages with one of the following keywords to generally describe what's going on:
 
 1.) `feature` -> describes anything adding value to the application.  Most things in development will be features...
+
 2.) `chore` -> describes anything that is clean up within the application.  Change in the behavior of the opp should be minimal
+
 3.) `bugfix` -> pretty self explanatory, but anytime you something in the app that isn't working
+
 4.) `styling` -> anything adding presentation value to the project
+
 
 A few quick examples:
 
-git commit -m "feature: added instance method to User model to find connections within his/her ward"
-git commit -m "chore: refactored method in Legislation model to reduce database load time"
-git commit -m "bugfix: changed view logic in users/show to display favored legistlation, not all legistlation"
-git commit -m "styling: created grid.css for fixed design on all application pages.  Plans to migrate to responsive design as project progresses"
+`git commit -m "feature: added instance method to User model to find connections within his/her ward"`
+
+`git commit -m "chore: refactored method in Legislation model to reduce database load time"`
+
+`git commit -m "bugfix: changed view logic in users/show to display favored legistlation, not all legistlation"`
+
+`git commit -m "styling: created grid.css for fixed design on all application pages.  Plans to migrate to responsive design as project progresses"`
 
 ## Git Workflow
 
