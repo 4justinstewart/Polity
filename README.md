@@ -64,3 +64,5 @@ Now your code is on github
 [City Budget Documentation](http://chicityclerk.com/legislation-records/journals-reports/city-budgets/)
 
 [Open City Apps](http://opencityapps.org/)
+
+[Alderman Contact Info](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Ward-Offices/htai-wnw4)
