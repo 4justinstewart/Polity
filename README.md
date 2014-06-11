@@ -6,6 +6,8 @@ Polity
 ### Resources for Development
 
 [Check Voter Registration](http://www.chicagoelections.com/voterinfo.php)
+
 [City Council Reports](http://chicityclerk.com/council/reports.php)
+
 [City Budget Documentation](http://chicityclerk.com/legislation-records/journals-reports/city-budgets/)
 []()
