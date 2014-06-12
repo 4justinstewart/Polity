@@ -66,3 +66,5 @@ Now your code is on github
 [Open City Apps](http://opencityapps.org/)
 
 [Alderman Contact Info](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Ward-Offices/htai-wnw4)
+
+[Find your Alderman](https://webapps1.cityofchicago.org/ezbuy/getgeoWardLookup.do)
