@@ -9,7 +9,7 @@ default: &default
   pool: 5
   timeout: 5000
 
-  development:
+development:
   <<: *default
   adapter: postgresql
   encoding: utf8
@@ -17,9 +17,6 @@ default: &default
   host: localhost
   pool: 5
   timeout: 5000
-
-
-# development:
 
 #   database: db/development.sqlite3
 
