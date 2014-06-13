@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :aldermen
+
+  resources :wards
+
   resources :users
 
     root to: 'high_voltage/pages#show', id: 'homepage'

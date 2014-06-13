@@ -1,0 +1,37 @@
+<%= form_for(@alderman) do |f| %>
+  <% if @alderman.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alderman.errors.count, "error") %> prohibited this alderman from being saved:</h2>
+
+      <ul>
+      <% @alderman.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ward_id %><br>
+    <%= f.text_field :ward_id %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :party_affiliation %><br>
+    <%= f.text_field :party_affiliation %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,6 +1,10 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/carolineartz/Polity/Polity/app/helpers/aldermen_helper.rb": [
+        1,
+        null
+      ],
       "/Users/carolineartz/Polity/Polity/app/helpers/application_helper.rb": [
         1,
         null
@@ -9,95 +13,11 @@
         1,
         null
       ],
-      "/Users/carolineartz/Polity/Polity/app/controllers/users_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        5,
-        null,
-        5,
-        5,
-        6,
-        3,
-        null,
-        4,
-        2,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        5,
-        5,
-        4,
-        2,
-        null,
-        6,
-        3,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        2,
-        2,
-        4,
-        2,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        9,
-        null,
-        null,
-        null,
-        1,
-        10,
-        null,
-        null
-      ],
-      "/Users/carolineartz/Polity/Polity/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/Users/carolineartz/Polity/Polity/app/models/user.rb": [
-        1,
+      "/Users/carolineartz/Polity/Polity/app/helpers/wards_helper.rb": [
         1,
         null
       ]
     },
-    "timestamp": 1402641082
+    "timestamp": 1402643304
   }
 }
