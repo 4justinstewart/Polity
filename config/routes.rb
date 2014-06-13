@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :legislator_votes
+
+  resources :legislation_sponsors
+
   resources :legislations
 
   resources :community_member_vote_positions

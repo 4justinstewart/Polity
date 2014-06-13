@@ -69,5 +69,6 @@ group :development do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem "growl"
+  # gem "growlnotify"
 end
 
