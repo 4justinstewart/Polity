@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/bradphelan/jasminerice.git
+  revision: 091349c27343bfa728b8e5745675f9ddbb7d9699
+  specs:
+    jasminerice (0.1.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -92,6 +99,12 @@ GEM
     high_voltage (2.1.0)
     hike (1.2.3)
     i18n (0.6.9)
+    jasmine (2.0.2)
+      jasmine-core (~> 2.0.0)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.0.0)
     jbuilder (2.1.0)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -119,6 +132,7 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     pg (0.17.1)
+    phantomjs (1.9.7.1)
     polyglot (0.3.5)
     pry (0.10.0)
       coderay (~> 1.1.0)
@@ -232,6 +246,8 @@ DEPENDENCIES
   guard
   guard-rspec
   high_voltage
+  jasmine
+  jasminerice!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
