@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140613074029) do
     t.datetime "updated_at"
   end
 
+  add_index "community_member_vote_positions", ["legislation_id"], name: "index_community_member_vote_positions_on_legislation_id", using: :btree
+
   create_table "legislation_sponsors", force: true do |t|
     t.integer  "legislator_id"
     t.integer  "legislation_id"
