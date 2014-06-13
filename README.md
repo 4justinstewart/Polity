@@ -1,3 +1,7 @@
+[![Coverage Status](https://coveralls.io/repos/4justinstewart/Polity/badge.png)](https://coveralls.io/r/4justinstewart/Polity)
+
+[![Build Status](https://travis-ci.org/4justinstewart/Polity.svg?branch=master)](https://travis-ci.org/4justinstewart/Polity)
+
 Polity
 ======
 
