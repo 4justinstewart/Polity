@@ -12,3 +12,5 @@ class CreateUsers < ActiveRecord::Migration
     end
   end
 end
+
+#TODO: Add DEVISE

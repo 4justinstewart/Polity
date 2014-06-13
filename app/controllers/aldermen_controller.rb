@@ -1,5 +1,6 @@
 class AldermenController < ApplicationController
   before_action :set_alderman, only: [:show, :edit, :update, :destroy]
+  #TODO: MUST REFINE, ADD, EDIT, MOVE in all controllers
 
   # GET /aldermen
   # GET /aldermen.json
