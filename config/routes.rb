@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :legislations
+
+  resources :community_member_vote_positions
+
   resources :aldermen
 
   resources :wards

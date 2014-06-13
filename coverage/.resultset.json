@@ -9,6 +9,14 @@
         1,
         null
       ],
+      "/Users/carolineartz/Polity/Polity/app/helpers/community_member_vote_positions_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/carolineartz/Polity/Polity/app/helpers/legislations_helper.rb": [
+        1,
+        null
+      ],
       "/Users/carolineartz/Polity/Polity/app/helpers/users_helper.rb": [
         1,
         null
@@ -18,6 +26,6 @@
         null
       ]
     },
-    "timestamp": 1402643304
+    "timestamp": 1402644776
   }
 }
