@@ -49,6 +49,7 @@ group :development, :test do
   gem 'jasmine'
   gem 'jasminerice', :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'coveralls', require: false
+  gem 'cucumber-rails', :require => false
 end
 
 
