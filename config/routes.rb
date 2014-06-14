@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :community_supports
 
   resources :user_addresses
@@ -7,11 +8,8 @@ Rails.application.routes.draw do
 
   #TODO: update these!
   resources :legislator_votes
-
   resources :legislation_sponsors
-
   resources :legislations
-
   resources :wards
 
   resources :users

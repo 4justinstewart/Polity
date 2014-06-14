@@ -1,3 +1,7 @@
+tmp/
+log/
+vendor/bundle/bundler/gems/jasminerice-091349c27343
+
 # Compiled source #
 ###################
 *.com
