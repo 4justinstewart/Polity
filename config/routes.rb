@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
-    root to: 'high_voltage/pages#show', id: 'homepage'
+  resources :community_supports
+
+  resources :user_addresses
+
+  resources :legislators
+
+  #TODO: update these!
+  resources :legislator_votes
+
+  resources :legislation_sponsors
+
+  resources :legislations
+
+  resources :wards
+
+  resources :users
+
+  root to: 'high_voltage/pages#show', id: 'homepage'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,7 +1,0 @@
-
-
-Started GET "/" for 127.0.0.1 at 2014-06-12 21:46:42 -0500
-Processing by HighVoltage::PagesController#show as HTML
-  Parameters: {"id"=>"homepage"}
-  Rendered pages/homepage.html.erb within layouts/application (1.0ms)
-Completed 200 OK in 264ms (Views: 264.0ms | ActiveRecord: 0.0ms)

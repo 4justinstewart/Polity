@@ -1,0 +1,33 @@
+<h1>Listing legislators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ward</th>
+      <th>Integer</th>
+      <th>Date</th>
+      <th>Date</th>
+      <th>String</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @legislators.each do |legislator| %>
+      <tr>
+        <td><%= legislator.ward %></td>
+        <td><%= legislator.integer %></td>
+        <td><%= legislator.date %></td>
+        <td><%= legislator.date %></td>
+        <td><%= legislator.string %></td>
+        <td><%= link_to 'Show', legislator %></td>
+        <td><%= link_to 'Edit', edit_legislator_path(legislator) %></td>
+        <td><%= link_to 'Destroy', legislator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Legislator', new_legislator_path %>

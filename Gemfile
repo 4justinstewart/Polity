@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+
 gem 'high_voltage'
 
 # Use ActiveModel has_secure_password
@@ -45,7 +46,10 @@ gem 'high_voltage'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'jasmine'
+  gem 'jasminerice', :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'coveralls', require: false
+  gem 'cucumber-rails', :require => false
 end
 
 
@@ -65,5 +69,6 @@ group :development do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem "growl"
+  # gem "growlnotify"
 end
 

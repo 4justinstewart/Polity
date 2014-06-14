@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ward number:</strong>
+  <%= @ward.ward_number %>
+</p>
+
+<p>
+  <strong>Term start:</strong>
+  <%= @ward.term_start %>
+</p>
+
+<p>
+  <strong>Term end:</strong>
+  <%= @ward.term_end %>
+</p>
+
+<p>
+  <strong>Legislator:</strong>
+  <%= @ward.legislator %>
+</p>
+
+<%= link_to 'Edit', edit_ward_path(@ward) %> |
+<%= link_to 'Back', wards_path %>
