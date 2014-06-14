@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>City identifier</th>
       <th>Status</th>
       <th>Type</th>
       <th>Opened date</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @legislations.each do |legislation| %>
       <tr>
+        <td><%= legislation.city_identifier %></td>
         <td><%= legislation.status %></td>
         <td><%= legislation.type %></td>
         <td><%= legislation.opened_date %></td>

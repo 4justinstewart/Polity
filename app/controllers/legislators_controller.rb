@@ -69,6 +69,6 @@ class LegislatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def legislator_params
-      params.require(:legislator).permit(:ward_id, :integer, :date, :date, :string)
+      params.require(:legislator).permit(:alderman_id, :represented_ward_id, :term_start_date, :term_end_date, :party_affiliation)
     end
 end

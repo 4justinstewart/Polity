@@ -1,6 +1,6 @@
 class Legislator < ActiveRecord::Base
-  belongs_to :ward, foreign_key: :represented_ward_id
-  belongs_to :user, foreign_key: :alderman_id
-  has_many :legislation_sponsors
+  belongs_to :alderman, class_name: 'User'
+  belongs_to :represented_ward, class_name: 'Ward'
+  has_many :legislation_sponsors #sponsorships?
   has_many :legislator_votes
 end

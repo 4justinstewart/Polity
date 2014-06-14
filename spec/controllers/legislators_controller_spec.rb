@@ -23,7 +23,7 @@ describe LegislatorsController do
   # This should return the minimal set of attributes required to create a valid
   # Legislator. As you add validations to Legislator, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "ward" => "" } }
+  let(:valid_attributes) { { "alderman_id" => "1" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe LegislatorsController do
       it "assigns a newly created but unsaved legislator as @legislator" do
         # Trigger the behavior that occurs when invalid params are submitted
         Legislator.any_instance.stub(:save).and_return(false)
-        post :create, {:legislator => { "ward" => "invalid value" }}, valid_session
+        post :create, {:legislator => { "alderman_id" => "invalid value" }}, valid_session
         assigns(:legislator).should be_a_new(Legislator)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Legislator.any_instance.stub(:save).and_return(false)
-        post :create, {:legislator => { "ward" => "invalid value" }}, valid_session
+        post :create, {:legislator => { "alderman_id" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe LegislatorsController do
         # specifies that the Legislator created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Legislator.any_instance.should_receive(:update).with({ "ward" => "" })
-        put :update, {:id => legislator.to_param, :legislator => { "ward" => "" }}, valid_session
+        Legislator.any_instance.should_receive(:update).with({ "alderman_id" => "1" })
+        put :update, {:id => legislator.to_param, :legislator => { "alderman_id" => "1" }}, valid_session
       end
 
       it "assigns the requested legislator as @legislator" do
@@ -128,7 +128,7 @@ describe LegislatorsController do
         legislator = Legislator.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Legislator.any_instance.stub(:save).and_return(false)
-        put :update, {:id => legislator.to_param, :legislator => { "ward" => "invalid value" }}, valid_session
+        put :update, {:id => legislator.to_param, :legislator => { "alderman_id" => "invalid value" }}, valid_session
         assigns(:legislator).should eq(legislator)
       end
 
@@ -136,7 +136,7 @@ describe LegislatorsController do
         legislator = Legislator.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Legislator.any_instance.stub(:save).and_return(false)
-        put :update, {:id => legislator.to_param, :legislator => { "ward" => "invalid value" }}, valid_session
+        put :update, {:id => legislator.to_param, :legislator => { "alderman_id" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

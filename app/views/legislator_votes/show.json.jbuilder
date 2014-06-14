@@ -1,1 +1,1 @@
-json.extract! @legislator_vote, :id, :date_of_vote, :legislator_id, :legislation_id, :vote, :created_at, :updated_at
+json.extract! @legislator_vote, :id, :legislation_id, :legislator_id, :vote_date, :vote, :created_at, :updated_at
