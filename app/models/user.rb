@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
-  has_one :user_address
-  has_many :community_supports
-  has_many :legislators
-  has_many :legislation_sponsorships, through: :legislators, source: :sponsor_id
-  has_many :legislator_votes, through: :legislators
-
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  belongs_to :user_address
+  has_many :legislation_voices
+  validates :email, presence: true, uniqueness: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+       :recoverable, :rememberable, :trackable, :validatable
 end

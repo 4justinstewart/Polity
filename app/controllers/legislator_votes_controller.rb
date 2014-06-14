@@ -69,6 +69,6 @@ class LegislatorVotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def legislator_vote_params
-      params.require(:legislator_vote).permit(:date_of_vote, :legislator_id, :legislation_id, :vote)
+      params.require(:legislator_vote).permit(:legislation_id, :legislator_id, :vote_date, :vote)
     end
 end

@@ -1,1 +1,1 @@
-json.extract! @legislator, :id, :ward_id, :integer, :date, :date, :string, :created_at, :updated_at
+json.extract! @legislator, :id, :alderman_id, :represented_ward_id, :term_start_date, :term_end_date, :party_affiliation, :created_at, :updated_at

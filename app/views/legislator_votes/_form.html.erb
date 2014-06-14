@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date_of_vote %><br>
-    <%= f.date_select :date_of_vote %>
+    <%= f.label :legislation_id %><br>
+    <%= f.text_field :legislation_id %>
   </div>
   <div class="field">
     <%= f.label :legislator_id %><br>
-    <%= f.number_field :legislator_id %>
+    <%= f.text_field :legislator_id %>
   </div>
   <div class="field">
-    <%= f.label :legislation_id %><br>
-    <%= f.number_field :legislation_id %>
+    <%= f.label :vote_date %><br>
+    <%= f.date_select :vote_date %>
   </div>
   <div class="field">
     <%= f.label :vote %><br>

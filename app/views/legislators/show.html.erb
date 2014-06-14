@@ -1,28 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Ward:</strong>
-  <%= @legislator.ward %>
+  <strong>Alderman:</strong>
+  <%= @legislator.alderman_id %>
 </p>
 
 <p>
-  <strong>Integer:</strong>
-  <%= @legislator.integer %>
+  <strong>Represented ward:</strong>
+  <%= @legislator.represented_ward_id %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @legislator.date %>
+  <strong>Term start date:</strong>
+  <%= @legislator.term_start_date %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @legislator.date %>
+  <strong>Term end date:</strong>
+  <%= @legislator.term_end_date %>
 </p>
 
 <p>
-  <strong>String:</strong>
-  <%= @legislator.string %>
+  <strong>Party affiliation:</strong>
+  <%= @legislator.party_affiliation %>
 </p>
 
 <%= link_to 'Edit', edit_legislator_path(@legislator) %> |

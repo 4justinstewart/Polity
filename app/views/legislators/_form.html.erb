@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ward_id %><br>
-    <%= f.text_field :ward_id %>
+    <%= f.label :alderman_id %><br>
+    <%= f.number_field :alderman_id %>
   </div>
   <div class="field">
-    <%= f.label :integer %><br>
-    <%= f.text_field :integer %>
+    <%= f.label :represented_ward_id %><br>
+    <%= f.number_field :represented_ward_id %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.label :term_start_date %><br>
+    <%= f.date_select :term_start_date %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.label :term_end_date %><br>
+    <%= f.date_select :term_end_date %>
   </div>
   <div class="field">
-    <%= f.label :string %><br>
-    <%= f.text_field :string %>
+    <%= f.label :party_affiliation %><br>
+    <%= f.text_field :party_affiliation %>
   </div>
   <div class="actions">
     <%= f.submit %>

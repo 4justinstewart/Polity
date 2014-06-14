@@ -1,22 +1,26 @@
 Rails.application.routes.draw do
-  resources :community_supports
+  get 'home/index'
 
-  resources :user_addresses
-
-  resources :legislators
-
-  #TODO: update these!
+  devise_for :users
+  root to: 'home#index' # devise will break if you remove this line. By defining your root URL, Devise will use it for its redirection. For example, Devise will redirect the user to the root URL after they sign out from the application.
   resources :legislator_votes
 
   resources :legislation_sponsors
+
+  resources :legislation_voices
+
+  resources :user_addresses
+
+  resources :users
+
+  resources :legislators
 
   resources :legislations
 
   resources :wards
 
-  resources :users
-
-  root to: 'high_voltage/pages#show', id: 'homepage'
+  #TODO: update these!
+  # root to: 'high_voltage/pages#show', id: 'homepage'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

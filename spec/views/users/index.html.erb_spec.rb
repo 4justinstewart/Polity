@@ -6,18 +6,12 @@ describe "users/index" do
       stub_model(User,
         :first_name => "First Name",
         :last_name => "Last Name",
-        :ward => nil,
-        :email => "Email",
-        :address => "Address",
-        :voter_registration => "Voter Registration"
+        :user_address => nil
       ),
       stub_model(User,
         :first_name => "First Name",
         :last_name => "Last Name",
-        :ward => nil,
-        :email => "Email",
-        :address => "Address",
-        :voter_registration => "Voter Registration"
+        :user_address => nil
       )
     ])
   end
@@ -28,8 +22,5 @@ describe "users/index" do
     assert_select "tr>td", :text => "First Name".to_s, :count => 2
     assert_select "tr>td", :text => "Last Name".to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
-    assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "Address".to_s, :count => 2
-    assert_select "tr>td", :text => "Voter Registration".to_s, :count => 2
   end
 end

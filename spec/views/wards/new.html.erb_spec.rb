@@ -4,7 +4,9 @@ describe "wards/new" do
   before(:each) do
     assign(:ward, stub_model(Ward,
       :ward_number => 1,
-      :legislator => nil
+      :address1 => "MyString",
+      :address2 => "MyString",
+      :zip => "MyString"
     ).as_new_record)
   end
 
@@ -14,7 +16,9 @@ describe "wards/new" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", wards_path, "post" do
       assert_select "input#ward_ward_number[name=?]", "ward[ward_number]"
-      assert_select "input#ward_legislator[name=?]", "ward[legislator]"
+      assert_select "input#ward_address1[name=?]", "ward[address1]"
+      assert_select "input#ward_address2[name=?]", "ward[address2]"
+      assert_select "input#ward_zip[name=?]", "ward[zip]"
     end
   end
 end

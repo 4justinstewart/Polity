@@ -69,6 +69,6 @@ class LegislationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def legislation_params
-      params.require(:legislation).permit(:status, :type, :opened_date, :closed_date)
+      params.require(:legislation).permit(:city_identifier, :status, :type, :opened_date, :closed_date)
     end
 end

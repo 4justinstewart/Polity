@@ -69,6 +69,6 @@ class LegislationSponsorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def legislation_sponsor_params
-      params.require(:legislation_sponsor).permit(:legislator_id, :legislation_id)
+      params.require(:legislation_sponsor).permit(:sponsor_id, :legislation_id)
     end
 end
