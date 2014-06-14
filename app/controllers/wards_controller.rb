@@ -1,6 +1,6 @@
 class WardsController < ApplicationController
   before_action :set_ward, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login, only: [:new, :create, :edit, :update]
   # GET /wards
   # GET /wards.json
   def index

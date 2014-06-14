@@ -1,6 +1,6 @@
 class UserAddressesController < ApplicationController
   before_action :set_user_address, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login, only: [:new, :create, :edit, :update]
   # GET /user_addresses
   # GET /user_addresses.json
   def index

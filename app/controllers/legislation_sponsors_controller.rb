@@ -1,6 +1,6 @@
 class LegislationSponsorsController < ApplicationController
   before_action :set_legislation_sponsor, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login, only: [:new, :create, :edit, :update]
   # GET /legislation_sponsors
   # GET /legislation_sponsors.json
   def index

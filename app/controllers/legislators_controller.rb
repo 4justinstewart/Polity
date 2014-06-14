@@ -1,6 +1,6 @@
 class LegislatorsController < ApplicationController
   before_action :set_legislator, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_login, only: [:new, :create, :edit, :update]
   # GET /legislators
   # GET /legislators.json
   def index
