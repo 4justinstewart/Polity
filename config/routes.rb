@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+  resources :community_supports
+
+  resources :user_addresses
+
+  resources :legislators
+
   #TODO: update these!
   resources :legislator_votes
 
   resources :legislation_sponsors
 
   resources :legislations
-
-  resources :community_member_vote_positions
-
-  resources :aldermen
 
   resources :wards
 
