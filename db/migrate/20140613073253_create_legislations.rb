@@ -1,6 +1,7 @@
 class CreateLegislations < ActiveRecord::Migration
   def change
     create_table :legislations do |t|
+      t.string :city_identifier
       t.string :status
       t.string :type
       t.date :opened_date

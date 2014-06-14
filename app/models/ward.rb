@@ -1,3 +1,5 @@
 class Ward < ActiveRecord::Base
-  belongs_to :alderman, class_name: 'User' #maybe representative? #might this be a "has_one" relaionthip and not a normal belongs to?
+  has_many :user_addresses
+  has_many :legislators, foreign_key: :represented_ward_id
+  has_many :users, through: :user_addresses
 end
