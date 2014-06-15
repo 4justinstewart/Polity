@@ -1,29 +1,127 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Alderman:</strong>
-  <%= @legislator.alderman_id %>
-</p>
+<div class="vote-feedback">
+  <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
+    
+  <% else %>
+    You must live in this ward to leave feedback!
+  <% end %>
+</div>
 
-<p>
-  <strong>Represented ward:</strong>
-  <%= @legislator.represented_ward_id %>
-</p>
+<div class="alderman-info">
 
-<p>
-  <strong>Term start date:</strong>
-  <%= @legislator.term_start_date %>
-</p>
+  <p>
+    <strong>Alderman:</strong>
+    <%= @legislator.alderman.name %>
+  </p>
 
-<p>
-  <strong>Term end date:</strong>
-  <%= @legislator.term_end_date %>
-</p>
+    <%= image_tag @legislator.alderman.avatar.url(:medium) %>
+  <p>
+    <strong>Represented ward:</strong>
+    <%= @legislator.represented_ward_id %>
+  </p>
 
-<p>
-  <strong>Party affiliation:</strong>
-  <%= @legislator.party_affiliation %>
-</p>
+  <p>
+    <strong>Term start date:</strong>
+    <%= @legislator.term_start_date %>
+  </p>
 
-<%= link_to 'Edit', edit_legislator_path(@legislator) %> |
-<%= link_to 'Back', legislators_path %>
+  <p>
+    <strong>Term end date:</strong>
+    <%= @legislator.term_end_date %>
+  </p>
+
+  <p>
+    <strong>Party affiliation:</strong>
+    <%= @legislator.party_affiliation %>
+  </p>
+
+</div>
+
+<div class="recently-sponsored">
+  <h3>Recently Voted</h3>
+  <table>
+    <th>Title</th>
+    <th>City Identifier</th>
+    <th>Type</th>
+    <th>Opened</th>
+    <th>Closed</th>
+    <th>Status</th>
+    <% @recently_voted.each do |issue| %>
+      <tr>
+        <td>
+          <%= issue.title %>
+        </td>
+
+        <td>
+          <%= issue.city_identifier %>
+        </td>
+
+        <td>
+          <%= issue.kind %>
+        </td>
+
+        <td>
+          <%= issue.opened_date %>
+        </td>
+
+        <td>
+          <%= issue.closed_date %>
+        </td>
+
+        <td>
+          <%= issue.status %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+
+<div class="recently-sponsored">
+  <h3>Recently Sponsored</h3>
+  <table>
+    <th>Title</th>
+    <th>City Identifier</th>
+    <th>Type</th>
+    <th>Opened</th>
+    <th>Closed</th>
+    <th>Status</th>
+    <% @recently_sponsored.each do |issue| %>
+      <tr>
+        <td>
+          <%= issue.title %>
+        </td>
+
+        <td>
+          <%= issue.city_identifier %>
+        </td>
+
+        <td>
+          <%= issue.kind %>
+        </td>
+
+        <td>
+          <%= issue.opened_date %>
+        </td>
+
+        <td>
+          <%= issue.closed_date %>
+        </td>
+
+        <td>
+          <%= issue.status %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+

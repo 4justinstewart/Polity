@@ -10,6 +10,24 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+ * require_tree .
+ * require_self
+ * require application
  */
+
+@import 'bourbon';
+@import 'neat';
+@import 'neat-helpers';
+@import '_clearfix';
+@import 'typography-colors';
+@import 'layout';
+@import 'main';
+@import '_nav';
+
+
+
+
+div.container {
+  @include outer-container;
+}
+

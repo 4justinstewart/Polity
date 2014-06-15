@@ -37,6 +37,9 @@ GEM
       jquery-rails
       rails (>= 3.1)
     bcrypt (3.1.7)
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     capybara (2.3.0)
       mime-types (>= 1.16)
@@ -143,6 +146,9 @@ GEM
     minitest (5.3.4)
     multi_json (1.10.1)
     multi_test (0.1.1)
+    neat (1.5.1)
+      bourbon (>= 3.1)
+      sass (~> 3.2.19)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -258,6 +264,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import
   backbone-on-rails (~> 1.1.0.0)
+  bourbon
   capybara
   coffee-rails (~> 4.0.0)
   coveralls
@@ -275,6 +282,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   lodash-rails (~> 2.2.1)
+  neat
   paperclip (~> 4.1)
   pg
   quiet_assets
