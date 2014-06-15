@@ -1,0 +1,29 @@
+/Users/carolineartz/.rbenv/versions/2.1.1/bin/ruby extconf.rb 
+checking for rb_method_entry_t.called_id in method.h... no
+checking for rb_control_frame_t.method_id in method.h... no
+checking for rb_method_entry_t.called_id in method.h... no
+checking for rb_control_frame_t.method_id in method.h... no
+checking for rb_method_entry_t.called_id in method.h... yes
+checking for vm_core.h... yes
+checking for iseq.h... yes
+checking for insns.inc... yes
+checking for insns_info.inc... yes
+checking for eval_intern.h... yes
+checking for struct iseq_line_info_entry in vm_core.h,iseq.h... yes
+checking for if rb_iseq_compile_with_option was added an argument filepath... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling breakpoint.c
+compiling ruby_debug.c
+ruby_debug.c:178:2: warning: "ruby 2.0.0-p0 GET_THREAD is a function." [-W#warnings]
+#warning "ruby 2.0.0-p0 GET_THREAD is a function."
+ ^
+1 warning generated.
+linking shared-object ruby_debug.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby_debug.bundle ./.gem.20140614-27265-1ronyiz
+installing default ruby_debug libraries

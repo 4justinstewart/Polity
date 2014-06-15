@@ -33,6 +33,8 @@ gem 'high_voltage'
 
 gem 'devise'
 
+gem "paperclip"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -46,10 +48,11 @@ gem 'devise'
 # gem 'debugger', group: [:development, :test]
 
 
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'jasmine'
-  gem 'jasminerice', :git => 'https://github.com/bradphelan/jasminerice.git'
+  # gem 'jasminerice', :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'coveralls', require: false
   gem 'cucumber-rails', :require => false
 end
@@ -71,6 +74,30 @@ group :development do
   gem 'guard-rspec'
   gem 'rb-fsevent'
   gem "growl"
+
+
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'annotate'
+  gem 'bullet'
+  gem 'debugger'
+  gem 'flay'
+  # gem 'localtunnel'
+  gem 'lol_dba'
+  gem 'mailcatcher'
+  gem 'meta_request','0.2.1'
+  gem 'pry'
+  gem 'pry-doc'
+  # gem 'quiet_assets'
+  gem 'rack-mini-profiler'
+  gem 'railroady'
+  gem 'rails-footnotes', '>= 3.7.5.rc4'
+  gem 'rails_best_practices'
+  gem 'reek'
+  gem 'request-log-analyzer'
+  gem 'smusher'
   # gem "growlnotify"
 end
+
+gem 'hirb'
 

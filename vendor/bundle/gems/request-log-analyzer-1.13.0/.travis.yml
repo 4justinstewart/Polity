@@ -1,0 +1,24 @@
+language: ruby
+before_script:
+  - mysql -e 'create database rla_test;'
+  - psql -c 'create database rla_test;' -U postgres
+script: bundle exec rake
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.1.1
+  - ruby-head
+  - jruby-19mode
+  - jruby-head
+  - rbx
+gemfile:
+  - Gemfile.activerecord3
+  - Gemfile.activerecord4
+matrix:
+  allow_failures:
+    - rvm: jruby-head
+    - rvm: ruby-head
+    - rvm: rbx
+notifications:
+  email:
+    - info@railsdoctors.com
