@@ -1,190 +1,77 @@
-Jasminerice
-===========
 
-Utilizing [Jasmine](http://pivotal.github.com/jasmine/) and taking full advantage of the Rails 3.1 asset pipeline Jasminerice removes any excuse YOU have for not testing your out of control sprawl of CoffeeScript files.
+=======
+[![Coverage Status](https://coveralls.io/repos/4justinstewart/Polity/badge.png)](https://coveralls.io/r/4justinstewart/Polity)
 
-This project rocks and uses the MIT-LICENSE.
+[![Build Status](https://travis-ci.org/4justinstewart/Polity.svg?branch=master)](https://travis-ci.org/4justinstewart/Polity)
 
+Polity
+======
 
-## Development Notice
+90% of political action that directly affects you happens at the local level within town our city counsel, however, a marginal amount of people have knowledge of politics at this level.  Polity is a web and mobile based app to bridge this gap and create a tighter sense of community.
 
-Brad Phelan is no longer actively developing this project but is accepting reasonable pull requests, so continue on with contributing.
+## Git Commits
 
-This project is looking for a home :)
+Let's shine by being thoughtful with our commits guys!! Start all commit messages with one of the following keywords to generally describe what's going on:
 
-#### 2013/1/17:
-Brad ([bradphelan](https://github.com/bradphelan)) posted a notice saying that he wasn't actively maintaining the project and that it was looking for a home.
+1.) `feature` -> describes anything adding value to the application.  Most things in development will be features...
 
-#### 2013/1/27:
-I ([jejacks0n](https://github.com/jejacks0n)) offered to contribute to the project, and Brad granted me collaboration privileges. I added some specs and integration tests that will make contributing a little easier.
+2.) `chore` -> describes anything that is clean up within the application.  Change in the behavior of the opp should be minimal
 
-We'll be managing pull requests and issues together, and if someone would like to take over and move it to a different home you should contact Brad directly.
+3.) `bugfix` -> pretty self explanatory, but anytime you something in the app that isn't working
 
-
-## Headless Testing
-
-See [guard-jasmine](https://github.com/netzpirat/guard-jasmine) for details.
+4.) `styling` -> anything adding presentation value to the project
 
 
-## Installation
+A few quick examples:
 
-This gem has been tested and run with Rails 3.1 and 3.2. It should also run on Rails 4.
+`git commit -m "feature: added instance method to User model to find connections within his/her ward"`
 
-Just include it in your `Gemfile`:
+`git commit -m "chore: refactored method in Legislation model to reduce database load time"`
 
-```ruby
-group :development, :test do
-  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
-end
-```
+`git commit -m "bugfix: changed view logic in users/show to display favored legistlation, not all legistlation"`
 
-The engine is automatically mounted into your application in the development and test environments. If you'd like to change that behavior, you can change which groups the gem is included in via the gemfile.
+`git commit -m "styling: created grid.css for fixed design on all application pages.  Plans to migrate to responsive design as project progresses"`
 
-Optionally, you can run the installer.
-
-```bash
-rails g jasminerice:install
-```
-
-This will add the required `spec.js.coffee`, an example spec, and fixture to help get you started. It will also add a intializer `config/initializers/jasminerice.rb` which can be used for easy setup of Jasminerice's options.
-
-
-## Usage
-
-### CoffeeScripts
-
-Create a file `spec/javascripts/spec.js.coffee` (or run the install generator), and add the following content.
-
-```coffeescript
-#= require_tree ./
-```
-
-In the case where you need access to all your application javascripts then you can use something like the following, which will pull in all the files from your application and all specs from the `javascripts` directory.
-
-```coffeescript
-#= require_tree ./
-#= require_tree ../../app/assets/javascripts
-```
-
-The Rails 3.1 asset pipeline using [Sprockets](https://github.com/sstephenson/sprockets) and [Tilt](https://github.com/rtomayko/tilt) ensure conversion to javascript.
-
-You can also use the `#= require` directive in your specs to pull in dependencies manually. Here's an example `spec/javascripts/example_spec.js.coffee`:
-
-```coffeescript
-#= require foo
-#= require bar
-
-describe "Foo", ->
-  it "it is not bar", ->
-    v = new Foo()
-    expect(v.bar()).toEqual(false)
-
-describe "Bar", ->
-  it "it is not foo", ->
-    v = new Bar()
-    expect(v.foo()).toEqual(false)
-```
-
-### Stylesheets
-
-For including stylesheets in your specs, Jasminerice uses `spec/javascripts/spec.css`. You can use Sprockets directives to include css files here.
-
-```css
-/*= require application
- */
-```
-
-### Fixtures
-
-Jasminerice makes files located in the `spec/javascripts/fixtures` directory available as fixture. For example, if you put a file named `example_fixture.html.haml` in that path it will be available at the `/jasmine/fixtures/example_fixture` URL.
-
-spec/javascripts/fixtures/example_fixture.html.haml
-```haml
-%h2 Test Fixture
-%p Using fixtures
-```
-
-Since Jasminerice automatically makes a patched version of [jasmine-jquery](https://github.com/velesin/jasmine-jquery) available in your specs, you can load the example fixture in your spec with the following.
-
-```javascript
-loadFixtures('example_fixture')
-```
-
-You can also load JSON fixtures, e.g. `spec/javascripts/fixtures/json/bar.json`
-
-```javascript
-getJSONFixture('bar')
-```
-
-### Helper Methods
-
-You can declare Jasminerice::SpecHelper (perhaps put inside lib/) to make helpers available to jasminerice fixtures.
-
-So in your lib directory, create the helper, e.g. `lib/jasminerice/spec_helper.rb`
-
-```ruby
-module Jasminerice
-  module SpecHelper
-    def print_a_test
-      "foo"
-    end
-  end
-end
-```
-
-Then you can use it in your fixtures.
-
-spec/javascripts/fixtures/example_fixture.html.haml
-```haml
-%h1 Here is my helper
-= print_a_test
-```
-
-### Running Specs
-
-Start your server...
-
-```bash
-rails s
-```
-
-Browse to...
+## Git Workflow
 
 ```
-http://localhost:3000/jasmine
+1.) git clone <link to master>
+
+2.) git checkout -b <branch name ie. dashboard, crud, try to avoid names>
+
+Adding and commiting should happen often -> 15 - 30 minutes
+
+3.) git add -A
+
+4.) git commit -m "ie. crud complete"
 ```
-
-Watch your specs run.
-
-### Asset debugging
-
-You can override your current environment's `config.assets.debug` configuration per request by adding `?debug=false` or `?debug=true` to the jasmine path, eg.
-
+Anytime anyone in the group merges one of their branches into the github master, you want to work with the most current mater. Doing this will mitigate merge conflicts. Follow Steps 5 - 8.
 ```
-http://localhost:3000/jasmine?debug=false
+5.) git checkout master (See the current local master on your machine)
+
+6.) git pull (Retrieves the current master on github and merges with the your local master)
+
+7.) git checkout <branch name from above>
+
+8.) git merge master (Your branch is now merged with the master)
 ```
-
-This will concatenate all your css and javascript into single file which can improve your suite's loading speed significantly.
-
-### Compatibility with Require.js
-
-If you use [Require.js](http://requirejs.org/) in your project and need to load your modules in your jasmine specs, there is an option to prevent jasminerice from automatically executing the test runner before the modules are defined. This enables you to start the execution manually whenever you want in your `spec/javascripts/spec.js.coffee` file:
-
-```coffeescript
-#= require your/specs/and/other/stuff
-# at the end of this file add:
-
-jasmine.rice.autoExecute = false
-
-define 'jasmine.waitsfor.requirejs', ->
-require ['jasmine.waitsfor.requirejs'], jasmine.getEnv().execute
+Now when you are ready to push to the Github, run through Steps 3 - 8, then push your remote branch
 ```
+9.) git push origin <branch name from above>
+```
+Now your code is on github
 
-The shown example defines a dummy module in require.js that is required immediately on the next line. This is a simple hack to wait until require.js has initialized all modules and start the jasmine runner after that.
+### Resources for Development
 
-Of course you can use `jasmine.rice.autoExecute = false` also for all other cases where you need to control when your specs should be executed!
+[Check Voter Registration](http://www.chicagoelections.com/voterinfo.php)
 
+[City Council Reports](http://chicityclerk.com/council/reports.php)
 
-## Author
+[City Budget Documentation](http://chicityclerk.com/legislation-records/journals-reports/city-budgets/)
 
-* Brad Phelan (bradphelan@xtargets.com)
+[Open City Apps](http://opencityapps.org/)
+
+[Alderman Contact Info](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Ward-Offices/htai-wnw4)
+
+[Find your Alderman](https://webapps1.cityofchicago.org/ezbuy/getgeoWardLookup.do)
+

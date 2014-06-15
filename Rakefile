@@ -1,4 +1,4 @@
-#!/usr/bin/env rake
+
 require "fileutils"
 
 begin
@@ -9,11 +9,6 @@ end
 
 Bundler::GemHelper.install_tasks
 
-# Dummy App
-# -----------------------------------------------------------------------------
-APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
-load "rails/tasks/engine.rake"
-
 # RSpec
 # -----------------------------------------------------------------------------
 load "rspec/rails/tasks/rspec.rake"
@@ -23,3 +18,11 @@ namespace :spec do
     t.pattern = "./spec/features/**/*_spec.rb"
   end
 end
+
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+
+require File.expand_path('../config/application', __FILE__)
+
+Rails.application.load_tasks
+

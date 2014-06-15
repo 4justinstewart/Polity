@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ward number:</strong>
+  <%= @ward.ward_number %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @ward.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @ward.address2 %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @ward.zip %>
+</p>
+
+<%= link_to 'Edit', edit_ward_path(@ward) %> |
+<%= link_to 'Back', wards_path %>
