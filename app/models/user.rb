@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
     "#{self.first_name.downcase.capitalize} #{self.last_name.downcase.capitalize}"
   end
 
+  def ward
+    self.user_address.ward
+  end
+
 end

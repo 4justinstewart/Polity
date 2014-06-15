@@ -2,7 +2,17 @@
 
 <div class="vote-feedback">
   <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
-    
+    <div>
+      <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post"%>
+    </div>
+    <div>
+      <%= @user_feedback.title %>
+
+    </div>
+    <div>
+      <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post"%>
+      <%= link_to "Leave feedback" %>
+    </div>
   <% else %>
     You must live in this ward to leave feedback!
   <% end %>
@@ -15,7 +25,7 @@
     <%= @legislator.alderman.name %>
   </p>
 
-    <%= image_tag @legislator.alderman.avatar.url(:medium) %>
+    <%#= image_tag @legislator.alderman.avatar.url(:medium) %>
   <p>
     <strong>Represented ward:</strong>
     <%= @legislator.represented_ward_id %>

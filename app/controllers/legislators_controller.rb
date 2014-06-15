@@ -12,6 +12,7 @@ class LegislatorsController < ApplicationController
   def show
     @recently_sponsored = @legislator.sponsored_legislations.order('opened_date DESC').limit(5)
     @recently_voted = @legislator.voted_legislations.order('opened_date DESC').limit(5)
+    @user_feedback = @recently_voted.sample
   end
 
   # GET /legislators/new
