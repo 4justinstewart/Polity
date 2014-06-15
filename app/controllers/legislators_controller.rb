@@ -10,6 +10,8 @@ class LegislatorsController < ApplicationController
   # GET /legislators/1
   # GET /legislators/1.json
   def show
+    @recently_sponsored = @legislator.sponsored_legislations.order('opened_date DESC').limit(5)
+    @recently_voted = @legislator.voted_legislations.order('opened_date DESC').limit(5)
   end
 
   # GET /legislators/new

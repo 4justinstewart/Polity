@@ -9,4 +9,5 @@ class CreateUsers < ActiveRecord::Migration
     end
     add_index :users, :user_address_id
   end
+
 end
