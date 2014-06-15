@@ -90,7 +90,7 @@ users = 100.times.map do
                 # avatar:                 Faker::Avatar.image,
                 password:               "password!",
                 password_confirmation:  "password!",
-                user_address_id:         1) #TODO
+                user_address_id:         (1 + rand(100))) #TODO
 end
 
 ###########################################################################
