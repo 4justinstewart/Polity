@@ -1,10 +1,48 @@
 <section>
-  <h2>Polity</h2>
-  <p data-role="description">This is the homepage</p>
+    <h2>Polity</h2>
+    <p data-role="description">This is the homepage</p>
 
-  <div id="background">
-  	<%= image_tag "chicago_skyline.jpg", :style => "width: 100%" %>
-  </div>
+    <div id="background">
+    	<%= image_tag "chicago_skyline.jpg", :style => "width: 100%", id: "chicago_skyline" %>
+    </div>
+
+    <div id="user">
+        <%= link_to "Sign In", new_user_session_path %>
+        Not a already a community member? <%= link_to "Register", new_user_registration_path %> now!
+    </div>
+
+    <div id="content">
+        <div class="triplet" id="educate">
+            <div class="img_wrapper">
+                <%= image_tag "icons/university.svg", style: "width: 100px; height:100px", id:"educate_icon" %>
+            </div>
+            <strong>Educate</strong>
+            <div>
+                You have the right to access to the information you need about your Local Politician <br>
+                Polity makes it easy to learn about your representative and their voting decisions.
+            </div>
+        </div>
+
+        <div class="triplet" id="feedback">
+            <div class="img_wrapper">
+                <%= image_tag "icons/thumb37.svg", style: "width: 100px; height:100px", id: "feedback_icon" %>
+            </div>
+            <strong>Feedback</strong>
+            <div>
+                You have the right to demonstrate your feelings for Local Politician's voting decisions <br>
+                Polity has an simple feedback toolset, encouraging you to speak with your Local Politician.
+            </div>
+        </div>
+
+        <div class="triplet" id="community">
+            <div class="img_wrapper">
+                <%= image_tag "icons/leader.svg", style: "width: 100px; height:100px", id: "community_icon" %>
+            </div>
+            <strong>Community</strong>
+            <div>
+                You have the right to access to the information you need about your Local Politician <br>
+                Polity makes it easy to learn about your representative and their voting decisions.
+            </div>
+        </div>
+    </div>
 </section>
-
-
