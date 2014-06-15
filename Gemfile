@@ -59,6 +59,10 @@ gem 'devise'
 # Testing FullNameSplitter
 gem 'full-name-splitter', '~> 0.1.2'
 
+
+# User avatar attachments
+gem "paperclip", "~> 4.1"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
