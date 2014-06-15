@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140614154130) do
   create_table "legislations", force: true do |t|
     t.string   "city_identifier"
     t.string   "status"
-    t.string   "type"
+    t.string   "kind"
     t.date     "opened_date"
     t.date     "closed_date"
     t.datetime "created_at"

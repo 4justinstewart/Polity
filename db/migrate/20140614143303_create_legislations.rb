@@ -3,7 +3,7 @@ class CreateLegislations < ActiveRecord::Migration
     create_table :legislations do |t|
       t.string :city_identifier
       t.string :status
-      t.string :type
+      t.string :kind
       t.date :opened_date
       t.date :closed_date
 
