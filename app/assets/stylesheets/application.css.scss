@@ -14,20 +14,25 @@
  * require_self
  * require application
  */
-
 @import 'bourbon';
+@import 'base/grid-settings';
 @import 'neat';
 @import 'neat-helpers';
-@import '_clearfix';
+@import 'base/base';
+@import 'partials/clearfix';
 @import 'typography-colors';
 @import 'layout';
-@import 'main';
-@import '_nav';
+@import 'partials/nav';
+@import 'partials/footer';
+@import 'home';
+@import 'partials/bullets';
+@import 'base/extends/btn';
 
 
 
 
-div.container {
-  @include outer-container;
-}
+
+// div.container {
+//   @include outer-container;
+// }
 
