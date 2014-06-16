@@ -14,12 +14,15 @@ end
 
 # RSpec
 # -----------------------------------------------------------------------------
-load "rspec/rails/tasks/rspec.rake"
-namespace :spec do
-  desc "Run the code examples in spec/features"
-  RSpec::Core::RakeTask.new("features") do |t|
-    t.pattern = "./spec/features/**/*_spec.rb"
-  end
+begin
+    load "rspec/rails/tasks/rspec.rake"
+    namespace :spec do
+      desc "Run the code examples in spec/features"
+      RSpec::Core::RakeTask.new("features") do |t|
+        t.pattern = "./spec/features/**/*_spec.rb"
+      end
+    end
+rescue LoadError
 end
 
 # Add your own tasks in files placed in lib/tasks ending in .rake,
