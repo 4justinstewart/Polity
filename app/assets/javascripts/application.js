@@ -15,7 +15,7 @@
 //= require lodash
 //= require backbone
 //= require polity
-//= require legislation
+//= require legislations
 
 // Backbone stuff below
 
