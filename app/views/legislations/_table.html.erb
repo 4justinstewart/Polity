@@ -20,8 +20,8 @@
         <td><%= legislation.kind %></td>
         <td><%= legislation.opened_date %></td>
         <td><%= legislation.closed_date %></td>
-        <td><%= image_tag "icons/like.svg", :style => "width: 25px", class: "support voice#{legislation.id}" %></td>
-        <td><%= image_tag "icons/like.svg", :style => "width: 25px", class: "oppose voice#{legislation.id}" %></td>
+        <td id="support<%={legislation.id}legislation %>"><%= image_tag "icons/like.svg", :style => "width: 25px", id:"support#{legislation.id}", class: "voice#{legislation.id}", alt: "support" %></td>
+        <td id="oppose#{legislation.id}legislation"><%= image_tag "icons/like.svg", :style => "width: 25px", id:"oppose#{legislation.id}", class: "voice#{legislation.id}", alt: "oppose"%></td>
       </tr>
     <% end %>
   </tbody>

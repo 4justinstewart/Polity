@@ -4,22 +4,18 @@
 
 $(document).ready ->
   console.log "current document is locked and loaded"
-  $(".support").click ->
-    console.log "You support this legislation"
-
-    # console.log(this);
-    console.log $(this).attr("class")
+  $("img[alt='support']").click ->
     vote = $(this).attr("class")
-    console.log typeof vote
-    $(this).next().toggle "highlight"
+    console.log "You support this legislation"
+    console.log vote
+    $("img[class=" + vote + "").fadeOut()
     return
 
-  $(".oppose").click ->
+  $("img[alt='oppose']").click ->
+    vote = $(this).attr("class")
     console.log "You oppose this legislation"
-
-    # console.log(this);
-    console.log @attr("id")
-    $(this).next().toggle "highlight"
+    console.log vote
+    $("img[class=" + vote + "").fadeOut()
     return
 
   return
