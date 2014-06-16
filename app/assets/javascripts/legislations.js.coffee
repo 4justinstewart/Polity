@@ -3,6 +3,8 @@ $(document).ready ->
   $("img[alt='support']").click (event) ->
     console.log event
     objectId = $(this).parent().parent().attr("id")
+    vote = $(this).attr("class")
+    console.log vote
     $.ajax(
       type: "POST"
       url: "/legislation_voices/up/" + objectId
@@ -12,20 +14,20 @@ $(document).ready ->
       return
     ).success(->
       console.log "success"
+      console.log "You support this legislation"
       return
     ).fail ->
       console.log "fail"
       return
 
-    vote = $(this).attr("class")
-    console.log "You support this legislation"
-    console.log vote
     $("img[class=" + vote + "").fadeOut()
     return
 
   $("img[alt='oppose']").click (event) ->
     console.log event
     objectId = $(this).parent().parent().attr("id")
+    vote = $(this).attr("class")
+    console.log vote
     $.ajax(
       type: "POST"
       url: "/legislation_voices/down/" + objectId
@@ -35,14 +37,12 @@ $(document).ready ->
       return
     ).success(->
       console.log "success"
+      console.log "You oppose this legislation"
       return
     ).fail ->
       console.log "fail"
       return
 
-    vote = $(this).attr("class")
-    console.log "You oppose this legislation"
-    console.log vote
     $("img[class=" + vote + "").fadeOut()
     return
 
