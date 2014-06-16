@@ -89,6 +89,11 @@ group :development, :test do
   gem "capybara"
   gem 'faker'
   gem 'better_errors'
+  gem 'hirb'
+  gem 'annotate'
+  # gem 'rack-mini-profiler'
+  gem 'railroady'
+  gem 'pry-rails'
 end
 
 

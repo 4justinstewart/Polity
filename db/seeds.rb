@@ -62,38 +62,56 @@ wards = 50.times.map do
 end
 
 
+all_wards = Ward.all
 
-user_addresses = 100.times.map do
-  UserAddress.create!(ward_id:  Ward.all.sample.id,
+user_addresses = 300.times.map do
+  UserAddress.create!(ward_id:  all_wards.sample.id,
                       address1: "200 N. User Address St.",
                       address2: "Apt #2",
                       zip:       "56789")
 end
 
-users = 100.times.map do
+
+all_addresses = UserAddress.all
+
+users = 600.times.map do
   User.create!( first_name:             Faker::Name.first_name,
                 last_name:              Faker::Name.last_name,
                 email:                  Faker::Internet.email,
                 # avatar:                 Faker::Avatar.image,
                 password:               "password!",
                 password_confirmation:  "password!",
-                user_address_id:         (1 + rand(100))) #TODO
+                user_address_id:         all_addresses.sample.id)
 end
 
 ###########################################################################
 
-aldermen_ids = users.sample(50)
+current_aldermen_ids = [*21..70]
 ward_numbers = [*1..50]
 
 parties = ["democrat", "republican", "independent"]
 
-legislators = 50.times.map do
-  Legislator.create!(alderman_id:         aldermen_ids.pop.id,
+legislators_now = 50.times.map do
+  Legislator.create!(alderman_id:         current_aldermen_ids.shuffle.pop,
                      represented_ward_id: ward_numbers.shuffle.pop,
                      term_start_date:     "10/1/2011",
-                     term_end_date:       "9/30/2014",
+                     #NO END DATE
                      party_affiliation:   parties.sample)
 end
+
+past_aldermen_ids = [*71..120]
+ward_numbers = [*1..50]
+
+legislators_past = 50.times.map do
+  Legislator.create!(alderman_id:         past_aldermen_ids.shuffle.pop,
+                     represented_ward_id: ward_numbers.shuffle.pop,
+                     term_start_date:     "10/1/2007",
+                     term_end_date:       "9/30/2011",
+                     party_affiliation:   parties.sample)
+end
+
+
+
 
 #########################################################
 
@@ -101,14 +119,9 @@ status_options_open = ["active", "open"]
 status_options_closed = ["inactive", "closed"]
 type_options = ["reports", "resolution", "ordinance"]
 
-legislations = 30.times.map do
-  Legislation.create!(city_identifier: "123456_city_identifier",
-                      status:          status_options_open.sample,
-                      kind:            type_options.sample,
-                      opened_date:     rand(2.years).ago )
-end
+vote_options = ["Y", "N"]
 
-amount = [*1..10]
+
 
 legislations = 30.times.map do
   Legislation.create!(city_identifier: "123456_city_identifier",
@@ -118,21 +131,32 @@ legislations = 30.times.map do
                       closed_date:     "5/23/2014" )
 end
 
-######################################################################
+# *****************************************************************
 
-vote_options = ["Y", "N"]
-
-Legislator.all.each do |alderman|
+Legislator.all.each do |legislator|
   Legislation.all.each do |issue|
     LegislatorVote.create!(legislation_id: issue.id,
-                           legislator_id:  alderman.id,
-                           vote_date:      "5/23/2014",
+                           legislator_id:  legislator.id,
+                           vote_date:      "5/24/2014",
                            vote:           vote_options.sample)
   end
 end
 
 
+# *****************************************************************
+
+
+legislations = 30.times.map do
+  Legislation.create!(city_identifier: "123456_city_identifier",
+                      status:          status_options_open.sample,
+                      kind:            type_options.sample,
+                      opened_date:     rand(2.years).ago )
+end
+
+
 ######################################################################
+
+
 
 
 aldermen_ids = Legislator.all.pluck(:alderman_id)
@@ -142,13 +166,12 @@ regular_user_ids = users - aldermen_ids
 legislation_ids = Legislation.all.pluck(:id)
 
 
-
 regular_user_ids.each do |x|
   legislation_ids.each do |y|
     LegislationVoice.create!(user_id: x,
                              legislation_id: y,
                              support: vote_options.sample,
-                             feedback: "This is my Feedback!!!")
+                             feedback: Faker::Lorem.words(15).join(" "))
 
   end
 end

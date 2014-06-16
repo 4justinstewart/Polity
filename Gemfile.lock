@@ -30,6 +30,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    annotate (2.6.3)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     backbone-on-rails (1.1.0.0)
       eco
@@ -127,6 +130,7 @@ GEM
       rspec (>= 2.14, < 4.0)
     high_voltage (2.1.0)
     hike (1.2.3)
+    hirb (0.7.2)
     i18n (0.6.9)
     jbuilder (2.1.0)
       activesupport (>= 3.0.0, < 5)
@@ -173,11 +177,14 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroady (1.1.1)
     rails (4.1.1)
       actionmailer (= 4.1.1)
       actionpack (= 4.1.1)
@@ -275,6 +282,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
+  annotate
   backbone-on-rails (~> 1.1.0.0)
   better_errors
   bitters
@@ -292,6 +300,7 @@ DEPENDENCIES
   guard
   guard-rspec
   high_voltage
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
@@ -300,7 +309,9 @@ DEPENDENCIES
   neat
   paperclip (~> 4.1)
   pg
+  pry-rails
   quiet_assets
+  railroady
   rails (= 4.1.1)
   rb-fsevent
   rspec-rails
