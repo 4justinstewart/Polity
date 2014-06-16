@@ -1,4 +1,3 @@
-
 require 'faker'
 require 'uri'
 require 'net/http'
