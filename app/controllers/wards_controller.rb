@@ -10,6 +10,7 @@ class WardsController < ApplicationController
   # GET /wards/1
   # GET /wards/1.json
   def show
+    
   end
 
   # GET /wards/new

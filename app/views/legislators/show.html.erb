@@ -8,7 +8,7 @@
     </div>
     <div>
       <%= @user_feedback.title %>
-
+      Your Alderman voted <%= @user_feedback %>
     </div>
     <div>
       <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post"%>
