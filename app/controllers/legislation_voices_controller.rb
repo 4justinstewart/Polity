@@ -2,10 +2,10 @@ class LegislationVoicesController < ApplicationController
   before_action :set_legislation_voice, only: [:show, :edit, :update, :destroy]
 
   def up
-
     unless current_user.legislation_voices.find_by_legislation_id(params[:legislation_id])
-      @legislation_voice = current_user.legislation_voices.new(legislation_id: params[:legislation_id, support: true])
-    
+      @legislation_voice = current_user.legislation_voices.new(legislation_id: params[:legislation_id], support: true)
+      puts "***********HERE WE ARE"
+      puts current_user
       respond_to do |format|
         if @legislation_voice.save
           format.html { redirect_to @legislation_voice, notice: 'Legislation voice was successfully created.' }
@@ -17,13 +17,14 @@ class LegislationVoicesController < ApplicationController
       end
     end
 
-    redirect_to current_user.ward.legislator
+    # redirect_to current_user.ward.legislator
   end
 
   def down
-    unless current_user.legislation_voices.find_by(:user_id => current_user.id, :legislation_id => params[:legislation_id] )
-      @legislation_voice = current_user.legislation_voices.new(:legislation_id => params[:legislation_id], :support => false)
-
+    unless current_user.legislation_voices.find_by_legislation_id(params[:legislation_id])
+      @legislation_voice = current_user.legislation_voices.new(legislation_id: params[:legislation_id], support: false)
+      puts "***********HERE WE ARE"
+      puts current_user
       respond_to do |format|
         if @legislation_voice.save
           format.html { redirect_to @legislation_voice, notice: 'Legislation voice was successfully created.' }
@@ -34,7 +35,8 @@ class LegislationVoicesController < ApplicationController
         end
       end
     end
-    redirect_to current_user.ward.legislator
+
+    # redirect_to current_user.ward.legislator
   end
 
 

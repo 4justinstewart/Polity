@@ -61,3 +61,5 @@ err.txt
 ehthumbs.db
 Thumbs.db
 
+# tmp/cache/assets/development/sprockets/ #
+tmp/cache/assets/development/sprockets/
