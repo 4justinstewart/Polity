@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  include UsersHelper
+
   # GET /users
   # GET /users.json
   def index
@@ -11,6 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = current_user
+    # verify_community_user
   end
 
   # GET /users/new
@@ -20,16 +24,16 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Success! Welcome to Polity!' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -62,7 +66,40 @@ class UsersController < ApplicationController
     end
   end
 
+  def ward_number
+    address = UserAddress.find(self.user_address_id)
+    Ward.find_by_id(address.ward_id).ward_number
+  end
+
+  # A USER OBJECT => BUT A PERSON THAT IS AN ALDERMAN (LEGISLATOR tBLE HAS at least one row associated)
+  def alderman
+    address = UserAddress.find(self.user_address_id)
+    current_legislator = Legislator.where(:represented_ward_id => address.ward_id).limit(1) #TODO: REMOVE THIS LIMIT CONSTRAINT THIS LATER WhEN DATE LOGIC IS USEFUL FOR SCOPING CURRENT LEGISLATOR
+    User.find(current_legislator.alderman_id)
+  end
+
+
+  def street_address1
+    address = UserAddress.find(self.user_addres_id)
+    address.address1
+  end
+
+  def street_address2
+    address = UserAddress.find(self.user_addres_id)
+    address.address2
+  end
+
+  def zip
+    address = UserAddress.find(self.user_addres_id)
+    address.zip
+  end
+
+
   private
+    #FOR NOW: redirects to homepage if user is also an alderman
+    #MUST CHANGE THIS BEHAVIOR IF WE ARE SIGNING IN AS ALDERMAN
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -72,4 +109,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :user_address_id, :avatar)
     end
+
+    # def verify_community_user
+    #   redirect_to '/' if @user.alderman.alderman_id == @user.id
+    # end
+
 end

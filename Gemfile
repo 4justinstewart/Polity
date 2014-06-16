@@ -31,8 +31,9 @@ gem 'pg'
 # gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-gem 'neat'
 gem 'bourbon'
+gem 'neat'
+gem 'bitters'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -61,7 +62,8 @@ gem 'devise'
 # Testing FullNameSplitter
 gem 'full-name-splitter', '~> 0.1.2'
 
-
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 # User avatar attachments
 gem "paperclip", "~> 4.1"
 
@@ -86,6 +88,12 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem "capybara"
   gem 'faker'
+  gem 'better_errors'
+  gem 'hirb'
+  gem 'annotate'
+  # gem 'rack-mini-profiler'
+  gem 'railroady'
+  gem 'pry-rails'
 end
 
 

@@ -16,3 +16,14 @@ $dark-grey: #2a3145;
 $chicago-red: #f03b3c;
 $chicago-blue: #69b1d6;
 
+
+$base-border-radius: em(.5);
+
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}

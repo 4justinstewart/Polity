@@ -1,48 +1,58 @@
-<section>
-    <h2>Polity</h2>
-    <p data-role="description">This is the homepage</p>
 
-    <div id="background">
-    	<%= image_tag "chicago_skyline.jpg", :style => "width: 100%", id: "chicago_skyline" %>
+<div class="hero">
+    <div class="hero-inner">
+    <a href="" class="hero-logo">
+    <%= image_tag("/assets/logos/polity_logo_bg.png") %>
+        <div class="hero-copy">
+            <h1>Polity Chicago</h1>
+            <p>DragonHawks FOR LIFE.</p>
+        </div>
+    <button class="btn btn-red btn-large">Learn More</button>
     </div>
+</div>
 
+
+
+
+<section>
     <div id="user">
         <%= link_to "Sign In", new_user_session_path %>
         Not a already a community member? <%= link_to "Register", new_user_registration_path %> now!
     </div>
-
-    <div id="content">
-        <div class="triplet" id="educate">
-            <div class="img_wrapper">
-                <%= image_tag "icons/university.svg", style: "width: 100px; height:100px", id:"educate_icon" %>
-            </div>
-            <strong>Educate</strong>
-            <div>
-                You have the right to access to the information you need about your Local Politician <br>
-                Polity makes it easy to learn about your representative and their voting decisions.
-            </div>
-        </div>
-
-        <div class="triplet" id="feedback">
-            <div class="img_wrapper">
-                <%= image_tag "icons/thumb37.svg", style: "width: 100px; height:100px", id: "feedback_icon" %>
-            </div>
-            <strong>Feedback</strong>
-            <div>
-                You have the right to demonstrate your feelings for Local Politician's voting decisions <br>
-                Polity has an simple feedback toolset, encouraging you to speak with your Local Politician.
-            </div>
-        </div>
-
-        <div class="triplet" id="community">
-            <div class="img_wrapper">
-                <%= image_tag "icons/leader.svg", style: "width: 100px; height:100px", id: "community_icon" %>
-            </div>
-            <strong>Community</strong>
-            <div>
-                You have the right to access to the information you need about your Local Politician <br>
-                Polity makes it easy to learn about your representative and their voting decisions.
-            </div>
-        </div>
+<div class="bullets">
+  <div class="bullet three-col-bullet">
+    <div class="bullet-icon bullet-icon-1">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
     </div>
+    <div class="bullet-content">
+      <h2>Educate</h2>
+      <p>You have the right to access to the information you need about your Local Politician Polity makes it easy to learn about your representative and their voting decisions.</p>
+      </div>
+  </div>
+  <div class="bullet three-col-bullet">
+    <div class="bullet-icon bullet-icon-2">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
+    </div>
+    <div class="bullet-content">
+      <h2>Feedback</h2>
+      <p>You have the right to demonstrate your feelings for Local Politician's voting decisions Polity has an simple feedback toolset, encouraging you to speak with your Local Politician.</p>
+    </div>
+  </div>
+  <div class="bullet three-col-bullet">
+    <div class="bullet-icon bullet-icon-3">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_4.png" alt="">
+    </div>
+    <div class="bullet-content">
+      <h2>Community</h2>
+      <p> You have the right to access to the information you need about your Local Politician Polity makes it easy to learn about your representative and their voting decisions.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 </section>
