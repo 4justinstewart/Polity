@@ -1,6 +1,7 @@
 
 source "http://rubygems.org"
 
+
 # gemspec
 
 # # used by the dummy application
@@ -87,7 +88,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'cucumber-rails', :require => false
   gem "capybara"
-  gem 'faker'
+  # gem 'faker'
   gem 'better_errors'
   gem 'hirb'
   gem 'annotate'
@@ -117,3 +118,5 @@ end
 
 gem 'rails_12factor', group: :production
 ruby "2.1.1"
+
+gem 'faker'
