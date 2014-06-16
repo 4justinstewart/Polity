@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>City identifier</th>
+      <th>Status</th>
+      <th>Kind</th>
+      <th>Opened date</th>
+      <th>Closed date</th>
+      <th>Support</th>
+      <th>Oppose</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% legislations.each do |legislation| %>
+      <tr>
+        <td><%= link_to legislation.city_identifier, legislation %></td>
+        <td><%= legislation.status %></td>
+        <td><%= legislation.kind %></td>
+        <td><%= legislation.opened_date %></td>
+        <td><%= legislation.closed_date %></td>
+        <td><%= image_tag "icons/like.svg", :style => "width: 25px", class: "support" %></td>
+        <td><%= image_tag "icons/like.svg", :style => "width: 25px", class: "oppose" %></td>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
