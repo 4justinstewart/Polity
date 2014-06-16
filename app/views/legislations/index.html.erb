@@ -1,7 +1,13 @@
+<section>
 <h1>Give Feedback on Chicago Legislation</h1>
 
-<%= render 'table' %>
+<h2>Upcoming Legislation</h2>
+  <%= render partial: 'table', locals: {legislations: @fresh_legislations} %>
 
 <br>
+<hr>
+<br>
 
-<%= link_to 'New Legislation', new_legislation_path %>
+<h2>Past Legislation</h2>
+  <%= render partial: 'table', locals: {legislations: @past_legislations} %>
+</section>

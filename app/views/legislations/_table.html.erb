@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @legislations.each do |legislation| %>
+    <% legislations.each do |legislation| %>
       <tr>
         <td><%= legislation.city_identifier %></td>
         <td><%= legislation.status %></td>
@@ -19,8 +19,6 @@
         <td><%= legislation.opened_date %></td>
         <td><%= legislation.closed_date %></td>
         <td><%= link_to 'Show', legislation %></td>
-        <td><%= link_to 'Edit', edit_legislation_path(legislation) %></td>
-        <td><%= link_to 'Destroy', legislation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
