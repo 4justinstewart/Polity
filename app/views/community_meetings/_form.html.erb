@@ -1,0 +1,29 @@
+<%= form_for(@community_meeting) do |f| %>
+  <% if @community_meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@community_meeting.errors.count, "error") %> prohibited this community_meeting from being saved:</h2>
+
+      <ul>
+      <% @community_meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :topic %><br>
+    <%= f.text_field :topic %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :time_at %><br>
+    <%= f.datetime_select :time_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

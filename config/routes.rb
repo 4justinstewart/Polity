@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :wards
 
+  resources :community_meetings, except: [:index]
   # API controller for iOS interaction
 
   resources :api, only: [:index, :create]
