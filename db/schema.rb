@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615185459) do
+ActiveRecord::Schema.define(version: 20140617012702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "community_meetings", force: true do |t|
+    t.integer  "creator_id"
+    t.string   "address"
+    t.datetime "time_at"
+    t.string   "topic"
+    t.integer  "ward_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "community_meetings", ["creator_id"], name: "index_community_meetings_on_creator_id", using: :btree
+  add_index "community_meetings", ["ward_id"], name: "index_community_meetings_on_ward_id", using: :btree
 
   create_table "legislation_sponsors", force: true do |t|
     t.integer  "sponsor_id"
@@ -75,6 +88,16 @@ ActiveRecord::Schema.define(version: 20140615185459) do
 
   add_index "legislators", ["alderman_id"], name: "index_legislators_on_alderman_id", using: :btree
   add_index "legislators", ["represented_ward_id"], name: "index_legislators_on_represented_ward_id", using: :btree
+
+  create_table "meeting_attendances", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "community_meeting_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "meeting_attendances", ["community_meeting_id"], name: "index_meeting_attendances_on_community_meeting_id", using: :btree
+  add_index "meeting_attendances", ["user_id"], name: "index_meeting_attendances_on_user_id", using: :btree
 
   create_table "user_addresses", force: true do |t|
     t.integer  "ward_id"

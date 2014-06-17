@@ -10,7 +10,8 @@ class WardsController < ApplicationController
   # GET /wards/1
   # GET /wards/1.json
   def show
-    
+    @community_meetings = @ward.community_meetings
+    @legislator_votes = @ward.legislator.legislator_votes
   end
 
   # GET /wards/new
