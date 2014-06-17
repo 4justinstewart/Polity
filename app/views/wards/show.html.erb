@@ -1,24 +1,86 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ward number:</strong>
-  <%= @ward.ward_number %>
-</p>
+<div>
+	<h2>Ward <%= @ward.ward_number %> Community</h2>
+</div>
+<% if current_user.ward.ward_number == @ward.ward_number %>
+	<div>
+		<%=link_to "Add A Meeting", new_community_meeting_path %>
+	</div>
+<% end %>
+<div class="meetings">
+	<h3>Community Meetings</h3>
+	<table>
+		<th>
+			Where
+		</th>
+		<th>
+			When
+		</th>
+		<th>
+			Topic
+		</th>
+		<th>
+			Meeting Leader
+		</th>
+		<% @community_meetings.each do |meeting| %>
+			<tr>
+				<td>
+					<%= meeting.address %>	
+				</td>
 
-<p>
-  <strong>Address1:</strong>
-  <%= @ward.address1 %>
-</p>
+				<td>
+					<%= meeting.time_at %>
+				</td>
 
-<p>
-  <strong>Address2:</strong>
-  <%= @ward.address2 %>
-</p>
+				<td>
+					<%= meeting.topic %>
+				</td>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @ward.zip %>
-</p>
+				<td>
+					<%= meeting.creator.name %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</div>
 
-<%= link_to 'Edit', edit_ward_path(@ward) %> |
-<%= link_to 'Back', wards_path %>
+<div class="map">
+	Hey guess what goes here! A map! A map goes here, man
+</div>
+
+<div class="alderman-votes">
+	<h3>Ward <%= @ward.ward_number %> Alderman's Recent Votes</h3>
+
+	<table>
+		<th>
+			Issue			
+		</th>	
+		<th>
+			Alderman Vote
+		</th>
+		<th>
+			Support
+		</th>
+		<% @legislator_votes.each do |vote| %>
+			<tr>
+				<td>
+					<%= vote.legislation.title %>
+				</td>
+				<td>
+					<% if vote.vote == "Y" %>
+						Pass
+					<% else %>
+						Do Not Pass
+					<% end %>
+				</td>
+				<td>
+					<%= vote.legislation.legislation_voices.where(support: true).length %>
+				</td>
+				<td>
+					
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</div>

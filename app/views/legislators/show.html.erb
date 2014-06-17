@@ -7,8 +7,8 @@
       <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post"%>
     </div>
     <div>
-      <%= @user_feedback.title %>
-
+      <%= @user_feedback.title %><br>
+      Your Alderman voted <%= @legislator.issue_vote(@user_feedback) %>
     </div>
     <div>
       <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post"%>
@@ -26,7 +26,7 @@
     <%= @legislator.alderman.name %>
   </p>
 
-    <%#= image_tag @legislator.alderman.avatar.url(:medium) %>
+    <%= image_tag @legislator.alderman.avatar.url(:medium) %>
   <p>
     <strong>Represented ward:</strong>
     <%= @legislator.represented_ward_id %>
