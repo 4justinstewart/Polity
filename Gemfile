@@ -80,6 +80,7 @@ gem "paperclip", "~> 4.1"
 # gem 'debugger', group: [:development, :test]
 
 # Allows API credentials to be stored, rather than having to export them to the ENV in the terminal
+# DOCS: http://railsapps.github.io/rails-environment-variables.html
 gem 'figaro'
 
 
