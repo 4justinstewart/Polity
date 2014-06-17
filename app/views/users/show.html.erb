@@ -36,7 +36,7 @@
 
             <!-- SET UP THE TWILIO AND TWITTER API HERE -->
             <%= button_to "Call #{@legislator.name} Now", url: "#" %>
-            <%= button_to "Tweet @ALDERMANTWIITERHANDLE", url: "#" %>
+            <%= button_to "Tweet @ALDERMANTWIITERHANDLE", { controller: "users", action: "twitter_verifier" }, { method: "get", params: { id: @user.id } } %>
 
         </div>
     </div>

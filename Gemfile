@@ -79,6 +79,13 @@ gem "paperclip", "~> 4.1"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Allows API credentials to be stored, rather than having to export them to the ENV in the terminal
+# DOCS: http://railsapps.github.io/rails-environment-variables.html
+gem 'figaro'
+
+# Interaction and Oauth via Twitter
+gem 'twitter'
+
 
 group :development, :test do
   gem 'rspec-rails'

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  include UsersHelper
 
   # GET /users
   # GET /users.json
@@ -88,5 +87,7 @@ class UsersController < ApplicationController
     # def verify_community_user
     #   redirect_to '/' if @user.alderman.alderman_id == @user.id
     # end
-
 end
+
+
+

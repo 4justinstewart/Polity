@@ -54,4 +54,5 @@ class User < ActiveRecord::Base
     address = UserAddress.find(self.user_address_id)
     address.zip
   end
+
 end
