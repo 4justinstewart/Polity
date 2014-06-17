@@ -53,7 +53,7 @@ importLegislatorInfo(ward_json_url)
       user_address = UserAddress.new(ward_id: ward.id,
                                      address1: user_address_street1)
       user_address.save
-      user.update_attribute(user_address_id: user_address.id)
+      user.update_attributes(user_address_id: user_address.id)
       legislator = Legislator.create!(represented_ward_id: ward.id,
                                       alderman_id: user.id)
     end
