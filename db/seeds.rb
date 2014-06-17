@@ -10,6 +10,8 @@ def importLegislatorInfo(url)
   data = Net::HTTP.get(url)
   @parsed_data = JSON.parse(data)
 end
+image_and_twitter_accounts = [["http://www.cityofchicago.org/content/dam/city/about/wards/01/aldward01.jpg", "@Alderman_Moreno"], ["http://www.cityofchicago.org/content/dam/city/about/wards/02/aldfioretti.jpg", "@Fioretti2ndWard"], [http://www.cityofchicago.org/content/dam/city/about/wards/03/pdowellsm.jpg, @AldPatDowell3rd], [http://www.cityofchicago.org/content/dam/city/about/wards/04/aldward4.jpg, @Ald4_WillBurns], [http://www.cityofchicago.org/content/dam/city/about/wards/05/aldward5photo.jpg, @5thWardChicago], [https://pbs.twimg.com/profile_images/1108313139/headshot_1_small_400x400.jpg, @RoderickTSawyer], [http://www.cityofchicago.org/content/dam/city/about/wards/07/aldward7.png, @Ald7Holmes], [http://www.cityofchicago.org/content/dam/city/about/wards/08/aldward8.jpg, @AldermanHarris], [http://www.cityofchicago.org/content/dam/city/about/wards/09/aldward9.jpg, @Alderman_Beale], [http://www.cityofchicago.org/content/dam/city/about/wards/10/aldward10.jpg, @AldermanPope], [http://www.cityofchicago.org/content/dam/city/about/wards/11/aldward11.jpg, none], [http://www.cityofchicago.org/content/dam/city/about/wards/12/aldward12.jpg, none], [http://www.chicagoreader.com/imager/marty-quinn-13th-ward/b/original/3696246/dc66/13martyQuinn_magnumn.jpg, none], [http://www.cityofchicago.org/content/dam/city/about/wards/14/aldward14.jpg, none], [http://www.cityofchicago.org/content/dam/city/about/wards/15/aldward15.jpg, @ToniFoulkes], [http://www.cityofchicago.org/content/dam/city/about/wards/16/aldward16.jpg, none], [http://www.cityofchicago.org/content/dam/city/about/wards/17/aldward17.jpg, @ThomasLawSuites], [http://www.cityofchicago.org/content/dam/city/about/wards/18/aldward18.jpg, @lona_lane], [http://www.chicagoreader.com/imager/matthew-oshea-19th-ward/b/original/3696232/aecf/19mattO_Shea_magnum.jpg, none], [http://www.cityofchicago.org/content/dam/city/about/wards/20/aldward20.jpg, @AldWillieB], [http://www.cityofchicago.org/content/dam/city/about/wards/21/aldward21.jpg, none], [http://www.cityofchicago.org/content/dam/city/about/wards/22/aldward22.jpg, @AldermanMunoz22], [http://www.cityofchicago.org/content/dam/city/about/wards/23/aldward23.jpg, none], [http://www.chicagoreader.com/imager/michael-chandler-24th-ward/b/original/3696226/c2de/24mikeChandler_magnum.jpg, none], [@AldermanSolis]
+]
 
 ward_json_url = URI("http://data.cityofchicago.org/resource/htai-wnw4.json")
 
@@ -26,6 +28,7 @@ importLegislatorInfo(ward_json_url)
   user = User.new(first_name: first_name,
                   last_name:last_name,
                   email: email,
+                  # NEED TO PUT IN USER_ADDRESS_ID
                   password: "Password1",
                   password_confirmation: "Password1")
 
@@ -204,7 +207,7 @@ regular_user_ids.each do |x|
     LegislationVoice.create!(
       user_id: x,
       legislation_id: y,
-      support: ["Y", "N"].sample,
+      support: [true, false].sample,
       feedback: Faker::Lorem.words(15).join(" ")
     )
   end
