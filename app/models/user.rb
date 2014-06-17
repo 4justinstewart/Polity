@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include UsersHelper
 
   # include Paperclip::Glue
   # Include default devise modules. Others available are:
