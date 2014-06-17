@@ -44,6 +44,7 @@ importLegislatorInfo(ward_json_url)
     ward = Ward.create(
       ward_number: ward_number,
       address1: ward_address1,
+      phone: ward_phone,
       zip: ward_zip
     )
 
