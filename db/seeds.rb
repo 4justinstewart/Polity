@@ -16,8 +16,6 @@ ward_json_url = URI("http://data.cityofchicago.org/resource/htai-wnw4.json")
 importLegislatorInfo(ward_json_url)
 
 @parsed_data.each_with_index do |ward_row_hash, index|
-  p ward_row_hash
-
   first_name = FullNameSplitter.split(ward_row_hash["alderman"]).first
   last_name = FullNameSplitter.split(ward_row_hash["alderman"]).last
   email = ward_row_hash["email"]
@@ -28,27 +26,25 @@ importLegislatorInfo(ward_json_url)
   user = User.new(first_name: first_name,
                   last_name:last_name,
                   email: email,
-                  password: "password",
-                  password_confirmation: "password")
+                  password: "Password1",
+                  password_confirmation: "Password1")
 
-  user.save
+  user.save!
   if user.save
     human_address_hash = JSON.parse(ward_row_hash["location"]["human_address"])
     ward_number = ward_row_hash["ward"]
     ward_address1 = ward_row_hash["address"]
     ward_zip = human_address_hash["zip"]
     ward_phone = ward_row_hash["ward_phone"]["phone_number"]
-    puts human_address_hash["zip"]
-    puts human_address_hash["zip"].class
 
-    ward = Ward.create(
+    ward = Ward.create!(
       ward_number: ward_number,
       address1: ward_address1,
-      phone: ward_phone,
+      phone_number: ward_phone,
       zip: ward_zip
     )
 
-    if ward.save
+    if ward.valid?
       user_address_street1 = ward_row_hash["city_hall_address"]
 
       user_address = UserAddress.new(ward_id: ward.id,
@@ -143,7 +139,7 @@ meetings.each do |meeting|
   ordinances.each_with_index do |ordinance, index|
     city_id = ordinance[0]
     title = ordinance[1]
-    legislation = Legislation.create!(
+    legislation = Legislation.create!(   # Not all fields in DB filled, especially dates.
       city_identifier: city_id,
       title: title,
       status: "Voted",
@@ -161,38 +157,73 @@ meetings.each do |meeting|
 end
 
 
-#----------------------------------------------------------------FAKER DATA------------------------------------------------------------------------
+#-----------RELEVANT FAKER DATA---------------------------------------------------------
 
-# all_wards = Ward.all
+all_wards = Ward.all
 
-# user_addresses = 300.times.map do
-#   UserAddress.create!(ward_id:  all_wards.sample.id,
-#                       address1: "200 N. User Address St.",
-#                       address2: "Apt #2",
-#                       zip:       "56789")
-# end
+user_addresses = 300.times do
+  UserAddress.create!(ward_id:  all_wards.sample.id,
+                      address1: Faker::Address.street_address,
+                      address2: Faker::Address.secondary_address,
+                      zip:      Faker::Address.zip)
+end
 
 
-# all_addresses = UserAddress.all
+all_addresses = UserAddress.all
 
-# users = 600.times.map do
-#   User.create!( first_name:             Faker::Name.first_name,
-#                 last_name:              Faker::Name.last_name,
-#                 email:                  Faker::Internet.email,
-#                 # avatar:                 Faker::Avatar.image,
-#                 password:               "password!",
-#                 password_confirmation:  "password!",
-#                 user_address_id:         all_addresses.sample.id)
-# end
+users = 600.times do
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name:              Faker::Name.last_name,
+    email:                  Faker::Internet.email,
+    # avatar:                 Faker::Avatar.image,  FUNCTIONAL? -- COULD USE IMG URL AS BACKUP
+    password:               "1Password!",
+    password_confirmation:  "1Password!",
+    user_address_id:         all_addresses.sample.id
+  )
+end
 
-# ###########################################################################
+Legislation.all.each do |legislation|
+  (1 + rand(3)).times do
+    LegislationSponsor.create!(
+      sponsor_id: Legislator.all.sample.id,
+      legislation_id: legislation.id
+    )
+  end
+end
+
+aldermen_ids = Legislator.all.pluck(:alderman_id)
+users = User.all.pluck(:id)
+
+regular_user_ids = users - aldermen_ids
+legislation_ids = Legislation.all.pluck(:id)
+
+
+regular_user_ids.each do |x|
+  legislation_ids.each do |y|
+    LegislationVoice.create!(
+      user_id: x,
+      legislation_id: y,
+      support: ["Y", "N"].sample,
+      feedback: Faker::Lorem.words(15).join(" ")
+    )
+  end
+end
+
+
+
+
+
+
+
+#----------------------------FAKER DATA OUTLIVED BY REAL DATA---------------------
 
 # # current_aldermen_ids = [*21..70]
 # # ward_numbers = [*1..50]
 
 # # parties = ["democrat", "republican", "independent"]
 
-# # legislators_now = 50.times.map do
+# # legislators_now = 50.times do
 # #   Legislator.create!(alderman_id:         current_aldermen_ids.shuffle.pop,
 # #                      represented_ward_id: ward_numbers.shuffle.pop,
 # #                      term_start_date:     "10/1/2011",
@@ -257,37 +288,8 @@ end
 
 # ######################################################################
 
-
-
-
-# aldermen_ids = Legislator.all.pluck(:alderman_id)
-# users = User.all.pluck(:id)
-
-# regular_user_ids = users - aldermen_ids
-# legislation_ids = Legislation.all.pluck(:id)
-
-
-# regular_user_ids.each do |x|
-#   legislation_ids.each do |y|
-#     LegislationVoice.create!(user_id: x,
-#                              legislation_id: y,
-#                              support: vote_options.sample,
-#                              feedback: Faker::Lorem.words(15).join(" "))
-
-#   end
-# end
-
-
-# ######################################################################
-
 # sponsor_number = [*1..3]
 
-# Legislation.all.each do |issue|
-#   sponsor_number.sample.times do
-#     LegislationSponsor.create!(sponsor_id: Legislator.all.sample.id,
-#                                legislation_id: issue.id)
-#   end
-# end
 
 
 # Legislation.all.each do |issue|
