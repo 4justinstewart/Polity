@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @ward_number = @user.ward_number
+    @legislator = @user.alderman
+    @ward = current_user.ward
+    @alderman_email = current_user.alderman.email
     # verify_community_user
   end
 

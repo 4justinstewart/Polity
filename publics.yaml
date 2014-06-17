@@ -1,0 +1,18 @@
+# Open 311
+{ api key: 65e6cae4cc0bebe5bc17f6e3181c9f43 }
+
+# Twillio
+# Phone Number: (412) 906-4580
+{
+  ACCOUNT SID: ACebf185e4ca58ec8614fe54f3491052f5,
+  auth_token: 57ab68dccdaf08bd51b0915e6676148c
+
+}
+
+# Twitter Polity-Chi - Read and write permission
+# current callback URL for OAuth is tailored to production on Heroku .
+# We'll need to configure this in the environment for testing on the localhost:3000 server.
+{
+API_key: IuZM4M153B6O7wBMFAO1REKmL,
+API_secret:  2f8Cw9VBjX5AvfZ7YKTimDJv2j1JBnI8JMUmmWxqoc38iHdLLn
+}
