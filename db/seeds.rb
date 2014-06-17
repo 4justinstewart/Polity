@@ -4,6 +4,7 @@ require 'net/http'
 require 'json'
 require 'full-name-splitter'
 
+#--------IMPORT CHICAGO LEGISLATORS--------------------------------------------------------------------------
 
 def importLegislatorInfo(url)
   data = Net::HTTP.get(url)
@@ -15,6 +16,8 @@ ward_json_url = URI("http://data.cityofchicago.org/resource/htai-wnw4.json")
 importLegislatorInfo(ward_json_url)
 
 @parsed_data.each_with_index do |ward_row_hash, index|
+  p ward_row_hash
+
   first_name = FullNameSplitter.split(ward_row_hash["alderman"]).first
   last_name = FullNameSplitter.split(ward_row_hash["alderman"]).last
   email = ward_row_hash["email"]
@@ -34,9 +37,15 @@ importLegislatorInfo(ward_json_url)
     ward_number = ward_row_hash["ward"]
     ward_address1 = ward_row_hash["address"]
     ward_zip = human_address_hash["zip"]
+    ward_phone = ward_row_hash["ward_phone"]["phone_number"]
     puts human_address_hash["zip"]
     puts human_address_hash["zip"].class
-    ward               = Ward.create(ward_number: ward_number,  address1: ward_address1, zip: ward_zip)
+
+    ward = Ward.create(
+      ward_number: ward_number,
+      address1: ward_address1,
+      zip: ward_zip
+    )
 
     if ward.save
       user_address_street1 = ward_row_hash["city_hall_address"]
@@ -51,144 +60,236 @@ importLegislatorInfo(ward_json_url)
   end
 end
 
+#-------------IMPORT CITY COUNCIL LEGISLATION-------------------------------------------------------
+  def get_legislation_title_and_city_identifier(json)
+    legislation_info = []
+    table_length = json["TaggedPDF-doc"]["Part"][1]["Table"].length
+    if table_length > 1
+      json["TaggedPDF-doc"]["Part"][1]["Table"][0]["TR"].each do |header_hash|
+        if header_hash.has_key?("TD")
+          legislation_info << header_hash["TD"]  # LEGISLATION INFO ON EACH ORDINANCE
+        end
+      end
+    else
+      json["TaggedPDF-doc"]["Part"][1]["Table"]["TR"].each do |header_hash|
+        if header_hash.has_key?("TD")
+          legislation_info << header_hash["TD"]  # LEGISLATION INFO ON EACH ORDINANCE
+        end
+      end
+    end
+    legislation_info
+  end
 
-# ward_numbers = [*1..50]
-# wards = 50.times.map do
-#   Ward.create!( ward_number:    ward_numbers.shuffle.pop,
-#                 address1:       "100 N. Ward Office Address St.",
-#                 address2:        "Office #2",
-#                 zip:             "12345" )
-# end
+  def get_vote_tallies(json_votes)
 
+    json_votes.flatten[1]["Part"].each do |key, value|
+      votes_on_pending_legislation = []
+      if key["Sect"].class == Array    # DOCUMENT WITH MULTIPLE ORDINANCES TO VOTE ON
+        key["Sect"].each do |hash|
 
-all_wards = Ward.all
+          if hash != nil && hash.has_key?("Table")
+            votes = []
+            hash['Table'].flatten.length
+            hash["Table"].each do |table_hash|
+              table_hash.each do |key, value|
+                value.each do |alderman_hash|
+                  if alderman_hash["TD"]
+                    votes << alderman_hash["TD"]
+                  end
+                end
+              end
+            end
+            votes_on_pending_legislation << votes
 
-user_addresses = 300.times.map do
-  UserAddress.create!(ward_id:  all_wards.sample.id,
-                      address1: "200 N. User Address St.",
-                      address2: "Apt #2",
-                      zip:       "56789")
-end
+          elsif hash != nil && hash.has_key?("Sect")   # DOCUMENT WITH A SINGLE ORDINANCE TO VOTE ON
+            votes = []
+            hash["Sect"][1].each do |table_hash|
+              table_hash.flatten.each do |vote_table|
+                if vote_table["TR"].class == Array
+                  vote_table["TR"].each do |alderman_hash|
+                    if alderman_hash["TD"]
+                      votes << alderman_hash["TD"]  # THIS IS WHERE THE VOTES ARE...
+                    end
+                  end
+                end
+              end
+            end
+            votes_on_pending_legislation << votes
+          end
+        end
+      end
+      if !votes_on_pending_legislation.empty?
+        return votes_on_pending_legislation
+      end
+    end
+  end
 
+file = File.read(Dir.pwd + '/db/rollcall1.json')
+file2 = File.read(Dir.pwd + '/db/rollcall2.json')
+file3 = File.read(Dir.pwd + '/db/rollcall3.json')
+file4 = File.read(Dir.pwd + '/db/rollcall4.json')
+meeting1 = JSON.parse(file)
+meeting2 = JSON.parse(file2)
+meeting3 = JSON.parse(file3)
+meeting4 = JSON.parse(file4)
 
-all_addresses = UserAddress.all
+meetings = [meeting1, meeting2, meeting3, meeting4]
 
-users = 600.times.map do
-  User.create!( first_name:             Faker::Name.first_name,
-                last_name:              Faker::Name.last_name,
-                email:                  Faker::Internet.email,
-                # avatar:                 Faker::Avatar.image,
-                password:               "password!",
-                password_confirmation:  "password!",
-                user_address_id:         all_addresses.sample.id)
-end
+meetings.each do |meeting|
+  ordinances = get_legislation_title_and_city_identifier(meeting)
+  vote_tallies = get_vote_tallies(meeting)
 
-###########################################################################
-
-# current_aldermen_ids = [*21..70]
-# ward_numbers = [*1..50]
-
-# parties = ["democrat", "republican", "independent"]
-
-# legislators_now = 50.times.map do
-#   Legislator.create!(alderman_id:         current_aldermen_ids.shuffle.pop,
-#                      represented_ward_id: ward_numbers.shuffle.pop,
-#                      term_start_date:     "10/1/2011",
-#                      #NO END DATE
-#                      party_affiliation:   parties.sample)
-# end
-
-# past_aldermen_ids = [*71..120]
-# ward_numbers = [*1..50]
-
-# legislators_past = 50.times.map do
-#   Legislator.create!(alderman_id:         past_aldermen_ids.shuffle.pop,
-#                      represented_ward_id: ward_numbers.shuffle.pop,
-#                      term_start_date:     "10/1/2007",
-#                      term_end_date:       "9/30/2011",
-#                      party_affiliation:   parties.sample)
-# end
-
-
-
-
-#########################################################
-
-status_options_open = ["active", "open"]
-status_options_closed = ["inactive", "closed"]
-type_options = ["reports", "resolution", "ordinance"]
-
-vote_options = ["Y", "N"]
-
-
-
-legislations = 30.times.map do
-  Legislation.create!(city_identifier: "123456_city_identifier",
-                      status:          status_options_closed.sample,
-                      kind:            type_options.sample,
-                      opened_date:     rand(2.years).ago,
-                      closed_date:     "5/23/2014" )
-end
-
-# *****************************************************************
-
-Legislator.all.each do |legislator|
-  Legislation.all.each do |issue|
-    LegislatorVote.create!(legislation_id: issue.id,
-                           legislator_id:  legislator.id,
-                           vote_date:      "5/24/2014",
-                           vote:           vote_options.sample)
+  ordinances.each_with_index do |ordinance, index|
+    city_id = ordinance[0]
+    title = ordinance[1]
+    legislation = Legislation.create!(
+      city_identifier: city_id,
+      title: title,
+      status: "Voted",
+      kind: "Ordinance"
+    )
+    vote_tallies[index].each do |alderman_vote|
+      alderman = Legislator.find_by_represented_ward_id(alderman_vote[0])
+      LegislatorVote.create!(
+        legislation_id: legislation.id,
+        legislator_id: alderman.id,
+        vote: alderman_vote[2]
+      )
+    end
   end
 end
 
 
-# *****************************************************************
+#----------------------------------------------------------------FAKER DATA------------------------------------------------------------------------
+
+# all_wards = Ward.all
+
+# user_addresses = 300.times.map do
+#   UserAddress.create!(ward_id:  all_wards.sample.id,
+#                       address1: "200 N. User Address St.",
+#                       address2: "Apt #2",
+#                       zip:       "56789")
+# end
 
 
-legislations = 30.times.map do
-  Legislation.create!(city_identifier: "123456_city_identifier",
-                      status:          status_options_open.sample,
-                      kind:            type_options.sample,
-                      opened_date:     rand(2.years).ago )
-end
+# all_addresses = UserAddress.all
+
+# users = 600.times.map do
+#   User.create!( first_name:             Faker::Name.first_name,
+#                 last_name:              Faker::Name.last_name,
+#                 email:                  Faker::Internet.email,
+#                 # avatar:                 Faker::Avatar.image,
+#                 password:               "password!",
+#                 password_confirmation:  "password!",
+#                 user_address_id:         all_addresses.sample.id)
+# end
+
+# ###########################################################################
+
+# # current_aldermen_ids = [*21..70]
+# # ward_numbers = [*1..50]
+
+# # parties = ["democrat", "republican", "independent"]
+
+# # legislators_now = 50.times.map do
+# #   Legislator.create!(alderman_id:         current_aldermen_ids.shuffle.pop,
+# #                      represented_ward_id: ward_numbers.shuffle.pop,
+# #                      term_start_date:     "10/1/2011",
+# #                      #NO END DATE
+# #                      party_affiliation:   parties.sample)
+# # end
+
+# # past_aldermen_ids = [*71..120]
+# # ward_numbers = [*1..50]
+
+# # legislators_past = 50.times.map do
+# #   Legislator.create!(alderman_id:         past_aldermen_ids.shuffle.pop,
+# #                      represented_ward_id: ward_numbers.shuffle.pop,
+# #                      term_start_date:     "10/1/2007",
+# #                      term_end_date:       "9/30/2011",
+# #                      party_affiliation:   parties.sample)
+# # end
 
 
-######################################################################
+
+
+# #########################################################
+
+# status_options_open = ["active", "open"]
+# status_options_closed = ["inactive", "closed"]
+# type_options = ["reports", "resolution", "ordinance"]
+
+# vote_options = ["Y", "N"]
+
+
+
+# legislations = 30.times.map do
+#   Legislation.create!(city_identifier: "123456_city_identifier",
+#                       status:          status_options_closed.sample,
+#                       kind:            type_options.sample,
+#                       opened_date:     rand(2.years).ago,
+#                       closed_date:     "5/23/2014" )
+# end
+
+# # *****************************************************************
+
+# Legislator.all.each do |legislator|
+#   Legislation.all.each do |issue|
+#     LegislatorVote.create!(legislation_id: issue.id,
+#                            legislator_id:  legislator.id,
+#                            vote_date:      "5/24/2014",
+#                            vote:           vote_options.sample)
+#   end
+# end
+
+
+# # *****************************************************************
+
+
+# legislations = 30.times.map do
+#   Legislation.create!(city_identifier: "123456_city_identifier",
+#                       status:          status_options_open.sample,
+#                       kind:            type_options.sample,
+#                       opened_date:     rand(2.years).ago )
+# end
+
+
+# ######################################################################
 
 
 
 
-aldermen_ids = Legislator.all.pluck(:alderman_id)
-users = User.all.pluck(:id)
+# aldermen_ids = Legislator.all.pluck(:alderman_id)
+# users = User.all.pluck(:id)
 
-regular_user_ids = users - aldermen_ids
-legislation_ids = Legislation.all.pluck(:id)
-
-
-regular_user_ids.each do |x|
-  legislation_ids.each do |y|
-    LegislationVoice.create!(user_id: x,
-                             legislation_id: y,
-                             support: vote_options.sample,
-                             feedback: Faker::Lorem.words(15).join(" "))
-
-  end
-end
+# regular_user_ids = users - aldermen_ids
+# legislation_ids = Legislation.all.pluck(:id)
 
 
-######################################################################
+# regular_user_ids.each do |x|
+#   legislation_ids.each do |y|
+#     LegislationVoice.create!(user_id: x,
+#                              legislation_id: y,
+#                              support: vote_options.sample,
+#                              feedback: Faker::Lorem.words(15).join(" "))
 
-sponsor_number = [*1..3]
-
-Legislation.all.each do |issue|
-  sponsor_number.sample.times do
-    LegislationSponsor.create!(sponsor_id: Legislator.all.sample.id,
-                               legislation_id: issue.id)
-  end
-end
+#   end
+# end
 
 
-Legislation.all.each do |issue|
-  issue.update_attributes(:title => Faker::Lorem.words(5).join(" "))
+# ######################################################################
 
-end
+# sponsor_number = [*1..3]
+
+# Legislation.all.each do |issue|
+#   sponsor_number.sample.times do
+#     LegislationSponsor.create!(sponsor_id: Legislator.all.sample.id,
+#                                legislation_id: issue.id)
+#   end
+# end
+
+
+# Legislation.all.each do |issue|
+#   issue.update_attributes(:title => Faker::Lorem.words(5).join(" "))
+
+# end

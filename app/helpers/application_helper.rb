@@ -61,6 +61,5 @@ module ApplicationHelper
       return votes_on_pending_legislation
     end
   end
-
 end
 
