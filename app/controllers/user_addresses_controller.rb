@@ -21,13 +21,23 @@ class UserAddressesController < ApplicationController
   def edit
   end
 
+
   # POST /user_addresses
   # POST /user_addresses.json
   def create
-    @user_address = UserAddress.new(user_address_params)
+    puts current_user_first_name = params["user_address"]["users"]["first_name"]
+    puts current_user_last_name = params["user_address"]["users"]["last_name"]
+    puts user_address_address1 = params["user_address"]["address1"]
+
+    if UserAddress.find_by_address1(user_address_address1)
+      @user_address = UserAddress.find_by_address1(user_address_address1)
+    else
+      @user_address = UserAddress.new(user_address_params)
+    end
 
     respond_to do |format|
       if @user_address.save
+        current_user.update_attributes(user_address_id: @user_address.id, first_name: current_user_first_name, last_name: current_user_last_name)
         format.html { redirect_to @user_address, notice: 'User address was successfully created.' }
         format.json { render :show, status: :created, location: @user_address }
       else

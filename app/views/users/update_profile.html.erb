@@ -1,38 +1,29 @@
 <h2>Tell Us More about You?</h2>
 
-<%= form_for :user_address, url: edit_user_registration_path, method: :patch do |f| %>
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name, autofocus: true %></div>
+<%= current_user.email %>
 
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
+<%= form_for :user_address, url: user_addresses_path, method: :post do |f| %>
+        <%= f.fields_for :users do |ff| %>
+              <div><%= ff.label :first_name %><br />
+              <%= ff.text_field :first_name, autofocus: true %></div>
 
-  <div><h4>Home Address:</h4>
-      <ul>
-        <%= f.fields_for :user_addresses do |addresses_form| %>
-          <li>
-
-            <div>
-                <%= addresses_form.label :address1 %><br />
-                <%= addresses_form.text_field :address1 %>
-            </div>
-
-            <div>
-                <%= addresses_form.label :address2 %><br />
-                <%= addresses_form.text_field :address2 %>
-            </div>
-
-            <div>
-                <%= addresses_form.label :zip %><br />
-                <%= addresses_form.text_field :zip %>
-            </div>
-
-          </li>
+              <div><%= ff.label :last_name %><br />
+              <%= ff.text_field :last_name %></div>
         <% end %>
-      </ul>
-  </div>
 
-  <div><%= f.submit "Finish Sign Up" %></div>
+        <div><h4>Home Address:</h4>
+            <div><%= f.label :address1 %><br />
+            <%= f.text_field :address1 %></div>
+
+            <div><%= f.label :address2 %><br />
+            <%= f.text_field :address2 %></div>
+
+            <div><%= f.label :zip %><br />
+            <%= f.text_field :zip %></div>
+        </div>
+
+        <div><%= f.submit "Finish Sign Up" %></div>
+
 <% end %>
 
 <!--
