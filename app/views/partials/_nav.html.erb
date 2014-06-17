@@ -6,6 +6,7 @@
     <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
     <div class="nav">
       <ul id="navigation-menu">
+        <li></li>
         <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
         <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
         <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
@@ -18,7 +19,12 @@
       </ul>
     </div>
     <div class="navigation-tools">
-      <%= link_to "Register", new_user_registration_path, class: "sign-up" %>
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-tool" %>
+      <% else %>
+        <%= link_to "Register", new_user_registration_path, class: "nav-tool" %>
+        <%= link_to "Sign In", new_user_session_path, class: "nav-tool" %>
+      <% end %>
     </div>
   </div>
 </header>

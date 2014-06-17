@@ -197,7 +197,7 @@ header.navigation {
     }
   }
 
-  a.sign-up {
+  a.nav-tool {
     margin-top: 13px;
     float: right;
     @include transition (all 0.2s ease-in-out);
@@ -209,7 +209,7 @@ header.navigation {
     font-weight: 800;
     text-transform: uppercase;
     padding: .4em .5em;
-
+    margin-right: .6em;
     @include media($large-screen) {
       padding: .4em 1em;
     }
