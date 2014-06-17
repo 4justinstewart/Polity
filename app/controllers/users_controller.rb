@@ -69,7 +69,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
     #FOR NOW: redirects to homepage if user is also an alderman
     #MUST CHANGE THIS BEHAVIOR IF WE ARE SIGNING IN AS ALDERMAN
