@@ -29,9 +29,7 @@ class UserAddressesController < ApplicationController
     current_user_first_name = params["user_address"]["users"]["first_name"]
     current_user_last_name = params["user_address"]["users"]["last_name"]
     user_address_address1 = params["user_address"]["address1"]
-    # puts user_address_ward_id = params["user_address"]["ward_id"]
-    # puts user_address_address2 = params["user_address"]["address2"]
-    # puts user_address_zip = params["user_address"]["zip"]
+
 
     if UserAddress.find_by_address1(user_address_address1)
       @user_address = UserAddress.find_by_address1(user_address_address1)

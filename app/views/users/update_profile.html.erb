@@ -4,11 +4,12 @@
 
 <%= form_for :user_address, url: user_addresses_path, method: :post do |f| %>
         <%= f.fields_for :users do |ff| %>
-              <div><%= ff.label :first_name %><br />
-              <%= ff.text_field :first_name, autofocus: true %></div>
 
-              <div><%= ff.label :last_name %><br />
-              <%= ff.text_field :last_name %></div>
+            <div><%= ff.label :first_name %><br />
+            <%= ff.text_field :first_name, autofocus: true %></div>
+
+            <div><%= ff.label :last_name %><br />
+            <%= ff.text_field :last_name %></div>
         <% end %>
 
         <div><h4>Home Address:</h4>
