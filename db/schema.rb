@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20140617012702) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "phone_number"
   end
 
 end

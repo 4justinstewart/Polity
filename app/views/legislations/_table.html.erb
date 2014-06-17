@@ -14,16 +14,14 @@
 
   <tbody>
     <% legislations.each do |legislation| %>
-      <tr>
+      <tr id=<%= legislation.id %>>
         <td><%= link_to legislation.city_identifier, legislation %></td>
         <td><%= legislation.status %></td>
         <td><%= legislation.kind %></td>
         <td><%= legislation.opened_date %></td>
         <td><%= legislation.closed_date %></td>
-        <td><%= image_tag "icons/like.svg", :style => "width: 25px", class: "support" %></td>
-        <td><%= image_tag "icons/like.svg", :style => "width: 25px", class: "oppose" %></td>
-
-
+        <td class="support"><%= image_tag "icons/like.svg", :style => "width: 25px", class: "voice#{legislation.id}", alt: "support"%></td>
+        <td class="oppose"><%= image_tag "icons/like.svg", :style => "width: 25px", class: "voice#{legislation.id}", alt: "oppose"%></td>
       </tr>
     <% end %>
   </tbody>
