@@ -1,0 +1,82 @@
+<h2>Tell Us More about You?</h2>
+
+<%= form_for :user, url: edit_user_registration_path, method: :patch do |f| %>
+  <div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name, autofocus: true %></div>
+
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
+
+  <div><h4>Home Address:</h4>
+      <ul>
+        <%= f.fields_for :user_addresses do |addresses_form| %>
+          <li>
+
+            <div>
+                <%= addresses_form.label :address1 %><br />
+                <%= addresses_form.text_field :address1 %>
+            </div>
+
+            <div>
+                <%= addresses_form.label :address2 %><br />
+                <%= addresses_form.text_field :address2 %>
+            </div>
+
+            <div>
+                <%= addresses_form.label :zip %><br />
+                <%= addresses_form.text_field :zip %>
+            </div>
+
+          </li>
+        <% end %>
+      </ul>
+  </div>
+
+  <div><%= f.submit "Finish Sign Up" %></div>
+<% end %>
+
+<!--
+  # PATCH/PUT /users/1
+  # PATCH/PUT /users/1.json
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  create_table "user_addresses", force: true do |t|
+    t.integer  "ward_id"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "user_address_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end -->
