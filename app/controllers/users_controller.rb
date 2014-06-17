@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = current_user
+    @ward_number = @user.ward_number
     # verify_community_user
   end
 
