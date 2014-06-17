@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
 
   def alderman
     address = UserAddress.find(self.user_address_id)
-    current_legislator = Legislator.where(:represented_ward_id => address.ward_id).limit(1) #TODO: REMOVE THIS LIMIT CONSTRAINT THIS LATER WhEN DATE LOGIC IS USEFUL FOR SCOPING CURRENT LEGISLATOR
-    User.where(current_legislator.alderman_id) #This is the problem
+    current_legislator = Legislator.where(:represented_ward_id => address.ward_id).first
+    User.find(current_legislator.alderman_id)
   end
 
 
