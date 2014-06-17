@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index' # devise will break if you remove this line. By defining your root URL, Devise will use it for its redirection. For example, Devise will redirect the user to the root URL after they sign out from the application.
 
-
   resources :legislator_votes
 
   resources :legislation_sponsors
@@ -27,7 +26,15 @@ Rails.application.routes.draw do
   resources :community_meetings, except: [:index]
   # API controller for iOS interaction
 
-  resources :api, only: [:index, :create]
+  # resources :api, only: [:index, :create]
+
+  # Twitter API routes
+
+  get 'users/twitter_oauth' => 'users#twitter_oauth'
+  get 'users/twitter_verifier' => 'users#twitter_verifier'
+
+
+
 
   #TODO: update these!
   # root to: 'high_voltage/pages#show', id: 'homepage'

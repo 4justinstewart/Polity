@@ -83,6 +83,9 @@ gem "paperclip", "~> 4.1"
 # DOCS: http://railsapps.github.io/rails-environment-variables.html
 gem 'figaro'
 
+# Interaction and Oauth via Twitter
+gem 'twitter'
+
 
 group :development, :test do
   gem 'rspec-rails'
