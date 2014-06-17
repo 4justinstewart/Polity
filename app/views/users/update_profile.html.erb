@@ -15,7 +15,7 @@
 
             <div><%= f.label :ward_id %><br />
             <em>Do you know your ward? If not we'll help you find it later</em>
-            <%= select_tag(:ward_id, options_for_select([['Not sure',nil], ['Ward 1',1],['Ward 2',2],['Ward 3',3],['Ward 4',4],['Ward 5',5],['Ward 6',6],['Ward 7',7],['Ward 8',8],['Ward 9',9],['Ward 10',10],['Ward 11',11],['Ward 12',12],['Ward 13',13],['Ward 14',14],['Ward 15',15],['Ward 16',16],['Ward 17',17],['Ward 18',18],['Ward 19',19],['Ward 20',20],['Ward 21',21],['Ward 22',22],['Ward 23',23],['Ward 24',24],['Ward 25',25],['Ward 26',26], ['Ward 27',27], ['Ward 28',28], ['Ward 29',29], ['Ward 30',30],['Ward 31',31],['Ward 32',32],['Ward 33',33],['Ward 34',34],['Ward 35',35],['Ward 36',36],['Ward 37',37],['Ward 38',38],['Ward 39',39],['Ward 40',40],['Ward 41',41],['Ward 42',42],['Ward 43',43],['Ward 44',44],['Ward 45',45],['Ward 46',46],['Ward 47',47],['Ward 48',48],['Ward 49',49],['Ward 50',50]])) %>
+            <%= select :user_address, :ward_id, options_for_select([['Not sure',0], ['Ward 1',1],['Ward 2',2],['Ward 3',3],['Ward 4',4],['Ward 5',5],['Ward 6',6],['Ward 7',7],['Ward 8',8],['Ward 9',9],['Ward 10',10],['Ward 11',11],['Ward 12',12],['Ward 13',13],['Ward 14',14],['Ward 15',15],['Ward 16',16],['Ward 17',17],['Ward 18',18],['Ward 19',19],['Ward 20',20],['Ward 21',21],['Ward 22',22],['Ward 23',23],['Ward 24',24],['Ward 25',25],['Ward 26',26], ['Ward 27',27], ['Ward 28',28], ['Ward 29',29], ['Ward 30',30],['Ward 31',31],['Ward 32',32],['Ward 33',33],['Ward 34',34],['Ward 35',35],['Ward 36',36],['Ward 37',37],['Ward 38',38],['Ward 39',39],['Ward 40',40],['Ward 41',41],['Ward 42',42],['Ward 43',43],['Ward 44',44],['Ward 45',45],['Ward 46',46],['Ward 47',47],['Ward 48',48],['Ward 49',49],['Ward 50',50]])%>
             </div>
 
             <div><%= f.label :address1 %><br />
@@ -31,49 +31,3 @@
         <div><%= f.submit "Finish Sign Up" %></div>
 
 <% end %>
-
-<!--
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  create_table "user_addresses", force: true do |t|
-    t.integer  "ward_id"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "zip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.integer  "user_address_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-  end -->
