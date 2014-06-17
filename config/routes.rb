@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   get 'home/index'
 
   post 'legislation_voices/up/:legislation_id' => "legislation_voices#up", as: :legislation_voices_up
-  post 'legislation_voices/down//:legislation_id' => "legislation_voices#down", as: :legislation_voices_down
+  post 'legislation_voices/down/:legislation_id' => "legislation_voices#down", as: :legislation_voices_down
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   root to: 'home#index' # devise will break if you remove this line. By defining your root URL, Devise will use it for its redirection. For example, Devise will redirect the user to the root URL after they sign out from the application.
-
+  get 'users/update_profile/' => 'users#update_profile'
 
   resources :legislator_votes
 
