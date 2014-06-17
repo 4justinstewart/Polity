@@ -69,28 +69,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def twitter_verifier
-    redirect_to request_token.authorize_url #Returns a String.
-  end
-
-  def twitter_oauth
-     # the `request_token` method is defined in `app/helpers/oauth.rb`
-    @access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
-
-    # our request token is only valid until we use it to get an access token, so let's delete it from our session
-    session.delete(:request_token)
-
-    # at this point in the code is where you'll need to create your user account and store the access token
-    oauth_token = @access_token.token
-    oauth_secret = @access_token.secret
-    # username = @access_token.params[:screen_name]
-    tokens = current_user.update_attributes(oauth_token_twitter: oauth_token, oauth_secret_twitter: oauth_secret)
-    session[:user_id] = @user.id
-
-    if @user.valid?
-
-  end
-
 
   private
     #FOR NOW: redirects to homepage if user is also an alderman
@@ -113,35 +91,4 @@ class UsersController < ApplicationController
 end
 
 
-
-
-
-
-  # def ward_number
-  #   address = UserAddress.find(self.user_address_id)
-  #   Ward.find_by_id(address.ward_id).ward_number
-  # end
-
-  # # A USER OBJECT => BUT A PERSON THAT IS AN ALDERMAN (LEGISLATOR tBLE HAS at least one row associated)
-  # def alderman
-  #   address = UserAddress.find(self.user_address_id)
-  #   current_legislator = Legislator.where(:represented_ward_id => address.ward_id).limit(1) #TODO: REMOVE THIS LIMIT CONSTRAINT THIS LATER WhEN DATE LOGIC IS USEFUL FOR SCOPING CURRENT LEGISLATOR
-  #   User.find(current_legislator.alderman_id)
-  # end
-
-
-  # def street_address1
-  #   address = UserAddress.find(self.user_addres_id)
-  #   address.address1
-  # end
-
-  # def street_address2
-  #   address = UserAddress.find(self.user_addres_id)
-  #   address.address2
-  # end
-
-  # def zip
-  #   address = UserAddress.find(self.user_addres_id)
-  #   address.zip
-  # end
 

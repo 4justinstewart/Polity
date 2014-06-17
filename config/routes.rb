@@ -30,9 +30,6 @@ Rails.application.routes.draw do
 
   # Twitter API routes
 
-  get 'users/twitter_oauth' => 'users#twitter_oauth'
-  get 'users/twitter_verifier' => 'users#twitter_verifier'
-
 
 
 

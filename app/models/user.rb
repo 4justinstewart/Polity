@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include UsersHelper
 
   # include Paperclip::Glue
   # Include default devise modules. Others available are:
@@ -54,4 +53,5 @@ class User < ActiveRecord::Base
     address = UserAddress.find(self.user_address_id)
     address.zip
   end
+
 end
