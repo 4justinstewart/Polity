@@ -38,8 +38,8 @@ class UserAddressesController < ApplicationController
     respond_to do |format|
       if @user_address.save
         current_user.update_attributes(user_address_id: @user_address.id, first_name: current_user_first_name, last_name: current_user_last_name)
-        format.html { redirect_to @user_address, notice: 'User address was successfully created.' }
-        format.json { render :show, status: :created, location: @user_address }
+        format.html { redirect_to current_user, notice: 'User address was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user_address.errors, status: :unprocessable_entity }
