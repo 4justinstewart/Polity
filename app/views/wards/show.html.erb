@@ -1,10 +1,43 @@
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdOTr1UDTUw">
+</script>
+<script type="text/javascript">
+//     function initialize() {
+//       var mapOptions = {
+//         zoom: 10,
+//         center: new google.maps.LatLng(41.90,-87.65)
+//       };
+
+//       var map = new google.maps.Map(document.getElementById('map-canvas'),
+//           mapOptions);
+//    <% @community_meetings.each do |meeting| %>
+//           var map_meeting = new google.maps.LatLng(<%= meeting.latitude %>, <%= meeting.longitude %>)
+// 	    function createMarker(location, content){
+// 	    	new google.maps.Marker({
+// 			    position: location,
+// 			    map: map,
+// 			    title: content
+// 				});
+// 					console.log("woooooo");
+//           createMarker(map_meeting, "Hiiiiiii");
+//       <%end%>
+//   }
+// 	function loadScript() {
+//     var script = document.createElement('script');
+//     script.type = 'text/javascript';
+//     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+//         'callback=initialize';
+//     document.body.appendChild(script);
+//   }
+
+//   window.onload = loadScript;
+</script>
 <section>
-<p id="notice"><%= notice %></p>
 
 <div>
 	<h2>Ward <%= @ward.ward_number %> Community</h2>
 </div>
-<% if current_user.ward.ward_number == @ward.ward_number %>
+<% if current_user.ward_number == @ward.ward_number %>
 	<div>
 		<%=link_to "Add A Meeting", new_community_meeting_path %>
 	</div>
@@ -12,22 +45,41 @@
 <div class="meetings">
 	<h3>Community Meetings</h3>
 	<table>
-		<th> Where </th>
-		<th> When </th>
-		<th> Topic </th>
-		<th> Meeting Leader </th>
+		<th>
+			Topic
+		</th>
+		<th>
+			Where
+		</th>
+		<th>
+			When
+		</th>
+		<th>
+			Meeting Leader
+		</th>
 		<% @community_meetings.each do |meeting| %>
 			<tr>
-				<td> <%= meeting.address %> </td>
-				<td> <%= meeting.time_at %> </td>
-				<td> <%= meeting.topic %> </td>
-				<td> <%= meeting.creator.name %> </td>
+				<td>
+					<%= link_to meeting.topic, meeting%>
+				</td>
+
+				<td>
+					<%= link_to meeting.address, meeting %>	
+				</td>
+
+				<td>
+					<%= link_to meeting.date_at, meeting %>
+				</td>
+
+				<td>
+					<%= link_to meeting.creator.name, meeting %>
+				</td>
 			</tr>
 		<% end %>
 	</table>
 </div>
 
-<div class="map">
+<div id="map-canvas" style="width: 25em; height: 25em">
 	Hey guess what goes here! A map! A map goes here, man
 </div>
 
@@ -50,6 +102,7 @@
 				</td>
 				<td>
 					<%= vote.legislation.legislation_voices.where(support: true).length %>
+					<!-- vote => #LegislatorVote ->  -->
 				</td>
 			</tr>
 		<% end %>
