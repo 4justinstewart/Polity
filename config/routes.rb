@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   # Twilio
 
   post 'twilio/call' => 'twilio#call'
+  get 'twilio/talk' => 'twilio#talk'
 
 
 

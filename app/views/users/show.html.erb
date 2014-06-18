@@ -35,8 +35,7 @@
             <%= mail_to @alderman_email, "Send a Quick Message", subject: "CONSTITUENT FEEDBACK from #{current_user.name}" %>
 
             <!-- SET UP THE TWILIO AND TWITTER API HERE -->
-            <%= button_to "Call #{@legislator.name} Now", url: "#" %>
-            <%= button_to "Tweet @ALDERMANTWIITERHANDLE", { controller: "users", action: "twitter_verifier" }, { method: "get", params: { id: @user.id } } %>
+            <%= button_to "Call #{@legislator.name} Now", twilio_call_path, :params => { alderman_phone: "#{@ward.phone_number}" } %>
 
         </div>
     </div>
