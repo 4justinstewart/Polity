@@ -28,6 +28,7 @@ class UserAddressesController < ApplicationController
     puts params
     current_user_first_name = params["user_address"]["users"]["first_name"]
     current_user_last_name = params["user_address"]["users"]["last_name"]
+    current_user_img_url = params["user_address"]["users"]["img_url"]
     user_address_address1 = params["user_address"]["address1"]
     # puts user_address_ward_id = params["user_address"]["ward_id"]
     # puts user_address_address2 = params["user_address"]["address2"]
@@ -48,7 +49,7 @@ class UserAddressesController < ApplicationController
 
     respond_to do |format|
       if @user_address.valid?
-        current_user.update_attributes(user_address_id: @user_address.id, first_name: current_user_first_name, last_name: current_user_last_name)
+        current_user.update_attributes(user_address_id: @user_address.id, first_name: current_user_first_name, last_name: current_user_last_name, img_url: current_user_img_url)
         format.html { redirect_to current_user, notice: 'User address was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

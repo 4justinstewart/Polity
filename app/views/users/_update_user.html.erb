@@ -1,10 +1,13 @@
 <%= form_for :user_address, url: user_addresses_path do |f| %>
         <%= f.fields_for :users do |ff| %>
               <div><%= ff.label :first_name, "First Name" %><br />
-              <%= ff.text_field :first_name, autofocus: true %></div>
+              <%= ff.text_field :first_name, autofocus: true, value: current_user.first_name %></div>
 
               <div><%= ff.label :last_name, "Last Name" %><br />
-              <%= ff.text_field :last_name %></div>
+              <%= ff.text_field :last_name, value: current_user.last_name %></div>
+
+              <div><%= ff.label :img_url, "Image Link" %><br />
+              <%= ff.text_field :img_url, value: current_user.img_url %></div>
         <% end %>
 
         <div><h4>Find your ward</h4>
@@ -16,10 +19,10 @@
           <h4>Home Address:</h4>
           <div class="address_form">
             <div><%= f.label :address1, "Address" %><br />
-            <%= f.text_field :address1 %></div>
+            <%= f.text_field :address1, value: current_user.street_address1 %></div>
 
             <div><%= f.label :address2, "Address" %><br />
-            <%= f.text_field :address2 %></div>
+            <%= f.text_field :address2, value: current_user.street_address2 %></div>
 
             <div><%= label_tag 'City' %><br />
             <%= text_field_tag 'City', "Chicago" %></div>
@@ -28,7 +31,7 @@
             <%= text_field_tag 'State', "IL" %></div>
 
             <div><%= f.label :zip, "Zipcode" %><br />
-            <%= f.text_field :zip %></div>
+            <%= f.text_field :zip, value: current_user.zip %></div>
           </div>
 
         </div>
