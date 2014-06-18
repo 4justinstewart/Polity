@@ -1,5 +1,5 @@
 <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdOTr1UDTUw">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdOTr1UDTUw">
 </script>
 <script type="text/javascript">
 //     function initialize() {
@@ -34,77 +34,67 @@
 </script>
 <section>
 
-<div>
-	<h2>Ward <%= @ward.ward_number %> Community</h2>
-</div>
-<% if current_user.ward_number == @ward.ward_number %>
+	<p id="notice"><%= notice %></p>
+
+	<div>
+		<h2>Ward <%= @ward.ward_number %> Community</h2>
+	</div>
+	<% if current_user.ward_number == @ward.ward_number %>
 	<div>
 		<%=link_to "Add A Meeting", new_community_meeting_path %>
 	</div>
-<% end %>
-<div class="meetings">
-	<h3>Community Meetings</h3>
-	<table>
-		<th>
-			Topic
-		</th>
-		<th>
-			Where
-		</th>
-		<th>
-			When
-		</th>
-		<th>
-			Meeting Leader
-		</th>
-		<% @community_meetings.each do |meeting| %>
+	<% end %>
+	<div class="meetings">
+		<h3>Community Meetings</h3>
+		<table>
+			<th> Topic </th>
+			<th> Where </th>
+			<th> When </th>
+			<th> Meeting Leader </th>
+			<% @community_meetings.each do |meeting| %>
 			<tr>
-				<td>
-					<%= link_to meeting.topic, meeting%>
-				</td>
-
-				<td>
-					<%= link_to meeting.address, meeting %>	
-				</td>
-
-				<td>
-					<%= link_to meeting.date_at, meeting %>
-				</td>
-
-				<td>
-					<%= link_to meeting.creator.name, meeting %>
-				</td>
+				<td> <%= link_to meeting.topic, meeting%> </td>
+				<td> <%= link_to meeting.address, meeting %> </td>
+				<td> <%= link_to meeting.date_at, meeting %> </td>
+				<td> <%= link_to meeting.creator.name, meeting %> </td>
 			</tr>
-		<% end %>
-	</table>
-</div>
+			<% end %>
+		</table>
+	</div>
 
-<!-- <div id="map-canvas" style="width: 25em; height: 25em"> -->
-<!-- </div> -->
+	<!-- <div id="map-canvas" style="width: 25em; height: 25em"> -->
+	<!-- </div> -->
 
-<div class="alderman-votes">
-	<h3>Ward <%= @ward.ward_number %> Alderman's Recent Votes</h3>
-
-	<table>
-		<th> Issue </th>
-		<th> Alderman Vote </th>
-		<th> Support </th>
-		<% @legislator_votes.each do |vote| %>
+	<div class="alderman-votes">
+		<h2>Ward <%= @ward.ward_number %></h2>
+		<h3>Alderman <%= @ward.alderman.last_name %>'s Recent Votes</h3>
+		<table>
+			<th> Issue </th>
+			<th> Alderman <span class="capitalize"><%= @ward.alderman.last_name %></span>'s Vote </th>
+			<th> Support </th>
+			<% @legislator_votes.each do |vote| %>
 			<tr>
 				<td> <%= vote.legislation.title %> </td>
 				<td>
 					<% if vote.vote == "Y" %>
-						Pass
+					Pass
 					<% else %>
-						Do Not Pass
+					Do Not Pass
 					<% end %>
 				</td>
 				<td>
-					<%= vote.legislation.legislation_voices.where(support: true).length %>
-					<!-- vote => #LegislatorVote ->  -->
+
+					<div class="bar-graph-indication">
+						<span class="meter ward-legislation-support" style="width:<%= vote.ward_support_percent(@ward.id) %>%">
+							<p><%= vote.ward_support_percent(@ward.id) %></p>
+						</span>
+						<span class = "meter ward-legislation-opposition" style="width: <%= vote.ward_opposition_percent(@ward.id) %>%">
+							<p><%= vote.ward_opposition_percent(@ward.id) %></p>
+						</span>
+					</div>
 				</td>
 			</tr>
-		<% end %>
-	</table>
-</div>
+			<% end %>
+		</table>
+	</div>
 </section>
