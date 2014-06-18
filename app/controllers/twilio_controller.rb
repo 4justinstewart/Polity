@@ -24,7 +24,7 @@ class TwilioController < ApplicationController
   end
 
   # def talk
-  #   <?xml version="1.0" encoding="UTF-8"?>
+  #   <?xml version="1.0" encogding="UTF-8"?>
   #   # <Response>
   #   #   <Dial timeout="10" record="true"></Dial>
   #   # </Response>

@@ -38,8 +38,9 @@
             <h2>GET IN TOUCH WITH YOUR ALDERMAN NOW</h2>
             <%= mail_to @alderman_email, "Send a Quick Message", subject: "CONSTITUENT FEEDBACK from #{current_user.name}", body: "Hi Alderman #{@alderman.name}, \n\n\n\n I look forward to your response,\n\n#{current_user.name}" %>
 
-            <!-- SET UP THE TWILIO AND TWITTER API HERE -->
+            <%= link_to "Tweet at your alderman", "https://twitter.com/intent/tweet?text=#{@alderman.twitter_handle}", :target => "_blank" %>
 
+            <!-- SET UP THE TWILIO AND TWITTER API HERE -->
             <%= button_to "Call #{@alderman.name} Now", twilio_call_path, :params => { alderman_phone: "#{@ward.phone_number}" } %>
 
         </div>
