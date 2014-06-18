@@ -35,6 +35,24 @@
 <section>
 
 <div>
+	<h2> Ward <%= @ward.ward_number %> Alderman</h2>
+	<p>
+		  <p>
+    <strong>Alderman
+      <%= @ward.legislator.alderman.name %>
+    </strong>
+  </p>
+
+    <%= image_tag @ward.legislator.alderman.img_url %>
+  <p>
+    <!-- <strong>Represented ward:</strong> -->
+    <%= mail_to  @ward.legislator.alderman.email, "email #{@ward.legislator.alderman.name}" %>
+  </p>
+
+	</p>
+</div>
+
+<div>
 	<h2>Ward <%= @ward.ward_number %> Community</h2>
 </div>
 <% if current_user.ward_number == @ward.ward_number %>
