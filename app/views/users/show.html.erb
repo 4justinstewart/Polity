@@ -67,16 +67,16 @@
       <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
 
         <div>
-          <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post"%>
+          <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post", id: "vote-up"%>
         </div>
         <div>
           <%= @user_feedback.title %><br>
           Your Alderman voted <%= @legislator.issue_vote(@user_feedback) %>
         </div>
         <div>
-          <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post"%>
-          <%= link_to "Leave feedback" %>
+          <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post", id: "vote-down" %>
         </div>
+          <%= link_to "Leave detailed feedback", new_legislation_voice_path(legislation: @user_feedback.id) %>
       <% else %>
         You must live in this ward to leave feedback!
       <% end %>

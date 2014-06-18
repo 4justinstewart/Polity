@@ -8,7 +8,7 @@ class LegislationVoicesController < ApplicationController
       puts current_user
       respond_to do |format|
         if @legislation_voice.save
-          format.html { redirect_to @legislation_voice, notice: 'Legislation voice was successfully created.' }
+          format.html { render notice: 'Legislation voice was successfully created.' }
           format.json { render :show, status: :created, location: @legislation_voice }
         else
           format.html { render :new }
@@ -17,17 +17,16 @@ class LegislationVoicesController < ApplicationController
       end
     end
 
-    # redirect_to current_user.ward.legislator
+    redirect_to current_user
   end
 
   def down
     unless current_user.legislation_voices.find_by_legislation_id(params[:legislation_id])
       @legislation_voice = current_user.legislation_voices.new(legislation_id: params[:legislation_id], support: false)
-      puts "***********HERE WE ARE"
-      puts current_user
+
       respond_to do |format|
         if @legislation_voice.save
-          format.html { redirect_to @legislation_voice, notice: 'Legislation voice was successfully created.' }
+          format.html { render notice: 'Legislation voice was successfully created.' }
           format.json { render :show, status: :created, location: @legislation_voice }
         else
           format.html { render :new }
@@ -36,10 +35,31 @@ class LegislationVoicesController < ApplicationController
       end
     end
 
-    # redirect_to current_user.ward.legislator
+    redirect_to current_user
   end
 
 
+  def new
+    @legislation = Legislation.find_by_id(params[:legislation])
+    @legislation_voice = LegislationVoice.new()
+  end
+
+  def create
+    unless current_user.legislation_voices.find_by_legislation_id(legislation_voice_params[:legislation_id])
+      @legislation_voice = LegislationVoice.new(legislation_voice_params)
+
+      respond_to do |format|
+        if @legislation_voice.save
+          format.html { render notice: 'User feedback was successfully created.' }
+          format.json { render :show, status: :created, location: @legislation_voice }
+        else
+          format.html { render :new }
+          format.json { render json: @legislation_voice.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+    redirect_to current_user
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
