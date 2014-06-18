@@ -27,3 +27,11 @@ $base-border-radius: em(.5);
   #{$attribute}: $solid-color;
   #{$attribute}: $color;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
