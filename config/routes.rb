@@ -27,12 +27,16 @@ Rails.application.routes.draw do
   resources :wards
 
   resources :community_meetings, except: [:index]
-  # API controller for iOS interaction
+  # Mobile controller for iOS interaction
 
-  # resources :api, only: [:index, :create]
+  resources :mobile, only: [:index]
 
   # Twitter API routes
 
+  # Twilio
+
+  post 'twilio/call' => 'twilio#call'
+  get 'twilio/talk' => 'twilio#talk'
 
 
 

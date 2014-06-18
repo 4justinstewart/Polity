@@ -84,7 +84,11 @@ gem "paperclip", "~> 4.1"
 gem 'figaro'
 
 # Interaction and Oauth via Twitter
-gem 'twitter'
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+# Twilio phone calls
+gem 'twilio-ruby'
 
 
 group :development, :test do
