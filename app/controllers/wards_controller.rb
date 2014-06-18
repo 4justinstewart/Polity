@@ -12,7 +12,6 @@ class WardsController < ApplicationController
   def show
     @community_meetings = @ward.community_meetings.order('date_at DESC').limit(10)
     @legislator_votes = @ward.legislator.legislator_votes
-    # @community_legislation_support =
   end
 
   # GET /wards/new

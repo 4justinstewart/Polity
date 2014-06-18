@@ -9,14 +9,13 @@
       <th>Closed date</th> -->
       <th>Support</th>
       <th>Oppose</th>
-      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% legislations.each do |legislation| %>
       <tr id=<%= legislation.id %>>
-        <td><%= link_to legislation.title, "https://www.google.com/#q=%22#{legislation.city_identifier}%22" %></td>
+        <td><%= link_to legislation.title, "http://www.google.com/search?q=%22#{legislation.city_identifier}%22", target: "_blank" %></td>
         <!-- <td><%#= legislation.title %></td> -->
         <td><%= legislation.status %></td>
         <td><%= legislation.kind %></td>
