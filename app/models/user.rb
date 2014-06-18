@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   # include Paperclip::Glue
 
   belongs_to :user_address
