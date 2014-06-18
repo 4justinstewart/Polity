@@ -190,17 +190,18 @@ end
 introduced_legislation.shift
 
 introduced_legislation.each do |record|
-  Legislation.create!(
+  legislation = Legislation.create!(
     city_identifier: record["Record #"],
     kind: record["Type"],
     status: record["Status"],
-    opened_date: record["Intro Date"],
-    closed_date: record["Final Action"],
+    opened_date: Date.parse(record["Intro Date"]),
+    closed_date: Date.parse(record["Final Action"]),
     title: record["Title"]
   )
-
+  sponsor = Legislator.find_by_represented_ward_id(record["Main Sponsor's Ward/Office"].to_i)
   LegislationSponsor.create!(
-    sponsor_id:
+    sponsor_id: sponsor.id,
+    legislation_id: legislation.id
   )
 end
 
