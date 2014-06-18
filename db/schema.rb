@@ -120,12 +120,12 @@ ActiveRecord::Schema.define(version: 20140617221446) do
     t.integer  "user_address_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",                                                    null: false
+    t.string   "encrypted_password",     default: "",                                                    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                                                     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 20140617221446) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.text     "img_url"
+    t.text     "img_url",                default: "https://www.myzydeco.com/assets/blank_user_icon.png"
     t.string   "twitter_handle"
     t.string   "oauth_token_twitter"
     t.string   "oauth_secret_twitter"
