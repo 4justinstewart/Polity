@@ -58,3 +58,8 @@
 <h3><%= @community_meeting.address %></h3>
 </div>
 <div id="map-canvas" style="width: 25em; height: 25em"></div>
+<% if current_user.id == @community_meeting.creator_id %>
+  <%= link_to "Delete This Meeting", @community_meeting, method: "delete" %>
+  <%= link_to "Edit This Meeting", edit_community_meeting_path %>
+<% end %>
+<div></div>
