@@ -52,7 +52,7 @@
 <p>lead by: <%= @community_meeting.creator.name %></p>
 <div>
 <h3><%= @community_meeting.date_at.strftime("%B %d %Y") %></h3>
-<p><%= @community_meeting.start_at.to_s(:time) %> - <%= @community_meeting.end_at.to_s(:time) %></p>
+<p><%= @community_meeting.start_at.strftime("%I:%M %p") %> - <%= @community_meeting.end_at.strftime("%I:%M %p") %></p>
 </div>
 
 <h3><%= @community_meeting.address %></h3>
