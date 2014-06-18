@@ -10,7 +10,7 @@ class WardsController < ApplicationController
   # GET /wards/1
   # GET /wards/1.json
   def show
-    @community_meetings = @ward.community_meetings
+    @community_meetings = @ward.community_meetings.order('date_at DESC').limit(10)
     @legislator_votes = @ward.legislator.legislator_votes
     # @community_legislation_support =
   end
