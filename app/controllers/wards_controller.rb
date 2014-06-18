@@ -10,9 +10,18 @@ class WardsController < ApplicationController
   # GET /wards/1
   # GET /wards/1.json
   def show
+
     @community_meetings = @ward.community_meetings
     @legislator_votes = @ward.legislator.legislator_votes
-    @community_legislation_support =
+    # @
+    # @total_ward_voices = legislation.ward_legislation_voices(@ward.id)
+    # @total_ward_support = legislation.ward_legislation_support(@ward.id)
+    # @ward_support_percent = ((@total_ward_support.to_f/@total_ward_voices.to_f).round(2) * 100).floor
+    # @ward_opposition_percent = 100 - @ward_support_percent
+    # legislator = @ward.legislator
+
+
+    # @community_legislation_support =
   end
 
   # GET /wards/new
