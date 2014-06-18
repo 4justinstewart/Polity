@@ -1,3 +1,4 @@
+<section>
 <p id="notice"><%= notice %></p>
 
 <div>
@@ -11,35 +12,16 @@
 <div class="meetings">
 	<h3>Community Meetings</h3>
 	<table>
-		<th>
-			Where
-		</th>
-		<th>
-			When
-		</th>
-		<th>
-			Topic
-		</th>
-		<th>
-			Meeting Leader
-		</th>
+		<th> Where </th>
+		<th> When </th>
+		<th> Topic </th>
+		<th> Meeting Leader </th>
 		<% @community_meetings.each do |meeting| %>
 			<tr>
-				<td>
-					<%= meeting.address %>	
-				</td>
-
-				<td>
-					<%= meeting.time_at %>
-				</td>
-
-				<td>
-					<%= meeting.topic %>
-				</td>
-
-				<td>
-					<%= meeting.creator.name %>
-				</td>
+				<td> <%= meeting.address %> </td>
+				<td> <%= meeting.time_at %> </td>
+				<td> <%= meeting.topic %> </td>
+				<td> <%= meeting.creator.name %> </td>
 			</tr>
 		<% end %>
 	</table>
@@ -53,20 +35,12 @@
 	<h3>Ward <%= @ward.ward_number %> Alderman's Recent Votes</h3>
 
 	<table>
-		<th>
-			Issue			
-		</th>	
-		<th>
-			Alderman Vote
-		</th>
-		<th>
-			Support
-		</th>
+		<th> Issue </th>
+		<th> Alderman Vote </th>
+		<th> Support </th>
 		<% @legislator_votes.each do |vote| %>
 			<tr>
-				<td>
-					<%= vote.legislation.title %>
-				</td>
+				<td> <%= vote.legislation.title %> </td>
 				<td>
 					<% if vote.vote == "Y" %>
 						Pass
@@ -77,10 +51,8 @@
 				<td>
 					<%= vote.legislation.legislation_voices.where(support: true).length %>
 				</td>
-				<td>
-					
-				</td>
 			</tr>
 		<% end %>
 	</table>
 </div>
+</section>
