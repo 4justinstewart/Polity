@@ -22,8 +22,8 @@
     <th>Title</th>
     <th>City Identifier</th>
     <th>Type</th>
-    <th>Opened</th>
-    <th>Closed</th>
+    <!-- <th>Opened</th>
+    <th>Closed</th> -->
     <th>Status</th>
     <% @recently_voted.each do |issue| %>
       <tr>
@@ -39,13 +39,13 @@
           <%= issue.kind %>
         </td>
 
-        <td>
+<!--         <td>
           <%= issue.opened_date %>
         </td>
 
         <td>
           <%= issue.closed_date %>
-        </td>
+        </td> -->
 
         <td>
           <%= issue.status %>

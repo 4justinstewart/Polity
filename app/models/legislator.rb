@@ -15,7 +15,8 @@ class Legislator < ActiveRecord::Base
 			return "Do Not Pass"
 		end
   end
-  
+
+
 end
 
 # response = Net::HTTP.get_response("example.com","/?search=thing&format=json")

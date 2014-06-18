@@ -19,11 +19,13 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :user_address_id %><br>
     <%= f.text_field :user_address_id %>
-  </div>
+  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= form_for(@user) do |f| %>
