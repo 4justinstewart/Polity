@@ -1,0 +1,41 @@
+<%= form_for :user_address, url: user_addresses_path do |f| %>
+        <%= f.fields_for :users do |ff| %>
+              <div><%= ff.label :first_name, "First Name" %><br />
+              <%= ff.text_field :first_name, autofocus: true, value: current_user.first_name %></div>
+
+              <div><%= ff.label :last_name, "Last Name" %><br />
+              <%= ff.text_field :last_name, value: current_user.last_name %></div>
+
+              <div><%= ff.label :img_url, "Image Link" %><br />
+              <%= ff.text_field :img_url, value: current_user.img_url %></div>
+        <% end %>
+
+        <div><h4>Find your ward</h4>
+          <%= render 'ward_finder_nodal' %>
+            <br />
+            <div><%= f.label :ward_id,"Ward Number" %><br />
+            <%= select :user_address, :ward_id, options_for_select([['Ward 1',1],['Ward 2',2],['Ward 3',3],['Ward 4',4],['Ward 5',5],['Ward 6',6],['Ward 7',7],['Ward 8',8],['Ward 9',9],['Ward 10',10],['Ward 11',11],['Ward 12',12],['Ward 13',13],['Ward 14',14],['Ward 15',15],['Ward 16',16],['Ward 17',17],['Ward 18',18],['Ward 19',19],['Ward 20',20],['Ward 21',21],['Ward 22',22],['Ward 23',23],['Ward 24',24],['Ward 25',25],['Ward 26',26], ['Ward 27',27], ['Ward 28',28], ['Ward 29',29], ['Ward 30',30],['Ward 31',31],['Ward 32',32],['Ward 33',33],['Ward 34',34],['Ward 35',35],['Ward 36',36],['Ward 37',37],['Ward 38',38],['Ward 39',39],['Ward 40',40],['Ward 41',41],['Ward 42',42],['Ward 43',43],['Ward 44',44],['Ward 45',45],['Ward 46',46],['Ward 47',47],['Ward 48',48],['Ward 49',49],['Ward 50',50]])%>
+            </div>
+          <h4>Home Address:</h4>
+          <div class="address_form">
+            <div><%= f.label :address1, "Address" %><br />
+            <%= f.text_field :address1, value: current_user.street_address1 %></div>
+
+            <div><%= f.label :address2, "Address" %><br />
+            <%= f.text_field :address2, value: current_user.street_address2 %></div>
+
+            <div><%= label_tag 'City' %><br />
+            <%= text_field_tag 'City', "Chicago" %></div>
+
+            <div><%= label_tag 'State' %><br />
+            <%= text_field_tag 'State', "IL" %></div>
+
+            <div><%= f.label :zip, "Zipcode" %><br />
+            <%= f.text_field :zip, value: current_user.zip %></div>
+          </div>
+
+        </div>
+
+        <div><%= f.submit "Submit" %></div>
+
+<% end %>

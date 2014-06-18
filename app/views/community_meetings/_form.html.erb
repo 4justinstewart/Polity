@@ -1,0 +1,49 @@
+<%= form_for(@community_meeting) do |f| %>
+  <% if @community_meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@community_meeting.errors.count, "error") %> prohibited this community_meeting from being saved:</h2>
+
+      <ul>
+      <% @community_meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :topic %><br>
+    <%= f.text_field :topic, value: @community_meeting.topic %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, value: @community_meeting.description %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, value: @community_meeting.address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, value: @community_meeting.city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state, value: @community_meeting.state %>
+  </div>
+  <div class="field">
+    <%= f.label :date_at, "Date" %><br>
+    <%= f.date_select :date_at, value: @community_meeting.date_at %>
+  </div>
+    <div class="field">
+    <%= f.label :start_at, "Start Time" %><br>
+    <%= f.time_select :start_at, ampm: true, value: @community_meeting.start_at %>
+  </div>
+    <div class="field">
+    <%= f.label :end_at, "End Time" %><br>
+    <%= f.time_select :end_at, ampm: true, value: @community_meeting.end_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

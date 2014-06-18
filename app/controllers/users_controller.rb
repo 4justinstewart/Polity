@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  include UsersHelper
 
   # GET /users
   # GET /users.json
@@ -14,6 +13,14 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = current_user
+    @ward_number = @user.ward_number
+    @alderman = @user.alderman
+    @ward = current_user.ward
+    @alderman_email = current_user.alderman.email
+    @legislator = Legislator.where(alderman_id: @alderman.id).first
+    @recently_voted = @legislator.voted_legislations.order('opened_date DESC').limit(5)
+
+    @user_feedback = @recently_voted.sample
     # verify_community_user
   end
 
@@ -46,7 +53,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      p user_params
+      if @user.update_attributes!(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -66,35 +74,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def ward_number
-    address = UserAddress.find(self.user_address_id)
-    Ward.find_by_id(address.ward_id).ward_number
-  end
-
-  # A USER OBJECT => BUT A PERSON THAT IS AN ALDERMAN (LEGISLATOR tBLE HAS at least one row associated)
-  def alderman
-    address = UserAddress.find(self.user_address_id)
-    current_legislator = Legislator.where(:represented_ward_id => address.ward_id).limit(1) #TODO: REMOVE THIS LIMIT CONSTRAINT THIS LATER WhEN DATE LOGIC IS USEFUL FOR SCOPING CURRENT LEGISLATOR
-    User.find(current_legislator.alderman_id)
-  end
-
-
-  def street_address1
-    address = UserAddress.find(self.user_addres_id)
-    address.address1
-  end
-
-  def street_address2
-    address = UserAddress.find(self.user_addres_id)
-    address.address2
-  end
-
-  def zip
-    address = UserAddress.find(self.user_addres_id)
-    address.zip
-  end
-
-
   private
     #FOR NOW: redirects to homepage if user is also an alderman
     #MUST CHANGE THIS BEHAVIOR IF WE ARE SIGNING IN AS ALDERMAN
@@ -107,11 +86,13 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :user_address_id, :avatar)
+      params.require(:user).permit(:first_name, :last_name, :user_address_id, :img_url, :avatar)
     end
 
     # def verify_community_user
     #   redirect_to '/' if @user.alderman.alderman_id == @user.id
     # end
-
 end
+
+
+

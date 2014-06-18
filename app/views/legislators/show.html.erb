@@ -1,50 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<div class="vote-feedback">
-  <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
-
-    <div>
-      <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post"%>
-    </div>
-    <div>
-      <%= @user_feedback.title %>
-
-    </div>
-    <div>
-      <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post"%>
-      <%= link_to "Leave feedback" %>
-    </div>
-  <% else %>
-    You must live in this ward to leave feedback!
-  <% end %>
-</div>
-
 <div class="alderman-info">
 
   <p>
-    <strong>Alderman:</strong>
-    <%= @legislator.alderman.name %>
+    <strong>Alderman
+      <%= @legislator.alderman.name %>
+    </strong>
   </p>
 
-    <%#= image_tag @legislator.alderman.avatar.url(:medium) %>
+    <%= image_tag @legislator.alderman.img_url %>
   <p>
     <strong>Represented ward:</strong>
     <%= @legislator.represented_ward_id %>
-  </p>
-
-  <p>
-    <strong>Term start date:</strong>
-    <%= @legislator.term_start_date %>
-  </p>
-
-  <p>
-    <strong>Term end date:</strong>
-    <%= @legislator.term_end_date %>
-  </p>
-
-  <p>
-    <strong>Party affiliation:</strong>
-    <%= @legislator.party_affiliation %>
   </p>
 
 </div>
@@ -55,8 +22,8 @@
     <th>Title</th>
     <th>City Identifier</th>
     <th>Type</th>
-    <th>Opened</th>
-    <th>Closed</th>
+    <!-- <th>Opened</th>
+    <th>Closed</th> -->
     <th>Status</th>
     <% @recently_voted.each do |issue| %>
       <tr>
@@ -72,13 +39,13 @@
           <%= issue.kind %>
         </td>
 
-        <td>
+<!--         <td>
           <%= issue.opened_date %>
         </td>
 
         <td>
           <%= issue.closed_date %>
-        </td>
+        </td> -->
 
         <td>
           <%= issue.status %>

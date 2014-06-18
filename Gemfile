@@ -68,6 +68,8 @@ gem 'jquery-turbolinks'
 # User avatar attachments
 gem "paperclip", "~> 4.1"
 
+gem "geocoder"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -79,6 +81,17 @@ gem "paperclip", "~> 4.1"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Allows API credentials to be stored, rather than having to export them to the ENV in the terminal
+# DOCS: http://railsapps.github.io/rails-environment-variables.html
+gem 'figaro'
+
+# Interaction and Oauth via Twitter
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+# Twilio phone calls
+gem 'twilio-ruby'
 
 
 group :development, :test do

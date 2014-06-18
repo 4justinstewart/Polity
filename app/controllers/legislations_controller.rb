@@ -5,10 +5,10 @@ class LegislationsController < ApplicationController
   # GET /legislations.json
   def index
     @legislations = Legislation.all
-    @fresh_legislations = Legislation.where("status = ? AND opened_date > ?", ["active" || "open"], 1.year.ago).order("opened_date DESC")
+    @fresh_legislations = Legislation.where.not("status = ?", "Voted")
 
     #### THIS STILL NEEDS TO BE REFINED ####
-    @past_legislations = Legislation.where("status = ?", ["closed"]).order("opened_date DESC")
+    @voted_legislations = Legislation.where("status = ?", "Voted")
 
   end
 

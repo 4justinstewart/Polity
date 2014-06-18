@@ -1,24 +1,126 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdOTr1UDTUw">
+</script>
+// <script type="text/javascript">
+//     function initialize() {
+//       var mapOptions = {
+//         zoom: 10,
+//         center: new google.maps.LatLng(41.90,-87.65)
+//       };
 
-<p>
-  <strong>Ward number:</strong>
-  <%= @ward.ward_number %>
-</p>
+//       var map = new google.maps.Map(document.getElementById('map-canvas'),
+//           mapOptions);
+//    <% @community_meetings.each do |meeting| %>
+//           var map_meeting = new google.maps.LatLng(<%= meeting.latitude %>, <%= meeting.longitude %>)
+// 	    function createMarker(location, content){
+// 	    	new google.maps.Marker({
+// 			    position: location,
+// 			    map: map,
+// 			    title: content
+// 				});
+// 					console.log("woooooo");
+//           createMarker(map_meeting, "Hiiiiiii");
+//       <%end%>
+//   }
+// 	function loadScript() {
+//     var script = document.createElement('script');
+//     script.type = 'text/javascript';
+//     script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+//         'callback=initialize';
+//     document.body.appendChild(script);
+//   }
 
-<p>
-  <strong>Address1:</strong>
-  <%= @ward.address1 %>
-</p>
+//   window.onload = loadScript;
+// </script>
+<section>
 
-<p>
-  <strong>Address2:</strong>
-  <%= @ward.address2 %>
-</p>
+<!-- <div> -->
+	<!-- <h2> Ward <%#= @ward.ward_number %> Alderman</h2> -->
+	<!-- <p> -->
+		  <!-- <p> -->
+    <!-- <strong>Alderman -->
+      <%#= @ward.legislator.alderman.name %>
+    <!-- </strong> -->
+  <!-- </p> -->
 
-<p>
-  <strong>Zip:</strong>
-  <%= @ward.zip %>
-</p>
+    <%#= image_tag @ward.legislator.alderman.img_url %>
+  <!-- <p> -->
+    <!-- <strong>Represented ward:</strong> -->
+    <%#= mail_to  @ward.legislator.alderman.email, "email #{@ward.legislator.alderman.name}" %>
+  <!-- </p> -->
 
-<%= link_to 'Edit', edit_ward_path(@ward) %> |
-<%= link_to 'Back', wards_path %>
+	<!-- </p> -->
+<!-- </div> -->
+
+<!-- <div> -->
+	<!-- <h2>Ward <%#= @ward.ward_number %> Community</h2> -->
+<!-- </div> -->
+<%# if current_user.ward_number == @ward.ward_number %>
+	<p id="notice"><%= notice %></p>
+
+	<div>
+		<h2>Ward <%= @ward.ward_number %> Community</h2>
+	</div>
+	<% if current_user.ward_number == @ward.ward_number %>
+	<div>
+		<%=link_to "Add A Meeting", new_community_meeting_path %>
+	</div>
+	<% end %>
+	<div class="meetings">
+		<h3>Community Meetings</h3>
+		<table>
+			<th> Topic </th>
+			<th> Where </th>
+			<th> When </th>
+			<th> Meeting Leader </th>
+			<% @community_meetings.each do |meeting| %>
+			<tr>
+				<td> <%= link_to meeting.topic, meeting%> </td>
+				<td> <%= meeting.address %> </td>
+				<td> <%= meeting.date_at %> </td>
+				<% if meeting.creator.twitter_handle %>
+					<td> <%= link_to meeting.creator.name, "https://twitter.com/intent/tweet?text=#{meeting.creator.twitter_handle}", :target => "_blank"  %> </td>
+				<% else %>
+					<td><%= meeting.creator.name %></td>
+				<% end %>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+
+	<!-- <div id="map-canvas" style="width: 25em; height: 25em"> -->
+	<!-- </div> -->
+
+	<div class="alderman-votes">
+		<h2>Ward <%= @ward.ward_number %></h2>
+		<h3>Alderman <%= @ward.alderman.last_name %>'s Recent Votes</h3>
+		<table>
+			<th> Issue </th>
+			<th> Alderman <span class="capitalize"><%= @ward.alderman.last_name %></span>'s Vote </th>
+			<th> Support </th>
+			<% @legislator_votes.each do |vote| %>
+			<tr>
+				<td> <%= vote.legislation.title %> </td>
+				<td>
+					<% if vote.vote == "Y" %>
+					Pass
+					<% else %>
+					Do Not Pass
+					<% end %>
+				</td>
+				<td>
+
+					<div class="bar-graph-indication">
+						<span class="meter ward-legislation-support" style="width:<%= vote.ward_support_percent(@ward.id) %>%">
+							<p><%= vote.ward_support_percent(@ward.id) %></p>
+						</span>
+						<span class = "meter ward-legislation-opposition" style="width: <%= vote.ward_opposition_percent(@ward.id) %>%">
+							<p><%= vote.ward_opposition_percent(@ward.id) %></p>
+						</span>
+					</div>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</section>

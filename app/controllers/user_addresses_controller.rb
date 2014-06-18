@@ -21,15 +21,37 @@ class UserAddressesController < ApplicationController
   def edit
   end
 
+
   # POST /user_addresses
   # POST /user_addresses.json
   def create
-    @user_address = UserAddress.new(user_address_params)
+    puts params
+    current_user_first_name = params["user_address"]["users"]["first_name"]
+    current_user_last_name = params["user_address"]["users"]["last_name"]
+    current_user_img_url = params["user_address"]["users"]["img_url"]
+    user_address_address1 = params["user_address"]["address1"]
+    # puts user_address_ward_id = params["user_address"]["ward_id"]
+    # puts user_address_address2 = params["user_address"]["address2"]
+    # puts user_address_zip = params["user_address"]["zip"]
+
+    if UserAddress.find_by_address1(user_address_address1)
+      @user_address = UserAddress.find_by_address1(user_address_address1)
+      # puts @user_address.address1
+      p @user_address
+      puts "----------------------------------------"
+      @user_address.update_attributes!(user_address_params)
+      # puts @user_address.ward_id
+      # puts @user_address.address1
+    else
+      puts "+++++++++++++++++++++++++++++++"
+      @user_address = UserAddress.create!(user_address_params)
+    end
 
     respond_to do |format|
-      if @user_address.save
-        format.html { redirect_to @user_address, notice: 'User address was successfully created.' }
-        format.json { render :show, status: :created, location: @user_address }
+      if @user_address.valid?
+        current_user.update_attributes(user_address_id: @user_address.id, first_name: current_user_first_name, last_name: current_user_last_name, img_url: current_user_img_url)
+        format.html { redirect_to current_user, notice: 'User address was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user_address.errors, status: :unprocessable_entity }

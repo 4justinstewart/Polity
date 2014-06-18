@@ -1,5 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ApiController do
+RSpec.describe ApiController, :type => :controller do
 
 end
