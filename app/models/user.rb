@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
 
   # include Paperclip::Glue
 
-
   belongs_to :user_address
   has_many :legislation_voices
   has_many :legislators
@@ -31,7 +30,8 @@ class User < ActiveRecord::Base
 
   def ward_number
     address = UserAddress.find(self.user_address_id)
-    Ward.find_by_id(address.ward_id).ward_number
+    p address
+    p Ward.find_by_id(address.ward_id).ward_number
   end
 
   def alderman
@@ -55,4 +55,31 @@ class User < ActiveRecord::Base
     address = UserAddress.find(self.user_address_id)
     address.zip
   end
+
+  def self.ward_members(ward)
+    users = User.select(:user_address_id, :id)
+    users.each_with_object([]) do |user, members|
+      members << user if user.ward.id == ward
+    end
+  end
+
+  def self.ward_member_ids(ward)
+    User.ward_members(ward).each_with_object([]) do |user, ids|
+      ids << user.id
+    end
+  end
+
+  # def legislation_supporter?(legislation)
+  #   true if LegislationVoice.where("user_id = ? AND legislation_id = ? AND support = ?", self.id, legislation.id, true)
+  # end
+
+
+  # def self.by_legislation_support(legislation_id)
+  #   issue_id = Legislation.find(legislation_id).id
+  #   users = User.all
+  #   users.each_with_object([]) do |user, supporters|
+  #     supporters << user if user.legislation_supporter?(issue_id) == true
+  #   end
+  # end
+
 end

@@ -134,6 +134,10 @@ ActiveRecord::Schema.define(version: 20140617221446) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "img_url"
+    t.string   "twitter_handle"
+    t.string   "oauth_token_twitter"
+    t.string   "oauth_secret_twitter"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

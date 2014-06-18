@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   get 'home/index'
 
   post 'legislation_voices/up/:legislation_id' => "legislation_voices#up", as: :legislation_voices_up
-  post 'legislation_voices/down//:legislation_id' => "legislation_voices#down", as: :legislation_voices_down
+  post 'legislation_voices/down/:legislation_id' => "legislation_voices#down", as: :legislation_voices_down
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   root to: 'home#index' # devise will break if you remove this line. By defining your root URL, Devise will use it for its redirection. For example, Devise will redirect the user to the root URL after they sign out from the application.
+
+  get 'users/update_profile/' => 'users#update_profile'
 
 
   resources :legislator_votes
@@ -25,9 +27,18 @@ Rails.application.routes.draw do
   resources :wards
 
   resources :community_meetings, except: [:index]
-  # API controller for iOS interaction
+  # Mobile controller for iOS interaction
 
-  resources :api, only: [:index, :create]
+  resources :mobile, only: [:index]
+
+  # Twitter API routes
+
+  # Twilio
+
+  post 'twilio/call' => 'twilio#call'
+  get 'twilio/talk' => 'twilio#talk'
+
+
 
   #TODO: update these!
   # root to: 'high_voltage/pages#show', id: 'homepage'

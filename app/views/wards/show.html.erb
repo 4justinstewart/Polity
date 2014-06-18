@@ -32,6 +32,7 @@
 
 //   window.onload = loadScript;
 </script>
+<section>
 
 <div>
 	<h2>Ward <%= @ward.ward_number %> Community</h2>
@@ -86,20 +87,12 @@
 	<h3>Ward <%= @ward.ward_number %> Alderman's Recent Votes</h3>
 
 	<table>
-		<th>
-			Issue			
-		</th>	
-		<th>
-			Alderman Vote
-		</th>
-		<th>
-			Support
-		</th>
+		<th> Issue </th>
+		<th> Alderman Vote </th>
+		<th> Support </th>
 		<% @legislator_votes.each do |vote| %>
 			<tr>
-				<td>
-					<%= vote.legislation.title %>
-				</td>
+				<td> <%= vote.legislation.title %> </td>
 				<td>
 					<% if vote.vote == "Y" %>
 						Pass
@@ -111,10 +104,8 @@
 					<%= vote.legislation.legislation_voices.where(support: true).length %>
 					<!-- vote => #LegislatorVote ->  -->
 				</td>
-				<td>
-					
-				</td>
 			</tr>
 		<% end %>
 	</table>
 </div>
+</section>
