@@ -116,6 +116,7 @@ GEM
     ffi (1.9.3)
     formatador (0.2.5)
     full-name-splitter (0.1.2)
+    geocoder (1.2.2)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     growl (1.0.3)
@@ -296,6 +297,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   full-name-splitter (~> 0.1.2)
+  geocoder
   growl
   guard
   guard-rspec

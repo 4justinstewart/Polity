@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617012702) do
+ActiveRecord::Schema.define(version: 20140617221446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,15 @@ ActiveRecord::Schema.define(version: 20140617012702) do
   create_table "community_meetings", force: true do |t|
     t.integer  "creator_id"
     t.string   "address"
-    t.datetime "time_at"
     t.string   "topic"
     t.integer  "ward_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date_at"
+    t.time     "start_at"
+    t.time     "end_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "community_meetings", ["creator_id"], name: "index_community_meetings_on_creator_id", using: :btree
