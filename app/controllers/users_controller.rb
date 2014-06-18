@@ -14,9 +14,13 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @ward_number = @user.ward_number
-    @legislator = @user.alderman
+    @alderman = @user.alderman
     @ward = current_user.ward
     @alderman_email = current_user.alderman.email
+    @legislator = Legislator.where(alderman_id: @alderman.id).first
+    @recently_voted = @legislator.voted_legislations.order('opened_date DESC').limit(5)
+
+    @user_feedback = @recently_voted.sample
     # verify_community_user
   end
 
