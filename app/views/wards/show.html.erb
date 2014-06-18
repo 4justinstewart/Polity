@@ -1,7 +1,7 @@
 <script type="text/javascript"
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdOTr1UDTUw">
 </script>
-<script type="text/javascript">
+// <script type="text/javascript">
 //     function initialize() {
 //       var mapOptions = {
 //         zoom: 10,
@@ -31,7 +31,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 //   }
 
 //   window.onload = loadScript;
-</script>
+// </script>
 <section>
 
 <!-- <div> -->
@@ -76,9 +76,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 			<% @community_meetings.each do |meeting| %>
 			<tr>
 				<td> <%= link_to meeting.topic, meeting%> </td>
-				<td> <%= link_to meeting.address, meeting %> </td>
-				<td> <%= link_to meeting.date_at, meeting %> </td>
-				<td> <%= link_to meeting.creator.name, meeting %> </td>
+				<td> <%= meeting.address %> </td>
+				<td> <%= meeting.date_at %> </td>
+				<% if meeting.creator.twitter_handle %>
+					<td> <%= link_to meeting.creator.name, "https://twitter.com/intent/tweet?text=#{meeting.creator.twitter_handle}", :target => "_blank"  %> </td>
+				<% else %>
+					<td><%= meeting.creator.name %></td>
+				<% end %>
 			</tr>
 			<% end %>
 		</table>
