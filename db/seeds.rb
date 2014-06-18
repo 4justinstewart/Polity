@@ -167,6 +167,45 @@ meetings.each do |meeting|
 end
 
 
+#-----------RECENTLY INTRODUCED LEGISLATION--------------------------------------------
+
+upcoming = File.open(Dir.pwd + "/db/upcoming_legislation.txt", "r")
+
+all_legislations = []
+legislation = []
+introduced_legislation = []
+
+upcoming.each_line do  |line|
+    legislation << line.chomp
+  if legislation.length >= 7
+    all_legislations << legislation
+    legislation = []
+  end
+end
+
+all_legislations.each do |info|
+  introduced_legislation << Hash[all_legislations[0].zip(info)]
+end
+
+introduced_legislation.shift
+
+introduced_legislation.each do |record|
+  Legislation.create!(
+    city_identifier: record["Record #"],
+    kind: record["Type"],
+    status: record["Status"],
+    opened_date: record["Intro Date"],
+    closed_date: record["Final Action"],
+    title: record["Title"]
+  )
+
+  LegislationSponsor.create!(
+    sponsor_id:
+  )
+end
+
+
+
 #-----------RELEVANT FAKER DATA---------------------------------------------------------
 
 all_wards = Ward.all
