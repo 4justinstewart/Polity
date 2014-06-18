@@ -25,11 +25,11 @@
   </div>
     <div class="field">
     <%= f.label :start_at, "Start Time" %><br>
-    <%= f.time_select :start_at %>
+    <%= f.time_select :start_at, ampm: true %>
   </div>
     <div class="field">
     <%= f.label :end_at, "End Time" %><br>
-    <%= f.time_select :end_at %>
+    <%= f.time_select :end_at, ampm: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
