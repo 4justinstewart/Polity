@@ -9,7 +9,7 @@
 
         <h3><%= @user.first_name %> <%= @user.last_name %></h3>
         <div>
-            <%= image_tag @user.avatar.url(:thumb) %> <!-- Or just an image of something?-->
+            <%= image_tag @user.img_url %> <!-- Or just an image of something?-->
         </div>
         <div>
             <h5 class="address">Your Address in Ward <%= @user.ward_number %></h5>
@@ -22,9 +22,8 @@
         </div>
     </div>
     <div class="user_alderman">
-        <h2><%= @user.ward_number %></h2>
         <div>
-            <%= image_tag @user.alderman.avatar.url(:medium) %>
+            <%= image_tag @user.alderman.img_url %>
         </div>
         <div class="alderman_description">
             <h3>Alderman <%= @user.alderman.first_name %> <%= @user.alderman.last_name %></h3>
@@ -36,7 +35,7 @@
 
             <!-- SET UP THE TWILIO AND TWITTER API HERE -->
 
-            <%= button_to "Call #{@legislator.name} Now", twilio_call_path, :params => { alderman_phone: "#{@ward.phone_number}" } %>
+            <%= button_to "Call #{@alderman.name} Now", twilio_call_path, :params => { alderman_phone: "#{@ward.phone_number}" } %>
 
         </div>
     </div>
@@ -48,7 +47,7 @@
         <%= link_to "Give Your Feedback on Legislation", legislations_path %>
     </div>
     <div>
-        <%= link_to "More about your Legislator", legislator_path(@legislator) %>
+        <%= link_to "More about your Legislator", legislator_path(@alderman) %>
     </div>
     <div>
         <%= link_to "See What's Happening in Your Ward...", ward_path(@ward) %>
@@ -58,6 +57,25 @@
 
 
 <section>
+    <div class="vote-feedback">
+      <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
+
+        <div>
+          <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post"%>
+        </div>
+        <div>
+          <%= @user_feedback.title %><br>
+          Your Alderman voted <%= @legislator.issue_vote(@user_feedback) %>
+        </div>
+        <div>
+          <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post"%>
+          <%= link_to "Leave feedback" %>
+        </div>
+      <% else %>
+        You must live in this ward to leave feedback!
+      <% end %>
+    </div>
+
     <div class="card">
         <div class="card-image">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">

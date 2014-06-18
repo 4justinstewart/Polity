@@ -1,38 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<div class="vote-feedback">
-  <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
-
-    <div>
-      <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post"%>
-    </div>
-    <div>
-      <%= @user_feedback.title %><br>
-      Your Alderman voted <%= @legislator.issue_vote(@user_feedback) %>
-    </div>
-    <div>
-      <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post"%>
-      <%= link_to "Leave feedback" %>
-    </div>
-  <% else %>
-    You must live in this ward to leave feedback!
-  <% end %>
-</div>
-
 <div class="alderman-info">
 
   <p>
-    <strong>Alderman:</strong>
-    <%= @legislator.alderman.name %>
+    <strong>Alderman
+      <%= @legislator.alderman.name %>
+    </strong>
   </p>
 
-    <%= image_tag @legislator.alderman.avatar.url(:medium) %>
+    <%= image_tag @legislator.alderman.img_url %>
   <p>
     <strong>Represented ward:</strong>
     <%= @legislator.represented_ward_id %>
   </p>
 
-  <p>
+<!--   <p>
     <strong>Term start date:</strong>
     <%= @legislator.term_start_date %>
   </p>
@@ -45,7 +27,7 @@
   <p>
     <strong>Party affiliation:</strong>
     <%= @legislator.party_affiliation %>
-  </p>
+  </p> -->
 
 </div>
 
