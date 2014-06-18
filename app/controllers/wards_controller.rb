@@ -12,7 +12,7 @@ class WardsController < ApplicationController
   def show
     @community_meetings = @ward.community_meetings
     @legislator_votes = @ward.legislator.legislator_votes
-    @community_legislation_support =
+    # @community_legislation_support =
   end
 
   # GET /wards/new
