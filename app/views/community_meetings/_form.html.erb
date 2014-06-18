@@ -20,8 +20,16 @@
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :time_at %><br>
-    <%= f.datetime_select :time_at %>
+    <%= f.label :date_at, "Date" %><br>
+    <%= f.date_select :date_at %>
+  </div>
+    <div class="field">
+    <%= f.label :start_at, "Start Time" %><br>
+    <%= f.time_select :start_at, ampm: true %>
+  </div>
+    <div class="field">
+    <%= f.label :end_at, "End Time" %><br>
+    <%= f.time_select :end_at, ampm: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
