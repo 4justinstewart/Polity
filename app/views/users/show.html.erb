@@ -7,7 +7,7 @@
 <section>
     <div class="user_profile">
 
-        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+        <h3><%= @user.name %></h3>
         <div>
             <%= image_tag @user.img_url %> <!-- Or just an image of something?-->
         </div>
@@ -26,7 +26,7 @@
             <%= image_tag @alderman.img_url %>
         </div>
         <div class="alderman_description">
-            <h3>Alderman <%= @user.alderman.first_name %> <%= @user.alderman.last_name %></h3>
+            <h3>Alderman <%= @user.alderman.name %></h3>
             <ul>
                 <li><%= @ward.address1.titleize %></li>
                 <li>Chicago, IL</li>
