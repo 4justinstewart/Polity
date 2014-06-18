@@ -33,6 +33,10 @@ Rails.application.routes.draw do
 
   # Twitter API routes
 
+  # Twilio
+
+  post 'twilio/call' => 'twilio#call'
+  get 'twilio/talk' => 'twilio#talk'
 
 
 
