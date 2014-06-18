@@ -22,11 +22,11 @@
 	    createMarker(meeting_location, content);
 
 	    // tam's notes
-	    
+
 	    // function createMultipleMarkers (arrayOfMeetings) {
 	    // 	arrayOfMeetings.forEach(mtg, function( ){
 	    // 		createMarker(mtg.location, mtg.content);
-	    // 	})	
+	    // 	})
 	    // }
 	    // var allMeetings = (<%@all_community_meetings%>)
 	    // createMultipleMarkers();
@@ -48,18 +48,21 @@
     window.onload = loadScript;
   </script>
 <div class="meeting-details">
-<h2><%= @community_meeting.topic %></h2>
-<p>lead by: <%= @community_meeting.creator.name %></p>
+<h1><%= @community_meeting.topic %></h1>
+<h3>Organizer: <%= @community_meeting.creator.name %></h3>
 <div>
-<h3><%= @community_meeting.date_at.strftime("%B %d %Y") %></h3>
-<p><%= @community_meeting.start_at.strftime("%I:%M %p") %> - <%= @community_meeting.end_at.strftime("%I:%M %p") %></p>
+<h4><%= @community_meeting.date_at.strftime("%B %d %Y") %></h4>
+<h4><%= @community_meeting.start_at.strftime("%I:%M %p") %> - <%= @community_meeting.end_at.strftime("%I:%M %p") %></h4>
+<p><%= @community_meeting.description %></p>
 </div>
 
 <h3><%= @community_meeting.address %></h3>
 </div>
+
+
 <div id="map-canvas" style="width: 25em; height: 25em"></div>
 <% if current_user.id == @community_meeting.creator_id %>
-  <%= link_to "Delete This Meeting", @community_meeting, method: "delete" %>
+  <%= button_to "Delete This Meeting", community_meeting_path, method: :delete%>
   <%= link_to "Edit This Meeting", edit_community_meeting_path %>
 <% end %>
 <div></div>

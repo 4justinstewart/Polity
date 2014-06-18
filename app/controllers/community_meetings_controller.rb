@@ -13,6 +13,7 @@ class CommunityMeetingsController < ApplicationController
 
   # GET /community_meetings/1/edit
   def edit
+    @community_meeting = CommunityMeeting.find(params[:id])
   end
 
   # POST /community_meetings
@@ -49,9 +50,10 @@ class CommunityMeetingsController < ApplicationController
   # DELETE /community_meetings/1
   # DELETE /community_meetings/1.json
   def destroy
+    @community_meeting = set_community_meeting
     @community_meeting.destroy
     respond_to do |format|
-      format.html { redirect_to community_meetings_url, notice: 'Community meeting was successfully destroyed.' }
+      format.html { redirect_to ward_path(current_user.ward), notice: 'Community meeting was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,6 +66,6 @@ class CommunityMeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_meeting_params
-      params.require(:community_meeting).permit(:creator_id, :address, :date_at, :start_at, :end_at, :topic, :ward_id)
+      params.require(:community_meeting).permit(:creator_id, :address, :date_at, :start_at, :end_at, :topic, :ward_id, :description, :city, :state)
     end
 end
