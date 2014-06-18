@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140618203546) do
     t.date     "closed_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
+    t.text     "title"
   end
 
   add_index "legislations", ["city_identifier"], name: "index_legislations_on_city_identifier", using: :btree

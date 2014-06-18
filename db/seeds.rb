@@ -194,13 +194,15 @@ introduced_legislation.each do |record|
     city_identifier: record["Record #"],
     kind: record["Type"],
     status: record["Status"],
-    opened_date: Date.parse(record["Intro Date"]),
-    closed_date: Date.parse(record["Final Action"]),
+    opened_date: record["Intro Date"],
+    closed_date: record["Final Action"],
     title: record["Title"]
   )
-  sponsor = Legislator.find_by_represented_ward_id(record["Main Sponsor's Ward/Office"].to_i)
+  alderman = Legislator.find_by_represented_ward_id(record["Main Sponsor's Ward/Office"].to_i)
+  sponsor = alderman ? alderman.id : nil
+
   LegislationSponsor.create!(
-    sponsor_id: sponsor.id,
+    sponsor_id: sponsor,
     legislation_id: legislation.id
   )
 end
