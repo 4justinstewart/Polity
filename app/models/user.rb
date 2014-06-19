@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   def ward_number
     address = UserAddress.find(self.user_address_id)
     address
-    Ward.find_by_id(address.ward_id).ward_numberbun
+    Ward.find_by_id(address.ward_id).ward_number
   end
 
   def alderman
