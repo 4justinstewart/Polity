@@ -1,6 +1,6 @@
 class LegislatorsController < ApplicationController
   before_action :set_legislator, only: [:show, :edit, :update, :destroy]
-
+  include LegislatorsHelper
   # GET /legislators
   # GET /legislators.json
   def index
@@ -11,8 +11,7 @@ class LegislatorsController < ApplicationController
   # GET /legislators/1.json
   def show
     @recently_sponsored = @legislator.sponsored_legislations.order('opened_date DESC').limit(5)
-    @recently_voted = @legislator.voted_legislations.order('opened_date DESC').limit(5)
-    @user_feedback = @recently_voted.sample
+    @recently_voted = @legislator.voted_legislations.order('opened_date DESC').limit(10)
   end
 
   # GET /legislators/new

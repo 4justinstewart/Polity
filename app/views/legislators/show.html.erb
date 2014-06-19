@@ -24,11 +24,10 @@
   <h3>Recently Voted</h3>
   <table>
     <th>Title</th>
-    <th>City Identifier</th>
     <th>Type</th>
-    <!-- <th>Opened</th>
-    <th>Closed</th> -->
-    <th>Status</th>
+    <th><%= @legislator.alderman.last_name.capitalize %>'s Vote</th>
+    <th>Your Voice</th>
+    <th>Overall City Voice</th>
     <% @recently_voted.each do |issue| %>
       <tr>
         <td>
@@ -36,23 +35,23 @@
         </td>
 
         <td>
-          <%= issue.city_identifier %>
-        </td>
-
-        <td>
           <%= issue.kind %>
         </td>
 
-<!--         <td>
-          <%= issue.opened_date %>
+        <td>
+          <%= @legislator.return_legislation_vote(issue.id) %>
         </td>
 
         <td>
-          <%= issue.closed_date %>
-        </td> -->
+          <% if current_user.legislation_supporter?(issue) %>
+            <%= current_user.return_legislation_voice(issue) %>
+          <% else %>
+            <%= link_to "Learn More Now", legislations_path %>
+          <% end %>
+        </td>
 
         <td>
-          <%= issue.status %>
+          <%= issue.overall_legislation_voices(current_user) %>
         </td>
       </tr>
     <% end %>
