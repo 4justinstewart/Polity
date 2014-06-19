@@ -128,8 +128,11 @@ group :development do
   # gem "growlnotify"
 end
 
+gem 'faker'
 
 gem 'rails_12factor', group: :production
+
+#used in Heroku Deployment specifically
+gem 'aws-sdk'
 ruby "2.1.1"
 
-gem 'faker'
