@@ -1,170 +1,87 @@
 <section>
-<h1>Ward <%= @user.ward_number %></h1>
-<div class="grid-items-lines">
-  <div class="grid-item">
+<h1 class="block-title">Ward <%= @user.ward_number %></h1>
+<hr>
+<div class="grid-items">
+  <div class="grid-item grid-item-big-tall">
     <%= image_tag @user.img_url %>
     <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-    Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.
-  </div>
-  <div class="grid-item">
-    <h1>Another Item</h1>
-    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit.</p>
-  </div>
-  <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>Another Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit.</p>
-  </div>
-  <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </div>
-  <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>Wider Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
-  </div>
-  <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
-    <h1>A Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </div>
-  <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
-    <h1>Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </div>
-  <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
-    <h1>Last Grid Item</h1>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-  </div>
-  <div class="right-cover"></div>
-  <div class="bottom-cover"></div>
-</div>
-</section>
 
-
-
-
-
-
-<section>
-    <div class="user_profile">
-
-        <h3><%= @user.name %></h3>
-        <div>
-            <%= image_tag @user.img_url %> <!-- Or just an image of something?-->
-        </div>
-        <div>
-            <h5 class="address">Your Address in Ward <%= @user.ward_number %></h5>
+    <h5 class="address">Your Address in Ward <%= @user.ward_number %></h5>
                 <ul>
                     <li><%= @user.street_address1.titleize %></li>
                     <li>Chicago, IL</li>
                     <li><%= @user.zip %></li>
                 </ul>
-            <div>Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.</div>
-        </div>
-    </div>
-    <div class="user_alderman">
-        <div>
-            <%= image_tag @alderman.img_url %>
-        </div>
-        <div class="alderman_description">
-            <h3>Alderman <%= @user.alderman.name %></h3>
-            <ul>
-                <li><%= @ward.address1.titleize %></li>
-                <li>Chicago, IL</li>
-                <li><%= @ward.zip %></li>
-            </ul>
-            <h4><%= @ward.phone_number %></h4>
-        </div>
-        <div>
-            <h2>GET IN TOUCH WITH YOUR ALDERMAN NOW</h2>
-            <%= mail_to @alderman_email, "Send a Quick Message", subject: "CONSTITUENT FEEDBACK from #{current_user.name}", body: "Hi Alderman #{@alderman.name}, \n\n\n\n I look forward to your response,\n\n#{current_user.name}" %>
+                <p>Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.</p>
 
-            <%= link_to "Tweet at your alderman", "https://twitter.com/intent/tweet?text=#{@alderman.twitter_handle}", :target => "_blank" %>
 
-            <!-- SET UP THE TWILIO AND TWITTER API HERE -->
-            <%= button_to "Call #{@alderman.name} Now", twilio_call_path, :params => { alderman_phone: "#{@ward.phone_number}" } %>
+  </div>
+  <div class="grid-item grid-item-big-tall grid-item-big">
+    <h2>Grid Item With an Image</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
+  </div>
 
-        </div>
-    </div>
+  <div class="grid-item grid-item-big" style="clear: right;">
+    <h2>Last Grid Item</h2>
+    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+  </div>
 
+    <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
+    <h2>Another Wide Item</h2>
+    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
+  </div>
+
+
+  <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
+    <h2>A Grid Item</h2>
+    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+  </div>
+
+  <div class="grid-item grid-item-big-tall">
+    <a class="twitter-timeline" href="https://twitter.com/PolityChi/lists/chicago" data-widget-id="479470480403857408">Tweets from https://twitter.com/PolityChi/lists/chicago</a>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.s...":\/platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+
+
+
+
+
+
+
+</div>
 </section>
-
-</section>
-    <div class="voice_up">
-        <%= link_to "Give Your Feedback on Legislation", legislations_path %>
-    </div>
-    <div>
-        <%= link_to "More about your Legislator", legislator_path(@alderman) %>
-    </div>
-    <div>
-        <%= link_to "See What's Happening in Your Ward...", ward_path(@ward) %>
-    </div>
-</section>
-
-
 
 <section>
-    <div class="vote-feedback">
-      <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
-
-        <div>
-          <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post", id: "vote-up"%>
-        </div>
-        <div>
-          <%= @user_feedback.title %><br>
-          Your Alderman voted <%= @legislator.issue_vote(@user_feedback) %>
-        </div>
-        <div>
-          <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post", id: "vote-down" %>
-        </div>
-          <%= link_to "Leave detailed feedback", new_legislation_voice_path(legislation: @user_feedback.id) %>
-      <% else %>
-        You must live in this ward to leave feedback!
-      <% end %>
-    </div>
+    <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/PolityChi/lists/chicago" data-widget-id="479470480403857408">Tweets from https://twitter.com/PolityChi/lists/chicago</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
 
 
 
 
 
 
-<!-- -->
-    <!-- <section>
-    <div class="grid-items">
-        <div class="grid-item">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-            <h1>Grid Item</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-        </a>
-        <div class="grid-item grid-item-big grid-item-image">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
-            <h1>Grid Item With an Image</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
-        </a>
-        <div class="grid-item">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-            <h1>Another Wide Item</h1>
-            <p>Lorem ipsum consectetur dolor sit amet.</p>
-        </a>
-        <div class="grid-item grid-item-big">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
-            <h1>Last Grid Item</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-        </a>
-        <div class="grid-item grid-item-big">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
-            <h1>Last Grid Item</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-        </a>
-        <div class="grid-item">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-            <h1>A Grid Item</h1>
-            <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
-        </a>
-    </div>
-</section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
