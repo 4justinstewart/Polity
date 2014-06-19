@@ -57,6 +57,26 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
 
+
+
+# For Amazon S3 usage with Paperclip
+#
+
+config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['polity_chi_heroku_deploy_attempt'],
+    :access_key_id => ENV['AKIAIYA77ZKVWH37H2QA'],
+    :secret_access_key => ENV['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']
+  }
+}
+
+
+
+
+
+
+
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )

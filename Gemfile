@@ -133,6 +133,8 @@ gem 'faker'
 gem 'rails_12factor', group: :production
 
 #used in Heroku Deployment specifically
-gem 'aws-sdk'
+# gem 'aws-sdk'
+
+gem "paperclip-dropbox", ">=1.1.7"
 ruby "2.1.1"
 
