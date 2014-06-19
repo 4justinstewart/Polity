@@ -34,36 +34,15 @@ class User < ActiveRecord::Base
   end
 
   def ward_number
-    address_ward_number = user_address.try(:ward_id)
-
-    @ward ? Ward.find_by_id(address_ward_number).ward_number  : nil
-
-      # if Ward.find_by_id(address_ward_number).number
-      #   Ward.find_by_id(address_ward_number).number
-      # else
-      #   nil
-      # end
-    # address = UserAddress.find(self.user_address_id)
-    # # p address
-    # p Ward.find_by_id(address.ward_id).ward_number
+    address = UserAddress.find(self.user_address_id)
+    p address
+    p Ward.find_by_id(address.ward_id).ward_number
   end
 
   def alderman
-    # address = UserAddress.find(self.user_address_id)
-    # current_legislator = Legislator.where(:represented_ward_id => address.ward_id).first
-    # User.find(current_legislator.alderman_id)
-
-    # find a detail that helps us determine
-
-    address_ward_number = user_address.try(:ward_id)
-    puts "address ward number:  #{address_ward_number}"
-    @ward ? Ward.find_by_id(address_ward_number).ward_number  : nil
-    puts "@ward:  #{@ward}"
-    if @ward
-      current_legislator = Legislator.where(:represented_ward_id => address_ward_number).first
-    else
-      nil
-    end
+    address = UserAddress.find(self.user_address_id)
+    current_legislator = Legislator.where(:represented_ward_id => address.ward_id).first
+    User.find(current_legislator.alderman_id)
   end
 
 
