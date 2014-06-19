@@ -16,8 +16,8 @@ class TwilioController < ApplicationController
       :method => 'GET',
       :fallback_method => 'GET',
       :status_callback_method => 'GET',
-      :record => 'false',
-      :url =>
+      :record => 'false'
+      #:url =>
     })
     puts call
     render none
