@@ -11,10 +11,10 @@
       <% end %>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
-        <li class="nav-link more"><a href="javascript:void(0)">More</a>
+        <li class="nav-link"><a href="/users/<%= current_user.id %>">Dashboard</a></li>
+        <li class="nav-link"><a href="/legislators/<%= current_user.alderman.id %>">Meet Your Alderman</a></li>
+        <li class="nav-link"><a href="/legislations">Legislation Voices</a></li>
+        <li class="nav-link more"><a href="/wards/<%= current_user.ward.id %>">Community Connections</a>
         </li>
       </ul>
     </div>
