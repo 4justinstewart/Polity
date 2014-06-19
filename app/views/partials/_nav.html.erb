@@ -10,7 +10,7 @@
         <p><%= link_to "Sign In", new_user_session_path, class: "navigation-menu-button" %></p>
       <% end %>
     <div class="nav">
-      <% if current_user %>
+      <% if current_user && current_user.street_address1 %>
         <ul id="navigation-menu">
           <li class="nav-link"><a href="/users/<%= current_user.id %>">Dashboard</a></li>
           <li class="nav-link"><a href="/legislators/<%= current_user.alderman.id %>">Meet Your Alderman</a></li>
