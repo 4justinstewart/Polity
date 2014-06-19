@@ -34,13 +34,27 @@ class User < ActiveRecord::Base
   end
 
   def ward_number
-    address = UserAddress.find(self.user_address_id)
-    p address
-    p Ward.find_by_id(address.ward_id).ward_number
+    address_ward_number = user_address.try(:ward_number)
+
+    @ward ? Ward.find_by_id(address_ward_number).number  : nil
+
+    # if Ward.find_by_id(address_ward_number).number
+    #   Ward.find_by_id(address_ward_number).number
+    # else
+    #   nil
+    # end
+    # address = UserAddress.find(self.user_address_id)
+    # # p address
+    # p Ward.find_by_id(address.ward_id).ward_number
   end
 
   def alderman
-    address = UserAddress.find(self.user_address_id)
+
+    if address_ward_number = user_address.try(:ward_number)
+      current_legislator = Legislator.where(:represented_ward_id => address.ward_id).first
+    @alderman ? Legislator.where(address_ward_number).number  : nil
+
+    # address = UserAddress.find(self.user_address_id)
     current_legislator = Legislator.where(:represented_ward_id => address.ward_id).first
     User.find(current_legislator.alderman_id)
   end
