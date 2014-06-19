@@ -30,9 +30,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    annotate (2.6.5)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     better_errors (1.1.0)
@@ -52,8 +49,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    celluloid (0.15.2)
-      timers (~> 1.1.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -72,18 +67,6 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
-    cucumber (1.3.15)
-      builder (>= 2.1.2)
-      diff-lcs (>= 1.1.3)
-      gherkin (~> 2.12)
-      multi_json (>= 1.7.5, < 2.0)
-      multi_test (>= 0.1.1)
-    cucumber-rails (1.4.1)
-      capybara (>= 1.1.2, < 3)
-      cucumber (>= 1.3.8, < 2)
-      mime-types (~> 1.16)
-      nokogiri (~> 1.5)
-      rails (>= 3, < 5)
     database_cleaner (1.3.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -102,28 +85,13 @@ GEM
       railties (>= 3.0.0)
     faker (1.3.0)
       i18n (~> 0.5)
-    ffi (1.9.3)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    formatador (0.2.5)
     full-name-splitter (0.1.2)
     geocoder (1.2.2)
-    gherkin (2.12.2)
-      multi_json (~> 1.3)
-    growl (1.0.3)
-    guard (2.6.1)
-      formatador (>= 0.2.4)
-      listen (~> 2.7)
-      lumberjack (~> 1.0)
-      pry (>= 0.9.12)
-      thor (>= 0.18.1)
-    guard-rspec (4.2.10)
-      guard (~> 2.1)
-      rspec (>= 2.14, < 4.0)
     hashie (2.1.2)
     hike (1.2.3)
-    hirb (0.7.2)
     i18n (0.6.9)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
@@ -138,20 +106,13 @@ GEM
     jwt (1.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
-    listen (2.7.8)
-      celluloid (>= 0.15.2)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-    lumberjack (1.0.6)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.3.4)
+    minitest (5.3.5)
     multi_json (1.10.1)
-    multi_test (0.1.1)
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
@@ -175,18 +136,11 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.5)
-    pry (0.10.0)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
-    pry-rails (0.3.2)
-      pry (>= 0.9.10)
-    quiet_assets (1.0.2)
+    quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    railroady (1.1.1)
     rails (4.1.1)
       actionmailer (= 4.1.1)
       actionpack (= 4.1.1)
@@ -204,16 +158,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
     rb-fsevent (0.9.4)
-    rb-inotify (0.9.5)
-      ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rspec (3.0.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
     rspec-core (3.0.1)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.1)
@@ -246,7 +194,6 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    slop (3.5.0)
     spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -262,7 +209,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timers (1.1.0)
     tins (1.3.0)
     treetop (1.4.15)
       polyglot
@@ -289,14 +235,12 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
-  annotate
   better_errors
   bitters
   bourbon
   capybara
   coffee-rails (~> 4.0.0)
   coveralls
-  cucumber-rails
   database_cleaner
   devise
   factory_girl_rails
@@ -304,10 +248,6 @@ DEPENDENCIES
   figaro
   full-name-splitter (~> 0.1.2)
   geocoder
-  growl
-  guard
-  guard-rspec
-  hirb
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
@@ -317,12 +257,10 @@ DEPENDENCIES
   omniauth-twitter
   paperclip (~> 4.1)
   pg
-  pry-rails
   quiet_assets
-  railroady
   rails (= 4.1.1)
   rb-fsevent
-  rspec-rails
+  rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda-matchers

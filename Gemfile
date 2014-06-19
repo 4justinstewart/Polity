@@ -92,21 +92,23 @@ gem 'omniauth-twitter'
 # Twilio phone calls
 gem 'twilio-ruby'
 
+# gem 'rails_helper'
+
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0'
   # gem 'jasmine'
   # gem 'jasminerice', :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'coveralls', require: false
-  gem 'cucumber-rails', :require => false
+  # gem 'cucumber-rails', :require => false
   gem "capybara"
   gem 'faker'
   gem 'better_errors'
-  gem 'hirb'
-  gem 'annotate'
+  # gem 'hirb'
+  # gem 'annotate'
   # gem 'rack-mini-profiler'
-  gem 'railroady'
-  gem 'pry-rails'
+  # gem 'railroady'
+  # gem 'pry-rails'
 end
 
 
@@ -120,10 +122,10 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'activerecord-import'
-  gem 'guard'
-  gem 'guard-rspec'
+  # gem 'guard'
+  # gem 'guard-rspec'
   gem 'rb-fsevent'
-  gem "growl"
+  # gem "growl"
   # gem "growlnotify"
 end
 
