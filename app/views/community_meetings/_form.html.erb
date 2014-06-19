@@ -32,6 +32,10 @@
     <%= f.text_field :state, value: @community_meeting.state %>
   </div>
   <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip, value: @community_meeting.zip %>
+  </div>
+  <div class="field">
     <%= f.label :date_at, "Date" %><br>
     <%= f.date_select :date_at, value: @community_meeting.date_at %>
   </div>

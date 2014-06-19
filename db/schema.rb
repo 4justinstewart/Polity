@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618203546) do
+ActiveRecord::Schema.define(version: 20140619215802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140618203546) do
     t.text     "description"
     t.string   "city",        default: "Chicago"
     t.string   "state",       default: "IL"
+    t.string   "zip"
   end
 
   add_index "community_meetings", ["creator_id"], name: "index_community_meetings_on_creator_id", using: :btree
