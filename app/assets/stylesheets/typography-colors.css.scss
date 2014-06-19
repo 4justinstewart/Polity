@@ -19,6 +19,13 @@ $dark-grey: #2a3145;
 $chicago-red: #f03b3c;
 $chicago-blue: #69b1d6;
 
+//accents
+$body-grey: #798291;
+$electric-blue: #4a93f3;
+$orange: #f3a828;
+$green: #4dc049;
+$purple: #ac61d0;
+$medium-blue: #2c5999;
 
 $base-border-radius: em(.5);
 
@@ -57,9 +64,16 @@ header.navigation .navigation-menu-button.nav-menu {
   margin-left: .5em;
 }
 
+body {
+  margin: 0;
+}
 
 
-
+th {
+  font-family: benchninebold;
+  font-size: 160%;
+  text-transform: uppercase;
+}
 
 
 

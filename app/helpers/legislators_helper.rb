@@ -5,5 +5,4 @@ module LegislatorsHelper
     User.where(user_address_id: address_ids)
   end
 
-  
 end

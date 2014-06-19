@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+ will_paginate:
+    previous_label: "&lsaquo;"
+    next_label: "&rsaquo;"
