@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   # include Paperclip::Glue
 
   belongs_to :user_address
@@ -42,18 +41,24 @@ class User < ActiveRecord::Base
 
 
   def street_address1
-    address = UserAddress.find(self.user_address_id)
-    address.address1
+    user_address.try(:address1)
+    # WE MAY NEED THIS...............DON"T DELETE WITHOUT CONSULTING GROUP
+    # address = UserAddress.find(self.user_address_id)
+    # address.address1
   end
 
   def street_address2
-    address = UserAddress.find(self.user_address_id)
-    address.address2
+    user_address.try(:address2)
+    # WE MAY NEED THIS...............DON"T DELETE WITHOUT CONSULTING GROUP
+    # address = UserAddress.find(self.user_address_id)
+    # address.address2
   end
 
   def zip
-    address = UserAddress.find(self.user_address_id)
-    address.zip
+    user_address.try(:zip)
+    # WE MAY NEED THIS...............DON"T DELETE WITHOUT CONSULTING GROUP
+    # address = UserAddress.find(self.user_address_id)
+    # address.zip
   end
 
   def self.ward_members(ward)

@@ -2,7 +2,7 @@
 <script type="text/javascript"
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdOTr1UDTUw">
 </script>
-<script type="text/javascript">
+// <script type="text/javascript">
 //     function initialize() {
 //       var mapOptions = {
 //         zoom: 10,
@@ -32,10 +32,34 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 //   }
 
 //   window.onload = loadScript;
+
 </script>
 <% end %>
-<section>
 
+
+<!-- <div> -->
+	<!-- <h2> Ward <%#= @ward.ward_number %> Alderman</h2> -->
+	<!-- <p> -->
+		  <!-- <p> -->
+    <!-- <strong>Alderman -->
+      <%#= @ward.legislator.alderman.name %>
+    <!-- </strong> -->
+  <!-- </p> -->
+
+    <%#= image_tag @ward.legislator.alderman.img_url %>
+  <!-- <p> -->
+    <!-- <strong>Represented ward:</strong> -->
+    <%#= mail_to  @ward.legislator.alderman.email, "email #{@ward.legislator.alderman.name}" %>
+  <!-- </p> -->
+
+	<!-- </p> -->
+<!-- </div> -->
+
+<!-- <div> -->
+	<!-- <h2>Ward <%#= @ward.ward_number %> Community</h2> -->
+<!-- </div> -->
+<%# if current_user.ward_number == @ward.ward_number %>
+<section>
 	<p id="notice"><%= notice %></p>
 
 	<div>
@@ -56,17 +80,23 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 			<% @community_meetings.each do |meeting| %>
 			<tr>
 				<td> <%= link_to meeting.topic, meeting%> </td>
-				<td> <%= link_to meeting.address, meeting %> </td>
-				<td> <%= link_to meeting.date_at, meeting %> </td>
-				<td> <%= link_to meeting.creator.name, meeting %> </td>
+				<td> <%= meeting.address %> </td>
+				<td> <%= meeting.date_at %> </td>
+				<% if meeting.creator.twitter_handle %>
+					<td> <%= link_to meeting.creator.name, "https://twitter.com/intent/tweet?text=#{meeting.creator.twitter_handle}", :target => "_blank"  %> </td>
+				<% else %>
+					<td><%= meeting.creator.name %></td>
+				<% end %>
 			</tr>
 			<% end %>
 		</table>
 	</div>
+</section>
 
 	<!-- <div id="map-canvas" style="width: 25em; height: 25em"> -->
 	<!-- </div> -->
 
+<section>
 	<div class="alderman-votes">
 		<h2>Ward <%= @ward.ward_number %></h2>
 		<h3>Alderman <%= @ward.alderman.last_name %>'s Recent Votes</h3>

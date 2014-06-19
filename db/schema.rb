@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617221446) do
+ActiveRecord::Schema.define(version: 20140618203546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20140617221446) do
     t.time     "end_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "description"
+    t.string   "city",        default: "Chicago"
+    t.string   "state",       default: "IL"
   end
 
   add_index "community_meetings", ["creator_id"], name: "index_community_meetings_on_creator_id", using: :btree
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140617221446) do
     t.date     "closed_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
+    t.text     "title"
   end
 
   add_index "legislations", ["city_identifier"], name: "index_legislations_on_city_identifier", using: :btree
