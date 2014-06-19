@@ -10,9 +10,9 @@ class Legislator < ActiveRecord::Base
   has_many :voted_legislations, :through => :legislator_votes, :source => :legislation
 
   def issue_vote(legislation)
-		if self.legislator_votes.find_by_legislation_id(legislation.id).vote == "Y"
+		if self.legislator_votes.find_by_legislation_id(legislation).vote == "Y"
   		return "Pass"
-  	elsif self.legislator_votes.find_by_legislation_id(legislation.id).vote == "N"
+  	elsif self.legislator_votes.find_by_legislation_id(legislation).vote == "N"
 			return "Do Not Pass"
 		end
   end

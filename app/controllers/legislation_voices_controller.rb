@@ -1,41 +1,24 @@
 class LegislationVoicesController < ApplicationController
   before_action :set_legislation_voice, only: [:show, :edit, :update, :destroy]
 
-  def up
+def up
+    @legislator = Legislator.find_by(alderman_id:current_user.alderman.id)
+    @user_feedback = @legislator.voted_legislations.order('opened_date DESC').limit(5).sample
+    @legislator_vote = @legislator.issue_vote(@user_feedback.id)
     unless current_user.legislation_voices.find_by_legislation_id(params[:legislation_id])
-      @legislation_voice = current_user.legislation_voices.new(legislation_id: params[:legislation_id], support: true)
-      puts "***********HERE WE ARE"
-      puts current_user
-      respond_to do |format|
-        if @legislation_voice.save
-          format.html { render notice: 'Legislation voice was successfully created.' }
-          format.json { render :show, status: :created, location: @legislation_voice }
-        else
-          format.html { render :new }
-          format.json { render json: @legislation_voice.errors, status: :unprocessable_entity }
-        end
-      end
+      @legislation_voice = current_user.legislation_voices.create(legislation_id: params[:legislation_id], support: true)
     end
-
-    redirect_to current_user
+    render json: {feedback: @user_feedback, vote: @legislator_vote}
   end
 
   def down
+    @legislator = Legislator.find_by(alderman_id:current_user.alderman.id)
+    @user_feedback = @legislator.voted_legislations.order('opened_date DESC').limit(5).sample
+    @legislator_vote = @legislator.issue_vote(@user_feedback.id)
     unless current_user.legislation_voices.find_by_legislation_id(params[:legislation_id])
-      @legislation_voice = current_user.legislation_voices.new(legislation_id: params[:legislation_id], support: false)
-
-      respond_to do |format|
-        if @legislation_voice.save
-          format.html { render notice: 'Legislation voice was successfully created.' }
-          format.json { render :show, status: :created, location: @legislation_voice }
-        else
-          format.html { render :new }
-          format.json { render json: @legislation_voice.errors, status: :unprocessable_entity }
-        end
-      end
+      @legislation_voice = current_user.legislation_voices.create(legislation_id: params[:legislation_id], support: false)
     end
-
-    redirect_to current_user
+    render json: {feedback: @user_feedback, vote: @legislator_vote}
   end
 
 
