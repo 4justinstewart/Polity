@@ -1,7 +1,7 @@
 
 <header class="navigation">
   <div class="menu-wrapper">
-    <%= link_to image_tag("/assets/logos/polity_logo_bg.png"), root_path, class: "logo" %>
+    <%= link_to image_tag("https://s3.amazonaws.com/polity_chi_heroku_deploy_attempt/polity_logo_bg.png"), root_path, class: "logo" %>
     <p class="navigation-menu-button nav-menu" id="js-mobile-menu">MENU</p>
       <% if user_signed_in? %>
         <p><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navigation-menu-button" %></p>

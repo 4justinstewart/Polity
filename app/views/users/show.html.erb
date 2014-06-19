@@ -1,18 +1,19 @@
 <section>
-<h1 class="block-title">Ward <%= @user.ward_number %></h1>
+<h1 class="block-title">City of Chicago ✶ Ward <%= @user.ward_number %></h1>
 <hr>
 <div class="grid-items">
   <div class="grid-item grid-item-big-tall">
     <%= image_tag @user.img_url %>
+    <div class="user-info">
     <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-
-    <h5 class="address">Your Address in Ward <%= @user.ward_number %></h5>
-                <ul>
-                    <li><%= @user.street_address1.titleize %></li>
-                    <li>Chicago, IL</li>
-                    <li><%= @user.zip %></li>
-                </ul>
-                <p>Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.</p>
+    <h5 class="address">Ward <%= @user.ward_number %> Address</h5>
+      <ul>
+          <li><%= @user.street_address1.titleize %></li>
+          <li>Chicago, IL</li>
+          <li><%= @user.zip %></li>
+      </ul>
+      </div>
+      <p>Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.</p>
 
 
   </div>
@@ -26,23 +27,18 @@
     <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
   </div>
 
-    <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-    <h2>Another Wide Item</h2>
-    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
+    <div class="grid-item grid-item-big-tall">
+        <a class="twitter-timeline" href="https://twitter.com/PolityChi/lists/chicago" data-widget-id="479470480403857408">Tweets from https://twitter.com/PolityChi/lists/chicago</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </div>
 
 
   <div class="grid-item">
-    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-    <h2>A Grid Item</h2>
-    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+
   </div>
 
   <div class="grid-item grid-item-big-tall">
-    <a class="twitter-timeline" href="https://twitter.com/PolityChi/lists/chicago" data-widget-id="479470480403857408">Tweets from https://twitter.com/PolityChi/lists/chicago</a>
 
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.s...":\/platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </div>
 
 
@@ -55,8 +51,7 @@
 </section>
 
 <section>
-    <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/PolityChi/lists/chicago" data-widget-id="479470480403857408">Tweets from https://twitter.com/PolityChi/lists/chicago</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 </section>
 
 

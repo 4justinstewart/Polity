@@ -32,7 +32,7 @@
     width: 100%;
     overflow: hidden;
     float: left;
-    padding: 2em;
+    padding: .5em;
     border-top: 0;
     border-bottom: $grid-item-border-size solid $grid-items-background;
     border-left: $grid-item-border-size /2 solid $grid-items-background;
@@ -69,10 +69,11 @@
   // }
 
   .grid-item img {
-      display: block;
-      height: 3em;
+      display: inline-block;
+      height: 8em;
       margin: auto;
       margin-bottom: 1em;
+      float:left;
     }
 
   .grid-item h1 {
@@ -81,12 +82,32 @@
       margin-bottom: .4em;
     }
 
+    .user-info h3 {
+
+    }
+
+    .grid-item .user-info {
+      text-align:left;
+      float:left;
+      padding: 0 0 0 1em;
+      clear: right;
+      margin-bottom: 1em;
+    }
+
+    .grid-item h5 {
+      margin-top: .5em;
+      margin-bottom: 0;
+    }
+
   .grid-item p {
       margin: auto;
+      text-align:left;
       color: transparentize($grid-item-color, .3);
-      @include media($medium-screen) {
-        max-width: 70%;
-      }
+      padding-top: 2em;
+
+      // @include media($medium-screen) {
+      //   max-width: 70%;
+      // }
     }
 
   .grid-item-big {
@@ -107,9 +128,9 @@
       height: 28em;
     }
     p {
-      @include media($medium-screen) {
-        max-width: 60%;
-      }
+      // @include media($medium-screen) {
+      //   max-width: 60%;
+      // }
     }
   }
 
