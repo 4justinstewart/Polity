@@ -1,0 +1,15 @@
+
+.meeting-details {
+  @include span-columns(5 of 12);
+  margin-left: 10%;
+}
+
+#edit {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#map-canvas {
+  border-radius: 3px;
+  border: 1px solid black;
+}
