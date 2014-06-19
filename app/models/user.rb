@@ -74,9 +74,21 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def legislation_supporter?(legislation)
-  #   true if LegislationVoice.where("user_id = ? AND legislation_id = ? AND support = ?", self.id, legislation.id, true)
-  # end
+  def return_legislation_voice(legislation)
+    puts "here--------------------"
+    puts legislation.id
+    voice = LegislationVoice.where(user_id: self.id, legislation_id: legislation.id).last.support
+    voice ? (return "Yay") : (return "Nay")
+  end
+
+
+  def legislation_supporter?(legislation)
+    if LegislationVoice.where("user_id = ? AND legislation_id = ? AND support = ?", self.id, legislation.id, true).empty?
+      return nil
+    else
+      return true
+    end
+  end
 
 
   # def self.by_legislation_support(legislation_id)
