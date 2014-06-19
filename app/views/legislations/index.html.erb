@@ -1,13 +1,73 @@
-<section>
-<h1>Give Feedback on Chicago Legislation</h1>
-
-<h2>Upcoming Legislation</h2>
-  <%= render partial: 'table', locals: {legislations: @fresh_legislations} %>
-
-<br>
+<section class="first">
+<h1 class="block-title">Give Feedback on Chicago Legislation</h1>
 <hr>
-<br>
+
+<!--
+<h2>Upcoming Legislation</h2> 
+<!-- <%#= will_paginate(@legislations) %>
+<!--  <%#= render partial: 'table', locals: {legislations: @fresh_legislations} %>
+#</section>
+#
+#<section>
 
 <h2>Past Legislation</h2>
-  <%= render partial: 'table', locals: {legislations: @voted_legislations} %>
+ <!--<%#= will_paginate(@legislations) %>
+<!--  <%#= render partial: 'table', locals: {legislations: @voted_legislations} %>
+</section>
+-->
+
+
+
+
+<ul class="accordion-tabs-minimal">
+ 
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link is-active">Upcoming Legislation</a>
+    <div class="tab-content">
+      <table>
+      <%= render partial: 'table_header' %>
+        <tbody>
+          <% @fresh_legislations.each do |legislation| %>
+            <tr id=<%= legislation.id %>>
+        <td><%= link_to legislation.title, "http://www.google.com/search?q=%22#{legislation.city_identifier}%22", target: "_blank" %></td>
+        <!-- <td><%#= legislation.title %></td> -->
+        <td><%= legislation.status %></td>
+        <td><%= legislation.kind %></td>
+      <!--   <td><#%= legislation.opened_date %></td>
+        <td><#%= legislation.closed_date %></td> -->
+        <td class="support"><%= image_tag "icons/like.svg", :style => "width: 25px", class: "voice#{legislation.id}", alt: "support"%></td>
+        <td class="oppose"><%= image_tag "icons/like.svg", :style => "width: 25px", class: "voice#{legislation.id}", alt: "oppose"%></td>
+</tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div><%= will_paginate(@fresh_legislations) %></div>
+    </div>
+  </li>
+  
+  
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Past Legislation</a>
+    <div class="tab-content">
+    <table>
+      <%= render partial: 'table_header' %>
+        <tbody>
+          <% @voted_legislations.each do |legislation| %>
+            <tr id=<%= legislation.id %>>
+        <td><%= link_to legislation.title, "http://www.google.com/search?q=%22#{legislation.city_identifier}%22", target: "_blank" %></td>
+        <!-- <td><%#= legislation.title %></td> -->
+        <td><%= legislation.status %></td>
+        <td><%= legislation.kind %></td>
+      <!--   <td><#%= legislation.opened_date %></td>
+        <td><#%= legislation.closed_date %></td> -->
+        <td class="support"><%= image_tag "icons/like.svg", :style => "width: 25px", class: "voice#{legislation.id}", alt: "support"%></td>
+        <td class="oppose"><%= image_tag "icons/like.svg", :style => "width: 25px", class: "voice#{legislation.id}", alt: "oppose"%></td>
+</tr>
+          <% end %>
+        </tbody>
+      </table>
+   <div> <%= will_paginate(@fresh_legislations) %></div>
+  </li>
+</ul>
+
 </section>

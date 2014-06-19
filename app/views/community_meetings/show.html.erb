@@ -47,6 +47,8 @@
 
     window.onload = loadScript;
   </script>
+  <section>
+    
 <div class="meeting-details">
 <h1><%= @community_meeting.topic %></h1>
 <h3>Organizer: <%= @community_meeting.creator.name %></h3>
@@ -65,4 +67,6 @@
   <%= button_to "Delete This Meeting", community_meeting_path, method: :delete%>
   <%= link_to "Edit This Meeting", edit_community_meeting_path %>
 <% end %>
-<div></div>
+<!--<div></div>-->
+
+  </section>
