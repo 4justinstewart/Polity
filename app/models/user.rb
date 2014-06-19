@@ -39,18 +39,24 @@ class User < ActiveRecord::Base
     User.find(current_legislator.alderman_id)
   end
 
+
   def street_address1
     user_address.try(:address1)
+    # WE MAY NEED THIS...............DON"T DELETE WITHOUT CONSULTING GROUP
+    # address = UserAddress.find(self.user_address_id)
+    # address.address1
   end
 
   def street_address2
     user_address.try(:address2)
+    # WE MAY NEED THIS...............DON"T DELETE WITHOUT CONSULTING GROUP
     # address = UserAddress.find(self.user_address_id)
     # address.address2
   end
 
   def zip
     user_address.try(:zip)
+    # WE MAY NEED THIS...............DON"T DELETE WITHOUT CONSULTING GROUP
     # address = UserAddress.find(self.user_address_id)
     # address.zip
   end
