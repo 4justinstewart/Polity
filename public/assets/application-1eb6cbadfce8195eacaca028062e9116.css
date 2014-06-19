@@ -1,0 +1,1721 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ * require_tree .
+ * require_self
+ * require application
+ */
+/* line 2, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_button.scss */
+button,
+input[type="submit"] {
+  -webkit-font-smoothing: antialiased;
+  background-color: #477dca;
+  border-radius: 0em;
+  color: white;
+  display: inline-block;
+  font-size: 2.2em;
+  font-weight: bold;
+  line-height: 1;
+  padding: .75em 1em;
+  text-decoration: none;
+}
+/* line 13, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_button.scss */
+button:hover,
+input[type="submit"]:hover {
+  background-color: #2c5999;
+  color: white;
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: white;
+  color: #333333;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1.1em;
+  line-height: 1.65;
+}
+
+/* line 10, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  line-height: 1.375em;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 17, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+h1 {
+  font-size: 2.475em;
+}
+
+/* line 21, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+h2 {
+  font-size: 2.2em;
+}
+
+/* line 25, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+h3 {
+  font-size: 1.925em;
+}
+
+/* line 29, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+h4 {
+  font-size: 1.65em;
+}
+
+/* line 33, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+h5 {
+  font-size: 1.375em;
+}
+
+/* line 37, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+h6 {
+  font-size: 1.1em;
+}
+
+/* line 41, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+p {
+  margin: 0 0 0.825em;
+}
+
+/* line 45, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+a {
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  color: #477dca;
+  text-decoration: none;
+}
+/* line 50, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+a:hover {
+  color: #2c5999;
+}
+/* line 54, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+a:active, a:focus {
+  color: #2c5999;
+  outline: none;
+}
+
+/* line 60, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+hr {
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.65em 0;
+}
+
+/* line 68, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+img {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* line 73, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+blockquote {
+  border-left: 2px solid #dddddd;
+  color: #595959;
+  margin: 1.65em 0;
+  padding-left: 0.825em;
+}
+
+/* line 80, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+cite {
+  color: #737373;
+  font-style: italic;
+}
+/* line 84, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_typography.scss */
+cite:before {
+  content: '\2014 \00A0';
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+fieldset {
+  background: #f7f7f7;
+  border: 1px solid #dddddd;
+  margin: 0 0 0.825em 0;
+  padding: 1.65em;
+}
+
+/* line 10, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+input,
+label,
+select {
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1.1em;
+}
+
+/* line 16, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+label {
+  font-weight: bold;
+  margin-bottom: 0.4125em;
+}
+/* line 20, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+label.required:after {
+  content: "*";
+}
+/* line 24, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+label abbr {
+  display: none;
+}
+
+/* line 31, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+textarea,
+input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+select[multiple=multiple] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color;
+  -moz-transition: border-color;
+  transition: border-color;
+  background-color: white;
+  border-radius: 0em;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1.1em;
+  margin-bottom: 0.825em;
+  padding: 0.55em 0.55em;
+  width: 100%;
+}
+/* line 44, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+textarea:hover,
+input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover,
+select[multiple=multiple]:hover {
+  border-color: #c4c4c4;
+}
+/* line 48, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+textarea:focus,
+input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus,
+select[multiple=multiple]:focus {
+  border-color: #477dca;
+  box-shadow: none;
+  outline: none;
+}
+
+/* line 55, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 59, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+/* line 63, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+input[type="checkbox"], input[type="radio"] {
+  display: inline;
+  margin-right: 0.4125em;
+}
+
+/* line 68, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+input[type="file"] {
+  margin-bottom: 0.825em;
+  padding-bottom: 0.55em;
+  width: 100%;
+}
+
+/* line 74, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_forms.scss */
+select {
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 1.65em;
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_tables.scss */
+table {
+  border-collapse: collapse;
+  margin: 0.825em 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* line 8, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_tables.scss */
+th {
+  border-bottom: 1px solid #b7b7b7;
+  font-weight: bold;
+  padding: 0.825em 0;
+  text-align: left;
+}
+
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_tables.scss */
+td {
+  border-bottom: 1px solid #dddddd;
+  padding: 0.825em 0;
+}
+
+/* line 20, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_tables.scss */
+tr, td, th {
+  vertical-align: middle;
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_lists.scss */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 19, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_lists.scss */
+dl {
+  margin-bottom: 0.825em;
+}
+/* line 22, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_lists.scss */
+dl dt {
+  font-weight: bold;
+  margin-top: 0.825em;
+}
+/* line 27, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_lists.scss */
+dl dd {
+  margin: 0;
+}
+
+/* line 2, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/_buttons.scss */
+button,
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Generated by Font Squirrel (http://www.fontsquirrel.com) on June 19, 2014 */
+@font-face {
+  font-family: 'gandhi_serifregular';
+  src: url("fonts/GandhiSerif-Regular-webfont.eot");
+  src: url("fonts/GandhiSerif-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/GandhiSerif-Regular-webfont.woff") format("woff"), url("fonts/GandhiSerif-Regular-webfont.ttf") format("truetype"), url("fonts/GandhiSerif-Regular-webfont.svg#gandhi_serifregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gandhi_serifbold';
+  src: url("fonts/GandhiSerif-Bold-webfont.eot");
+  src: url("fonts/GandhiSerif-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/GandhiSerif-Bold-webfont.woff") format("woff"), url("fonts/GandhiSerif-Bold-webfont.ttf") format("truetype"), url("fonts/GandhiSerif-Bold-webfont.svg#gandhi_serifbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gandhi_serifbold_italic';
+  src: url("fonts/GandhiSerif-BoldItalic-webfont.eot");
+  src: url("fonts/GandhiSerif-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/GandhiSerif-BoldItalic-webfont.woff") format("woff"), url("fonts/GandhiSerif-BoldItalic-webfont.ttf") format("truetype"), url("fonts/GandhiSerif-BoldItalic-webfont.svg#gandhi_serifbold_italic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gandhi_serifitalic';
+  src: url("fonts/GandhiSerif-Italic-webfont.eot");
+  src: url("fonts/GandhiSerif-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/GandhiSerif-Italic-webfont.woff") format("woff"), url("fonts/GandhiSerif-Italic-webfont.ttf") format("truetype"), url("fonts/GandhiSerif-Italic-webfont.svg#gandhi_serifitalic") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'benchninebold';
+  src: url("fonts/benchnine-bold-webfont.eot");
+  src: url("fonts/benchnine-bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/benchnine-bold-webfont.woff") format("woff"), url("fonts/benchnine-bold-webfont.ttf") format("truetype"), url("fonts/benchnine-bold-webfont.svg#benchninebold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'benchninelight';
+  src: url("fonts/benchnine-light-webfont.eot");
+  src: url("fonts/benchnine-light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/benchnine-light-webfont.woff") format("woff"), url("fonts/benchnine-light-webfont.ttf") format("truetype"), url("fonts/benchnine-light-webfont.svg#benchninelight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'benchnineregular';
+  src: url("fonts/benchnine-regular-webfont.eot");
+  src: url("fonts/benchnine-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/benchnine-regular-webfont.woff") format("woff"), url("fonts/benchnine-regular-webfont.ttf") format("truetype"), url("fonts/benchnine-regular-webfont.svg#benchnineregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 33, /Users/Apple/Desktop/Polity/app/assets/stylesheets/typography-colors.css.scss */
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* line 37, /Users/Apple/Desktop/Polity/app/assets/stylesheets/typography-colors.css.scss */
+.lowercase {
+  text-transform: lowercase;
+}
+
+/* line 41, /Users/Apple/Desktop/Polity/app/assets/stylesheets/typography-colors.css.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "benchninebold", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* line 47, /Users/Apple/Desktop/Polity/app/assets/stylesheets/typography-colors.css.scss */
+header.navigation .navigation-menu-button.nav-menu {
+  color: #e06063;
+}
+
+/* line 51, /Users/Apple/Desktop/Polity/app/assets/stylesheets/typography-colors.css.scss */
+.block-title {
+  text-align: left;
+  margin: .5em 0 .5em;
+  color: #09336f;
+  font-weight: 500;
+  font-size: 370%;
+  margin-left: .5em;
+}
+
+@media screen and (min-width: 53.75em) {
+  /* line 67, /Users/Apple/Desktop/Polity/app/assets/stylesheets/typography-colors.css.scss */
+  header.navigation a.navigation-menu-button {
+    display: block !important;
+  }
+}
+/* line 2, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+header h1 {
+  float: left;
+}
+/* line 6, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+header .source {
+  float: right;
+}
+
+/* line 11, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 3em;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 16, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section > code, section code.block {
+  display: block;
+}
+/* line 20, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section div {
+  height: 5.6;
+  line-height: 1.4;
+  text-align: left;
+  padding: 1em;
+}
+/* line 28, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.zero div {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 48.93617%;
+  height: 20em;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.zero div:last-child {
+  margin-right: 0;
+}
+/* line 35, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#alpha {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 6.38298%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#alpha:last-child {
+  margin-right: 0;
+}
+/* line 39, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#beta {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 91.48936%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#beta:last-child {
+  margin-right: 0;
+}
+/* line 43, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#gamma {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 14.89362%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#gamma:last-child {
+  margin-right: 0;
+}
+/* line 47, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#delta {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 82.97872%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#delta:last-child {
+  margin-right: 0;
+}
+/* line 51, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#epsilon {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 23.40426%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#epsilon:last-child {
+  margin-right: 0;
+}
+/* line 55, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#zeta {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 74.46809%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#zeta:last-child {
+  margin-right: 0;
+}
+/* line 59, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#eta {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 31.91489%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#eta:last-child {
+  margin-right: 0;
+}
+/* line 63, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#theta {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 65.95745%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#theta:last-child {
+  margin-right: 0;
+}
+/* line 67, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#iota {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 40.42553%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#iota:last-child {
+  margin-right: 0;
+}
+/* line 71, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#kappa {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 57.44681%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#kappa:last-child {
+  margin-right: 0;
+}
+/* line 75, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#lambda {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 48.93617%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#lambda:last-child {
+  margin-right: 0;
+}
+/* line 79, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#mu {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 48.93617%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.first div#mu:last-child {
+  margin-right: 0;
+}
+/* line 83, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.first div#beta, section.first div#delta, section.first div#zeta, section.first div#theta, section.first div#kappa, section.first div#mu {
+  margin-right: 0;
+}
+/* line 89, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.second div {
+  height: 20em;
+}
+/* line 92, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.second div#alpha {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 31.91489%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.second div#alpha:last-child {
+  margin-right: 0;
+}
+/* line 96, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.second div#beta {
+  padding: 0;
+  line-height: 2.8;
+  text-align: center;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 65.95745%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.second div#beta:last-child {
+  margin-right: 0;
+}
+/* line 102, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.second div#beta aside {
+  float: left;
+  display: block;
+  margin-right: 3.22581%;
+  width: 48.3871%;
+  border: none;
+  height: 84%;
+  padding: 1em;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.second div#beta aside:last-child {
+  margin-right: 0;
+}
+/* line 109, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.second div#beta article {
+  float: left;
+  display: block;
+  margin-right: 3.22581%;
+  width: 48.3871%;
+  height: 84%;
+  padding: 1em;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.second div#beta article:last-child {
+  margin-right: 0;
+}
+/* line 119, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.third div#dummy {
+  border-bottom: 0;
+  height: 5.5em;
+  text-align: center;
+}
+/* line 125, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.third div#alpha {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 100%;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 0;
+  padding: 0;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.third div#alpha:last-child {
+  margin-right: 0;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+section.third div#alpha:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 131, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.third div#alpha aside {
+  display: table-cell;
+  width: 33.33333%;
+  padding: 2.12766%;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+/* line 137, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.third div#alpha article {
+  height: 20em;
+  display: table-cell;
+  width: 66.66667%;
+  padding: 2.12766%;
+}
+/* line 147, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.fourth div.one-column {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 6.38298%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.fourth div.one-column:last-child {
+  margin-right: 0;
+}
+/* line 150, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.fourth div.one-column.last {
+  margin-right: 0;
+}
+/* line 155, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.fourth div#alpha {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 48.93617%;
+  margin-left: 25.53191%;
+  height: 20em;
+  text-align: center;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.fourth div#alpha:last-child {
+  margin-right: 0;
+}
+/* line 164, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+section.fifth div.box {
+  font-size: 0.78em;
+  height: 8em;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 23.40426%;
+}
+/* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+section.fifth div.box:last-child {
+  margin-right: 0;
+}
+/* line 52, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+section.fifth div.box:nth-child(4n) {
+  margin-right: 0;
+}
+/* line 57, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+section.fifth div.box:nth-child(4n+1) {
+  clear: left;
+}
+
+/* line 174, /Users/Apple/Desktop/Polity/app/assets/stylesheets/layout.css.scss */
+div.code {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em;
+  text-align: center;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+div.code:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation {
+  background-color: #40526b;
+  border-bottom: 1px solid #2d394b;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  height: 60px;
+  width: 100%;
+  z-index: 999;
+}
+/* line 23, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .menu-wrapper {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 9999;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+header.navigation .menu-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+header.navigation .menu-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 30, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .logo {
+  float: left;
+  max-height: 60px;
+  padding-left: 1em;
+  padding-right: 2em;
+}
+/* line 36, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .logo img {
+  max-height: 60px;
+  padding: .6em 0;
+}
+/* line 42, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .navigation-menu-button {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: block;
+  float: right;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 60px;
+  margin: 0;
+  padding-right: 1em;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 42, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .navigation-menu-button {
+    display: none;
+  }
+}
+/* line 58, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .navigation-menu-button:hover {
+  color: white;
+}
+/* line 63, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .nav {
+  z-index: 9999999;
+  float: none;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 63, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .nav {
+    float: left;
+  }
+}
+/* line 71, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation ul#navigation-menu {
+  clear: both;
+  -webkit-transform-style: preserve-3d;
+  display: none;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0;
+  width: 100%;
+  z-index: 9999;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 71, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation ul#navigation-menu {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+}
+/* line 88, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation ul li {
+  background: #40526b;
+  display: block;
+  line-height: 60px;
+  overflow: hidden;
+  padding-right: .8em;
+  text-align: right;
+  width: 100%;
+  z-index: 9999;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 88, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation ul li {
+    background: transparent;
+    display: inline;
+    line-height: 60px;
+    text-decoration: none;
+    width: auto;
+  }
+}
+/* line 106, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation ul li a {
+  font-weight: 400;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.7);
+}
+@media screen and (min-width: 53.75em) {
+  /* line 106, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation ul li a {
+    padding-right: 1em;
+  }
+}
+/* line 115, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation ul li a:hover {
+  color: white;
+}
+/* line 121, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .active-nav-item a {
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+/* line 126, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation li.more {
+  padding-right: 0;
+}
+/* line 129, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation li.more:hover .submenu {
+  display: block;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 126, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation li.more {
+    position: relative;
+    padding-right: .8em;
+  }
+}
+/* line 139, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation li.more a {
+  padding-right: .8em;
+}
+/* line 143, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .submenu {
+  display: none;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 143, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .submenu {
+    position: absolute;
+    top: 1em;
+    left: -1em;
+  }
+}
+/* line 152, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .submenu li {
+  display: block;
+  padding-right: 0;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 152, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .submenu li {
+    line-height: 46.15385px;
+  }
+  /* line 159, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .submenu li:first-child a {
+    padding-top: 1em;
+  }
+  /* line 162, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .submenu li:last-child a {
+    border-bottom-left-radius: 0.03125em;
+    border-bottom-right-radius: 0.03125em;
+    padding-bottom: .7em;
+  }
+}
+/* line 169, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .submenu li a {
+  text-align: right;
+  background-color: #3a4a62;
+  width: 100%;
+  display: inline-block;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 169, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .submenu li a {
+    width: 12em;
+    background-color: #40526b;
+    text-align: left;
+    padding-left: 1em;
+  }
+}
+/* line 185, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .navigation-tools {
+  display: block;
+  padding-right: 1em;
+  padding-left: 0.5em;
+  clear: both;
+  background: #505050;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+header.navigation .navigation-tools:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 185, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .navigation-tools {
+    background: transparent;
+    float: right;
+    clear: none;
+  }
+}
+/* line 200, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation a.nav-tool {
+  margin-top: 13px;
+  float: right;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline;
+  background: #477dca;
+  border-radius: 0.03125em;
+  color: white;
+  font-size: .8em;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: .4em .5em;
+  margin-right: .6em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 200, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation a.nav-tool {
+    padding: .4em 1em;
+  }
+}
+/* line 217, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation a.nav-tool:hover {
+  background: #6f99d5;
+}
+/* line 222, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .search-bar {
+  padding: 13px 5px;
+  float: left;
+}
+/* line 229, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .search-bar .search-and-submit {
+  position: relative;
+}
+/* line 232, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .search-bar .search-and-submit input[type=search] {
+  background: #495e7b;
+  border: 1px solid #36465b;
+  padding: .6em .8em;
+  font-size: .9em;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.0625em;
+  margin: 0;
+}
+/* line 243, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .search-bar .search-and-submit button[type=submit] {
+  border: 1px solid #3a5376;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 #929fb2;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  background-color: #5c769b;
+  background-image: -webkit-linear-gradient(#5c769b, #3f5a81);
+  background-image: linear-gradient(#5c769b, #3f5a81);
+  padding: 7px 18px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #2e486d;
+  background-clip: padding-box;
+  position: absolute;
+  top: 0.3em;
+  right: 0.3em;
+  bottom: 0.3em;
+  left: auto;
+  outline: none;
+  padding: 0 15px;
+}
+/* line 131, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar .search-and-submit button[type=submit]:hover:not(:disabled) {
+  box-shadow: inset 0 1px 0 0 #73859e;
+  cursor: pointer;
+  background-color: #576b87;
+  background-image: -webkit-linear-gradient(#576b87, #3b5375);
+  background-image: linear-gradient(#576b87, #3b5375);
+}
+/* line 148, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar .search-and-submit button[type=submit]:active:not(:disabled), header.navigation .search-bar .search-and-submit button[type=submit]:focus:not(:disabled) {
+  border: 1px solid #3a5376;
+  box-shadow: inset 0 0 8px 4px #364c6a, inset 0 0 8px 4px #364c6a;
+}
+/* line 51, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_button.scss */
+header.navigation .search-bar .search-and-submit button[type=submit]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* line 253, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+header.navigation .search-bar .search-and-submit button[type=submit] img {
+  height: 12px;
+  opacity: .7;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 222, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .search-bar {
+    width: 16em;
+    position: relative;
+    display: inline-block;
+  }
+  /* line 265, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_nav.scss */
+  header.navigation .search-bar input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+  }
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer {
+  background: #ededed;
+  padding: 2.8 30px;
+  width: 100%;
+}
+/* line 12, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer .footer-logo {
+  text-align: center;
+  margin-bottom: 2em;
+}
+/* line 16, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer .footer-logo img {
+  height: 3em;
+  margin-top: 2em;
+}
+/* line 22, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer .footer-links {
+  margin-bottom: 1.4;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+.footer .footer-links:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (min-width: 40em) {
+  /* line 22, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+  .footer .footer-links {
+    margin-left: 25.53191%;
+  }
+}
+/* line 31, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer ul {
+  margin-bottom: 2.8;
+}
+@media screen and (min-width: 40em) {
+  /* line 31, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+  .footer ul {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 23.40426%;
+  }
+  /* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .footer ul:last-child {
+    margin-right: 0;
+  }
+  /* line 52, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .footer ul:nth-child(3n) {
+    margin-right: 0;
+  }
+  /* line 57, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .footer ul:nth-child(3n+1) {
+    clear: left;
+  }
+  /* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+  .footer ul:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+/* line 41, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer li {
+  text-align: center;
+}
+@media screen and (min-width: 40em) {
+  /* line 41, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+  .footer li {
+    text-align: left;
+  }
+}
+/* line 49, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer li a {
+  color: rgba(42, 49, 69, 0.4);
+}
+/* line 52, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer li a:hover {
+  color: #2a3145;
+}
+/* line 57, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer li h3 {
+  color: #2a3145;
+  font-size: 1em;
+  font-weight: 800;
+  margin-bottom: .4em;
+}
+/* line 64, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer hr {
+  border: 1px solid rgba(42, 49, 69, 0.1);
+  margin: 0 auto 1.4;
+  width: 12em;
+}
+/* line 70, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_footer.scss */
+.footer p {
+  color: rgba(42, 49, 69, 0.4);
+  font-size: .9em;
+  line-height: 1.5em;
+  margin: auto;
+  max-width: 35em;
+  text-align: center;
+}
+
+/* line 10, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+.hero {
+  background-color: #878c93;
+  background-color: rgba(16, 25, 39, 0.5);
+  background: url(https://s3.amazonaws.com/polity_chi_heroku_deploy_attempt/chicago_skyline-reduced.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-bottom: 6em;
+}
+/* line 24, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+.hero .hero-logo img {
+  height: 8em;
+  margin-bottom: 1em;
+}
+/* line 29, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+.hero .hero-inner {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3em;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+.hero .hero-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+.hero .hero-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 37, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+.hero .hero-inner button {
+  font-size: 36px;
+  font-weight: 300;
+  outline: none;
+}
+/* line 44, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+.hero .hero-inner .hero-copy {
+  text-align: center;
+}
+/* line 47, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+.hero .hero-inner .hero-copy h1 {
+  font-size: 4em;
+  font-weight: 300;
+  margin-bottom: .2em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 47, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+  .hero .hero-inner .hero-copy h1 {
+    font-size: 5em;
+  }
+}
+/* line 57, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+.hero .hero-inner .hero-copy p {
+  margin: auto;
+  margin-bottom: 3em;
+  font-weight: 200;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 57, /Users/Apple/Desktop/Polity/app/assets/stylesheets/home.css.scss */
+  .hero .hero-inner .hero-copy p {
+    font-size: 1.2em;
+    max-width: 40%;
+  }
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+.bullets {
+  overflow: auto;
+  margin-bottom: 1.4;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 8, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+  .bullets .two-col-bullet {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 48.93617%;
+  }
+  /* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .bullets .two-col-bullet:last-child {
+    margin-right: 0;
+  }
+  /* line 52, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .bullets .two-col-bullet:nth-child(2n) {
+    margin-right: 0;
+  }
+  /* line 57, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .bullets .two-col-bullet:nth-child(2n+1) {
+    clear: left;
+  }
+}
+@media screen and (min-width: 53.75em) {
+  /* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+  .bullets .three-col-bullet {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 31.91489%;
+  }
+  /* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .bullets .three-col-bullet:last-child {
+    margin-right: 0;
+  }
+  /* line 52, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .bullets .three-col-bullet:nth-child(3n) {
+    margin-right: 0;
+  }
+  /* line 57, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .bullets .three-col-bullet:nth-child(3n+1) {
+    clear: left;
+  }
+}
+@media screen and (min-width: 53.75em) {
+  /* line 23, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+  .bullets .four-col-bullet {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 23.40426%;
+  }
+  /* line 38, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .bullets .four-col-bullet:last-child {
+    margin-right: 0;
+  }
+  /* line 52, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .bullets .four-col-bullet:nth-child(4n) {
+    margin-right: 0;
+  }
+  /* line 57, /Users/Apple/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_omega.scss */
+  .bullets .four-col-bullet:nth-child(4n+1) {
+    clear: left;
+  }
+}
+/* line 30, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+.bullets .bullet-icon {
+  float: left;
+  background: #477dca;
+  padding: 0.875em;
+  border-radius: 50%;
+  width: 3.5em;
+  height: 3.5em;
+}
+/* line 39, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+.bullets .bullet-icon-1 {
+  background: #477dca;
+}
+/* line 43, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+.bullets .bullet-icon-2 {
+  background: #47caaa;
+}
+/* line 47, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+.bullets .bullet-icon-3 {
+  background: #a9ca47;
+}
+/* line 51, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+.bullets .bullet-content {
+  margin-left: 4.9em;
+  margin-bottom: 2em;
+}
+/* line 56, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_bullets.scss */
+.bullets h2 {
+  font-size: 1.4em;
+  padding-top: 0.5em;
+  margin-bottom: 0.58333em;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+  display: inline-block;
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: white;
+  color: #333333;
+  font-family: "gandhi_serifregular", "Helvetica Neue", "Open Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+}
+
+/*    ----------------------------------------     */
+/*    ----------------------------------------  */
+/*    ----------------------------------------  */
+/*--------------------------------------------------------*/
+/* line 82, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn, button.btn {
+  color: #34495e;
+  background-color: #e1eaf1;
+  font-family: "gandhi_serifregular", "Helvetica Neue", "Open Sans", Helvetica, Arial, sans-serif;
+  display: inline-block;
+  padding: 8px 12px;
+  margin-bottom: 0;
+  font-size: 1.1em;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+/* line 72, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn:hover, button.btn:hover {
+  background-color: #b6c4cf;
+}
+/* line 73, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn:active, button.btn:active {
+  background-color: #e1eaf1;
+}
+/* line 98, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn:active, button.btn:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+/* line 103, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-red, button.btn.btn-red {
+  color: #f9f9f9;
+  background-color: #ff5e4c;
+}
+/* line 56, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-red:hover, button.btn.btn-red:hover {
+  background-color: #e64133;
+}
+/* line 57, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-red:active, button.btn.btn-red:active {
+  background-color: #ff5e4c;
+}
+/* line 107, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-blue, button.btn.btn-blue {
+  color: #f9f9f9;
+  background-color: #50b1f2;
+}
+/* line 60, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-blue:hover, button.btn.btn-blue:hover {
+  background-color: #3498db;
+}
+/* line 61, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-blue:active, button.btn.btn-blue:active {
+  background-color: #50b1f2;
+}
+/* line 111, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-green, button.btn.btn-green {
+  color: #f9f9f9;
+  background-color: #a9ca47;
+}
+/* line 64, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-green:hover, button.btn.btn-green:hover {
+  background-color: #89a339;
+}
+/* line 65, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-green:active, button.btn.btn-green:active {
+  background-color: #a9ca47;
+}
+/* line 115, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-yellow, button.btn.btn-yellow {
+  color: #f9f9f9;
+  background-color: #fab13c;
+}
+/* line 68, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-yellow:hover, button.btn.btn-yellow:hover {
+  background-color: #db9c3d;
+}
+/* line 69, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-yellow:active, button.btn.btn-yellow:active {
+  background-color: #fab13c;
+}
+/* line 119, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-inverse, button.btn.btn-inverse {
+  color: #f9f9f9;
+  background-color: #34495e;
+}
+/* line 76, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-inverse:hover, button.btn.btn-inverse:hover {
+  background-color: #2c3e50;
+}
+/* line 77, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-inverse:active, button.btn.btn-inverse:active {
+  background-color: #34495e;
+}
+/* line 124, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-sm, button.btn.btn-sm {
+  font-size: 0.95em;
+  padding: 6px 12px;
+}
+/* line 128, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.btn.btn-lg, button.btn.btn-lg {
+  font-size: 1.4em;
+}
+
+/*----- badge  ------*/
+/* line 133, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.badge {
+  color: #34495e;
+  background-color: #e1eaf1;
+  font-size: 0.95em;
+  padding: 2px 10px;
+}
+/* line 138, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.badge.badge-red {
+  color: #f9f9f9;
+  background-color: #ff5e4c;
+}
+/* line 141, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.badge.badge-blue {
+  color: #f9f9f9;
+  background-color: #50b1f2;
+}
+/* line 144, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.badge.badge-green {
+  color: #f9f9f9;
+  background-color: #a9ca47;
+}
+/* line 147, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.badge.badge-yellow {
+  color: #f9f9f9;
+  background-color: #fab13c;
+}
+/* line 150, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.badge.badge-inverse {
+  color: #f9f9f9;
+  background-color: #34495e;
+}
+
+/*--*/
+/* line 155, /Users/Apple/Desktop/Polity/app/assets/stylesheets/base/extends/_btn.scss */
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .65;
+  filter: alpha(opacity=65);
+}
+
+/* line 1, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card {
+  display: table;
+  width: 100%;
+  margin-bottom: 1.4;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+}
+/* line 17, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card .card-image,
+.card .card-content {
+  display: table-cell;
+  vertical-align: top;
+}
+/* line 22, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card .card-image {
+  padding-right: 1.4em;
+}
+/* line 25, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card .card-image > img {
+  width: 4em;
+  height: auto;
+  border-radius: 0.03125em;
+  padding: 0.7em;
+  background: #82a7db;
+  display: block;
+  max-width: none;
+}
+/* line 35, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card-reverse-order .card .card-image {
+  padding-right: 0;
+  padding-left: 10px;
+}
+/* line 41, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card .card-content {
+  width: 100%;
+}
+/* line 44, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card .card-content h1 {
+  font-size: 1em;
+  margin-bottom: .5em;
+}
+/* line 49, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card .card-content p {
+  margin-bottom: .5em;
+}
+/* line 53, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_cards.scss */
+.card .card-content p.card-detail {
+  font-style: italic;
+  font-size: .9em;
+  color: rgba(51, 51, 51, 0.5);
+}
+
+/* line 5, /Users/Apple/Desktop/Polity/app/assets/stylesheets/legislations.css.scss */
+img[alt="oppose"] {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+/* line 8, /Users/Apple/Desktop/Polity/app/assets/stylesheets/wards.css.scss.erb */
+.bar-graph-indication {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 0 3px 0 rgba(115, 115, 115, 0.15);
+  border-radius: 0.03125em;
+  margin: 0 auto;
+  width: 50%;
+}
+/* line 25, /Users/Apple/Desktop/Polity/app/assets/stylesheets/wards.css.scss.erb */
+.bar-graph-indication > span.meter {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #477dca;
+  background-size: 40px 40px;
+  background-repeat: repeat-x;
+  border: 1px solid #2c5999;
+  border-radius: 0.02083em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  display: block;
+  height: 100%;
+  width: 60%;
+}
+/* line 39, /Users/Apple/Desktop/Polity/app/assets/stylesheets/wards.css.scss.erb */
+.bar-graph-indication p {
+  margin-bottom: 0;
+  padding: .1em .5em;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 0 1px black;
+}
+
+/* line 5, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items {
+  border: 1px solid #ededed;
+}
+/* line 15, /Users/Apple/Desktop/Polity/app/assets/stylesheets/partials/_clearfix.css.scss */
+.grid-items:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 28, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items .grid-item {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  height: 14em;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+  float: left;
+  padding: .5em;
+  border-top: 0;
+  border-bottom: 9px solid white;
+  border-left: 4.5px solid white;
+  border-right: 4.5px solid white;
+  text-align: center;
+  cursor: default;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  background-color: white;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 28, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+  .grid-items .grid-item {
+    width: 33.33333%;
+  }
+}
+/* line 71, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items .grid-item img {
+  display: inline-block;
+  height: 8em;
+  margin: auto;
+  margin-bottom: 1em;
+  float: left;
+}
+/* line 79, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items .grid-item h1 {
+  color: darkgrey;
+  font-size: 1.3em;
+  margin-bottom: .4em;
+}
+/* line 89, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items .grid-item .user-info {
+  text-align: left;
+  float: left;
+  padding: 0 0 0 1em;
+  clear: right;
+  margin-bottom: 1em;
+}
+/* line 97, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items .grid-item h5 {
+  margin-top: .5em;
+  margin-bottom: 0;
+}
+/* line 102, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items .grid-item p {
+  margin: auto;
+  text-align: left;
+  color: rgba(169, 169, 169, 0.7);
+  padding-top: 2em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 113, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+  .grid-items .grid-item-big {
+    width: 66.66667%;
+  }
+}
+@media screen and (min-width: 40em) {
+  /* line 117, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+  .grid-items .grid-item-big p {
+    max-width: 60%;
+  }
+}
+@media screen and (min-width: 53.75em) {
+  /* line 125, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+  .grid-items .grid-item-big-tall {
+    margin-right: 0;
+    height: 28em;
+  }
+}
+/* line 140, /Users/Apple/Desktop/Polity/app/assets/stylesheets/users.css.scss */
+.grid-items .grid-item-image {
+  background: url(/images/lake-transparent.png);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
