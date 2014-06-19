@@ -1,8 +1,54 @@
 <section>
-    <p id="notice">
-    <%= notice %>
-    </p>
+<h1>Ward <%= @user.ward_number %></h1>
+<div class="grid-items-lines">
+  <div class="grid-item">
+    <%= image_tag @user.img_url %>
+    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+    Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.
+  </div>
+  <div class="grid-item">
+    <h1>Another Item</h1>
+    <p>Lorem ipsum consectetur dolor sit amet, consectetur adipisicing elit.</p>
+  </div>
+  <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+    <h1>Another Grid Item</h1>
+    <p>Lorem ipsum dolor sit amet, elit.</p>
+  </div>
+  <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+    <h1>Grid Item</h1>
+    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+  </div>
+  <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+    <h1>Wider Grid Item</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
+  </div>
+  <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="">
+    <h1>A Grid Item</h1>
+    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+  </div>
+  <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png" alt="">
+    <h1>Item</h1>
+    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+  </div>
+  <div class="grid-item">
+    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2_dark.png" alt="">
+    <h1>Last Grid Item</h1>
+    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+  </div>
+  <div class="right-cover"></div>
+  <div class="bottom-cover"></div>
+</div>
 </section>
+
+
+
+
+
 
 <section>
     <div class="user_profile">
@@ -82,80 +128,43 @@
       <% end %>
     </div>
 
-    <div class="card">
-        <div class="card-image">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-        </div>
-        <div class="card-content">
-            <h1>First card Title or Author</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
-            <p class="card-detail">Date or details about this post</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-image">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
-        </div>
-        <div class="card-content">
-            <h1>Another One</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
-            <p class="card-detail">Date or details about this post</p>
-        </div>
-    </div>
-</section>
-
-<!-- <section>
-  <p>
-      <strong>First name:</strong>
-
-  </p>
-
-  <p>
-      <strong>Last name:</strong>
-
-  </p>
-
-  <p>
-      <strong>User address:</strong>
-      <%= @user.user_address %>
-  </p>
 
 
 
-</section> -->
+
+
+<!-- -->
     <!-- <section>
     <div class="grid-items">
-        <a href="javascript:void(0)" class="grid-item">
+        <div class="grid-item">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
             <h1>Grid Item</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
         </a>
-        <a href="javascript:void(0)" class="grid-item grid-item-big grid-item-image">
+        <div class="grid-item grid-item-big grid-item-image">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Grid Item With an Image</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, illum.</p>
         </a>
-        <a href="javascript:void(0)" class="grid-item">
+        <div class="grid-item">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
             <h1>Another Wide Item</h1>
             <p>Lorem ipsum consectetur dolor sit amet.</p>
         </a>
-        <a href="javascript:void(0)" class="grid-item grid-item-big">
+        <div class="grid-item grid-item-big">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Last Grid Item</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
         </a>
-        <a href="javascript:void(0)" class="grid-item grid-item-big">
+        <div class="grid-item grid-item-big">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png" alt="">
             <h1>Last Grid Item</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
         </a>
-        <a href="javascript:void(0)" class="grid-item">
+        <div class="grid-item">
             <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
             <h1>A Grid Item</h1>
             <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
         </a>
     </div>
 </section> -->
-

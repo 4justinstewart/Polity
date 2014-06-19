@@ -2,24 +2,17 @@
   width: (100% / 12) * $columns;
 }
 
-.grid-items {
+.grid-items-lines {
   $grid-items-background: $base-body-color;
-  $grid-item-background: desaturate($base-accent-color, 30);
-  $grid-item-colors:
-    desaturate($base-accent-color, 30),
-    #3581A5,
-    #5FBEBE,
-    #98C79A,
-    #A7A891,
-    #BDCC97,
-    #979EA0;
-  $grid-item-border-size: 9px;
+  $grid-item-background: $base-body-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, .8);
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
-  $grid-item-color: white;
+  $grid-item-color: $base-font-color;
   $grid-item-height: 14em;
 
   @include clearfix;
+  position: relative;
 
   .grid-item {
     @include transition (all 0.2s ease-in-out);
@@ -29,37 +22,24 @@
     overflow: hidden;
     float: left;
     padding: 2em;
-    border-top: 0;
-    border-bottom: $grid-item-border-size solid $grid-items-background;
-    border-left: $grid-item-border-size /2 solid $grid-items-background;
-    border-right: $grid-item-border-size /2 solid $grid-items-background;
-    text-align: center;
+    border-right: $grid-item-border;
+    border-bottom: $grid-item-border;
     cursor: pointer;
 
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
     }
 
-    @for $i from 1 to 8 { // assign colors from $grid-item-colors list
-      &:nth-child(#{$i}) {
-        $background-from-list: nth($grid-item-colors, $i);
-        background-color: $background-from-list;
-        box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
-        &:hover {
-          background-color: darken($background-from-list, 10);
-          background-repeat: no-repeat;
-          background-position: top;
-          background-size: cover;
-        }
-      }
+    &:hover {
+      background: transparentize($grid-item-color, .95);
     }
   }
 
   .grid-item img {
       display: block;
-      height: 3em;
-      margin: auto;
-      margin-bottom: 1em;
+      height: 2.5em;
+      margin-bottom: 1.2em;
+      opacity: .2;
     }
 
   .grid-item h1 {
@@ -69,8 +49,7 @@
     }
 
   .grid-item p {
-      margin: auto;
-      color: transparentize($grid-item-color, .3);
+      color: transparentize($grid-item-color, .4);
       @include media($medium-screen) {
         max-width: 70%;
       }
@@ -87,178 +66,21 @@
     }
   }
 
-  .grid-item-image {
-    background: url(/images/lake-transparent.png);
-    background-color: $grid-item-background;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
-  }
-}
 
-
-// modal scss
-#frame {
-        // -ms-zoom: 0.85;
-        // -moz-transform: scale(0.85);
-        // -moz-transform-origin: 0 0;
-        // -o-transform: scale(0.85);
-        // -o-transform-origin: 0 0;
-        -webkit-transform: scale(0.85);
-        -webkit-transform-origin: 0 0;
-}
-
-.modal {
-  $modal-padding: .5em;
-  $modal-background: $base-body-color;
-  $modal-close-color: $dark-gray;
-  $modal-image-height: 135px;
-  $modal-image-width: $modal-image-height;
-
-  label {
-    cursor: pointer;
-    margin-bottom: 0;
+// this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
+  .bottom-cover {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 3px;
+    background: $grid-items-background;
   }
 
-  label img {
-    $img-width: 300px;
-    border-radius: $img-width/2;
-    display: block;
-    max-width: $img-width;
-  }
-
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  .btn {
-    @include button(simple, $base-body-color);
-    font-size: ($base-font-size*.75);
-    padding: 6px 8px;
-    margin-bottom: $base-line-height;
-  }
-
-  .modal-open {
-    overflow: hidden;
-  }
-
-  .modal-window {
-// overlay
-    @include transition(opacity .25s ease);
-    @include position(fixed, 0px 0px 0px 0px);
-    background: rgba(0,0,0, .85);
-    opacity: 0;
-    text-align: left;
-    visibility: hidden;
-    z-index: 99999999999;
-
-    .modal-bg {
-      @include position(absolute, 0px 0px 0px 0px);
-      cursor: pointer;
-    }
-  }
-
-  .modal-close {
-    @include position(absolute, ($modal-padding /2) ($modal-padding /2) 0 0);
-    @include size(1.5em);
-    cursor: pointer;
-    background: $modal-background;
-    z-index: 100;
-
-    &:after,
-    &:before {
-      @include position(absolute, 3px 3px 0 50%);
-      @include transform(rotate(45deg));
-      @include size(.15em 1.5em);
-      background: $modal-close-color;
-      content: '';
-      display: block;
-      margin: -3px 0 0 -1px;
-    }
-
-    &:hover:after,
-    &:hover:before {
-      background: darken($modal-close-color, 10);
-    }
-
-    &:before {
-      @include transform(rotate(-45deg));
-    }
-  }
-
-  .modal-inner {
-    @include transition(opacity .25s ease);
-    border-radius: $base-border-radius;
-    background: $modal-background;
-    margin: auto;
-    max-height: 735px;
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-    padding: 0; //$modal-padding /2
-    margin-top: .6em;
-
-    @include media($medium-screen) {
-      padding: $modal-padding;
-      width: 80%;
-      min-width: 680px;
-      max-width: 700px;
-      margin-top: 2em;
-    }
-
-    @include media($large-screen) {
-      width: 80%;
-      min-width: 680px;
-      max-width: 700px;
-      margin-top: 2em;
-    }
-
-    h1 {
-      color: $base-font-color;
-      margin-bottom: .6em;
-      text-align: left;
-      text-transform: capitalize;
-    }
-
-    p {
-      font-size: $base-font-size;
-      max-width: 100% !important;
-      padding: 0;
-      text-align: left;
-
-      &.intro {
-        color: $blue;
-        line-height: 1.6em;
-      }
-
-      &.body {
-        color: $base-font-color;
-        line-height: 1.45em;
-
-        @include media($medium-screen) {
-          @include columns(2 8em);
-        }
-      }
-    }
-
-    a.cta {
-      color: white;
-      display: inline-block;
-      margin-right: .5em;
-      margin-top: 1em;
-
-      &:last-child {
-        padding: 0 2em;
-      }
-    }
-  }
-
-  .modal-state:checked + .modal-window {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .modal-state:checked + .modal-window .modal-inner {
-    top: 0;
+  .right-cover {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 4px;
+    background: $grid-items-background;
   }
 }
