@@ -4,17 +4,18 @@ class LegislationsController < ApplicationController
   # GET /legislations
   # GET /legislations.json
   def index
-    @legislations = Legislation.all
-    @fresh_legislations = Legislation.where.not("status = ?", "Voted")
+    @legislations = Legislation.all #this isn't really needed if we're not using the variable in the queries below, right?
+    @fresh_legislations = Legislation.where.not("status = ?", "Voted").paginate(page: params[:page], per_page: 8)
 
     #### THIS STILL NEEDS TO BE REFINED ####
-    @voted_legislations = Legislation.where("status = ?", "Voted")
+    @voted_legislations = Legislation.where("status = ?", "Voted").paginate(page: params[:page], per_page: 8)
 
   end
 
   # GET /legislations/1
   # GET /legislations/1.json
   def show
+
   end
 
   # GET /legislations/new
