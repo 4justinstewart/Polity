@@ -1,13 +1,15 @@
 
 <!--<p id="notice"><%= notice %></p>-->
 <section class="first">
-  
+
 <div class="alderman-info">
 
   <p>
     <strong>Alderman
       <%= @legislator.alderman.name %>
     </strong>
+
+     <%= request.host %>
   </p>
 
     <%= image_tag @legislator.alderman.img_url %>
@@ -43,7 +45,7 @@
         </td>
 
         <td>
-          <% if current_user.legislation_supporter?(issue) %>
+          <% if current_user.legislation_voicer(issue) %>
             <%= current_user.return_legislation_voice(issue) %>
           <% else %>
             <%= link_to "Learn More Now", legislations_path %>
@@ -66,8 +68,6 @@
     <th>Title</th>
     <th>City Identifier</th>
     <th>Type</th>
-    <th>Opened</th>
-    <th>Closed</th>
     <th>Status</th>
     <% @recently_sponsored.each do |issue| %>
       <tr>
@@ -83,13 +83,9 @@
           <%= issue.kind %>
         </td>
 
-        <td>
-          <%= issue.opened_date %>
-        </td>
-
-        <td>
-          <%= issue.closed_date %>
-        </td>
+        <!-- <td>
+          <%#= issue.opened_date %>
+        </td> -->
 
         <td>
           <%= issue.status %>

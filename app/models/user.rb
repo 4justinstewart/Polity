@@ -98,6 +98,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def legislation_voicer(legislation)
+    LegislationVoice.where("user_id = ? AND legislation_id = ?", self.id, legislation.id).any?
+  end
+
 
   # def self.by_legislation_support(legislation_id)
   #   issue_id = Legislation.find(legislation_id).id

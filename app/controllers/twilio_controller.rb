@@ -8,6 +8,9 @@ class TwilioController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def call
+    host_and_port = request.host
+    host_and_port << ":9393" if request.host == "localhost"
+
     @client = Twilio::REST::Client.new ENV["ACCOUNT_SID"], ENV["AUTH_TOKEN"]
 
     call = @client.account.calls.create({
@@ -16,11 +19,11 @@ class TwilioController < ApplicationController
       :method => 'GET',
       :fallback_method => 'GET',
       :status_callback_method => 'GET',
-      :record => 'false'
-      #:url =>
+      :record => 'false',
+      :url => "http://#{host_and_port}/users/#{current_user.id}"
     })
-    puts call
-    render none
+
+    render nothing: true
   end
 
   # def talk
