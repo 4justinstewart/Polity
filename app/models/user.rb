@@ -34,9 +34,9 @@ class User < ActiveRecord::Base
   end
 
   def ward_number
-    address_ward_number = user_address.try(:ward_number)
+    address_ward_number = user_address.try(:ward_id)
 
-    @ward ? Ward.find_by_id(address_ward_number).number  : nil
+    @ward ? Ward.find_by_id(address_ward_number).ward_number  : nil
 
       # if Ward.find_by_id(address_ward_number).number
       #   Ward.find_by_id(address_ward_number).number
@@ -55,9 +55,11 @@ class User < ActiveRecord::Base
 
     # find a detail that helps us determine
 
-    address_ward_number = user_address.try(:ward_number)
-    @ward ? Ward.find_by_id(address_ward_number).number  : nil
-    if @ward != nil
+    address_ward_number = user_address.try(:ward_id)
+    puts "address ward number:  #{address_ward_number}"
+    @ward ? Ward.find_by_id(address_ward_number).ward_number  : nil
+    puts "@ward:  #{@ward}"
+    if @ward
       current_legislator = Legislator.where(:represented_ward_id => address_ward_number).first
     else
       nil
