@@ -62,14 +62,7 @@ Rails.application.configure do
 # For Amazon S3 usage with Paperclip
 #
 
-config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ENV['polity_chi_heroku_deploy_attempt'],
-    :access_key_id => ENV['AKIAIYA77ZKVWH37H2QA'],
-    :secret_access_key => ENV['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']
-  }
-}
+
 
 
 
