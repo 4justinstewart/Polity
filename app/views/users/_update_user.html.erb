@@ -7,7 +7,10 @@
               <%= ff.text_field :last_name, value: current_user.last_name %></div>
 
               <div><%= ff.label :img_url, "Image Link" %><br />
-              <%= ff.text_field :img_url, value: current_user.img_url %></div>
+              <%= ff.text_field :img_url, value: current_user.try(img_url) %></div>
+
+              <div><%= ff.label :twitter_handle, "Twitter Handle" %><br />
+              <%= ff.text_field :twitter_handle, value: current_user.try(twitter_handle) %></div>
         <% end %>
 
         <div><h4>Find your ward</h4>
