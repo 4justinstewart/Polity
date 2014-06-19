@@ -1,5 +1,6 @@
 
 class Legislator < ActiveRecord::Base
+
   belongs_to :alderman, class_name: 'User'
   belongs_to :represented_ward, class_name: 'Ward'
   has_many :legislation_sponsors, :foreign_key => :sponsor_id #sponsorships?
@@ -16,7 +17,10 @@ class Legislator < ActiveRecord::Base
 		end
   end
 
-
+  def return_legislation_vote(legislation_id)
+    vote = LegislatorVote.where(legislation_id: legislation_id, legislator_id: self.id).first.vote
+    vote == "Y" ? (return "Yay") : (return "Nay")
+  end
 end
 
 # response = Net::HTTP.get_response("example.com","/?search=thing&format=json")
