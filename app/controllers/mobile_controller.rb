@@ -14,7 +14,7 @@ class MobileController < ApplicationController
     office = ward.address1
 
 
-    render json:  , status: 200 # :ok
+    #render json:  #, status: 200 # :ok
   end
 
 
