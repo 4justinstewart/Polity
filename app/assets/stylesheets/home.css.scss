@@ -12,7 +12,7 @@
   $hero-color: white;
 
   @include alpha-attribute('background-color', rgba(16, 25, 39, 0.5), white);
-  background:  url("https://s3.amazonaws.com/polity_chi_heroku_deploy_attempt/chicago_skyline-reduced.png"); //format('embedded-opentype'),
+  background:  url(https://s3.amazonaws.com/polity_chi_heroku_deploy_attempt/chicago_skyline-reduced.png); //format('embedded-opentype'),
 
   // url(/assets/chicago_skyline-reduced.png);
 
