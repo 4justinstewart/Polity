@@ -1,3 +1,4 @@
+<% content_for :javascripts do %>
 <script type="text/javascript"
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdOTr1UDTUw">
 </script>
@@ -31,8 +32,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 //   }
 
 //   window.onload = loadScript;
-// </script>
-<section>
+
+</script>
+<% end %>
+
 
 <!-- <div> -->
 	<!-- <h2> Ward <%#= @ward.ward_number %> Alderman</h2> -->
@@ -56,6 +59,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 	<!-- <h2>Ward <%#= @ward.ward_number %> Community</h2> -->
 <!-- </div> -->
 <%# if current_user.ward_number == @ward.ward_number %>
+<section>
 	<p id="notice"><%= notice %></p>
 
 	<div>
@@ -87,10 +91,12 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 			<% end %>
 		</table>
 	</div>
+</section>
 
 	<!-- <div id="map-canvas" style="width: 25em; height: 25em"> -->
 	<!-- </div> -->
 
+<section>
 	<div class="alderman-votes">
 		<h2>Ward <%= @ward.ward_number %></h2>
 		<h3>Alderman <%= @ward.alderman.last_name %>'s Recent Votes</h3>

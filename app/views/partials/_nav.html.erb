@@ -1,29 +1,27 @@
+
 <header class="navigation">
   <div class="menu-wrapper">
     <%= link_to image_tag("/assets/logos/polity_logo_bg.png"), root_path, class: "logo" %>
-    </a>
-    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
-    <div class="nav">
-      <ul id="navigation-menu">
-        <li></li>
-        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
-        <li class="nav-link more"><a href="javascript:void(0)">More</a>
-          <ul class="submenu">
-            <li><a href="javascript:void(0)">Submenu Item</a></li>
-            <li><a href="javascript:void(0)">Another Item</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="navigation-tools">
+    <p class="navigation-menu-button nav-menu" id="js-mobile-menu">MENU</p>
       <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-tool" %>
+        <p><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navigation-menu-button" %></p>
       <% else %>
-        <%= link_to "Register", new_user_registration_path, class: "nav-tool" %>
-        <%= link_to "Sign In", new_user_session_path, class: "nav-tool" %>
+        <p><%= link_to "Register", new_user_registration_path, class: "navigation-menu-button" %></p>
+        <p><%= link_to "Sign In", new_user_session_path, class: "navigation-menu-button" %></p>
+      <% end %>
+    <div class="nav">
+      <% if current_user && current_user.street_address1 %>
+        <ul id="navigation-menu">
+          <li class="nav-link"><a href="/users/<%= current_user.id %>">Dashboard</a></li>
+          <li class="nav-link"><a href="/legislators/<%= current_user.alderman.id %>">Meet Your Alderman</a></li>
+          <li class="nav-link"><a href="/legislations">Legislation Voices</a></li>
+          <li class="nav-link more"><a href="/wards/<%= current_user.ward.id %>">Community Connections</a>
+          </li>
+        </ul>
       <% end %>
     </div>
+<!--     <div class="navigation-tools">
+
+    </div> -->
   </div>
 </header>
