@@ -1,10 +1,13 @@
 // Base Font
-$base-font-family: 'Source Sans Pro', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
-$base-font-size: 15px;
+$base-font-family: 'BenchNine', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+$base-font-size: 18px;
 $base-line-height: 1.4;
 
-$header-fontface-thin: 'Source Sans Pro', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
-$header-fontface-thick: 'Fjalla One', 'Helvetica Neue', Arial, sans-serif;
+$header-fontface-thin: 'BenchNine', 'Helvetica Neue', 'Open Sans', Helvetica, Arial, sans-serif;
+$header-fontface-thick: 'BenchNine', 'Helvetica Neue', Arial, sans-serif;
+
+
+$block-title: saturate(darken($base-accent-color, 30), 30);
 
 //Font weights
 $light: 300;
@@ -36,9 +39,20 @@ $base-border-radius: em(.5);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: $header-fontface-thick
 }
 
 header.navigation .navigation-menu-button.nav-menu {
   color: #e06063;
+}
+
+.block-title {
+  text-align: left;
+  margin: .5em 0 .5em;
+  color: $block-title;
+  font-weight: 600;
+  font-size: 370%;
+  margin-left: .5em;
 }
