@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
 
-  has_attached_file :avatar, styles:
-                              {:thumb => "100x100>" ,
+  has_attached_file :avatar, styles: {
+                             :thumb => "100x100>" ,
                              :medium => "300x300>"},
                              :default_url => "/images/:style/missing.png"
 
