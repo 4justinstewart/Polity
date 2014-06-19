@@ -29,6 +29,7 @@ class UserAddressesController < ApplicationController
     current_user_first_name = params["user_address"]["users"]["first_name"]
     current_user_last_name = params["user_address"]["users"]["last_name"]
     current_user_img_url = params["user_address"]["users"]["img_url"]
+    current_user_twitter_handle = params["user_address"]["users"]["twitter_handle"]
     user_address_address1 = params["user_address"]["address1"]
     # puts user_address_ward_id = params["user_address"]["ward_id"]
     # puts user_address_address2 = params["user_address"]["address2"]
@@ -36,7 +37,6 @@ class UserAddressesController < ApplicationController
 
     if UserAddress.find_by_address1(user_address_address1)
       @user_address = UserAddress.find_by_address1(user_address_address1)
-      # puts @user_address.address1
       p @user_address
       puts "----------------------------------------"
       @user_address.update_attributes!(user_address_params)
@@ -49,7 +49,7 @@ class UserAddressesController < ApplicationController
 
     respond_to do |format|
       if @user_address.valid?
-        current_user.update_attributes(user_address_id: @user_address.id, first_name: current_user_first_name, last_name: current_user_last_name, img_url: current_user_img_url)
+        current_user.update_attributes(user_address_id: @user_address.id, first_name: current_user_first_name, last_name: current_user_last_name, img_url: current_user_img_url, twitter_handle: current_user_twitter_handle)
         format.html { redirect_to current_user, notice: 'User address was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
