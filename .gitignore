@@ -67,3 +67,6 @@ tmp/cache/assets/development/sprockets/
 
 # Ignore application configuration
 /config/application.yml
+
+# vendor/bundle for heroku #
+vendor/bundle/*
