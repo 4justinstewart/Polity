@@ -6,6 +6,11 @@
               <div><%= ff.label :last_name, "Last Name" %><br />
               <%= ff.text_field :last_name, value: current_user.last_name %></div>
 
+              <div class="field">
+                    <%= f.label :avatar %><br />
+                    <%= f.file_field :avatar %>
+              </div>
+
               <div><%= ff.label :img_url, "Image Link" %><br />
               <%= ff.text_field :img_url, value: current_user.img_url %></div>
         <% end %>
