@@ -75,7 +75,7 @@ th {
   text-transform: uppercase;
 }
 
-.first {
+.first, .hero {
   padding-top: 60px;
 }
 
@@ -87,8 +87,24 @@ header.navigation a.navigation-menu-button {
   }
 }
 
+header.navigation {
+  height: 90px;
+}
+
+.navigation .menu-wrapper {
+  height: 90px;
+  bottom: 15px;
+}
 
 
+.location-pin {
+  width: 30px;
+  height: 36px !important;
 
+}
+
+.address-pin {
+  float:left;
+}
 
 

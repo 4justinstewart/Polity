@@ -5,7 +5,7 @@
 .grid-items {
   // $grid-items-background: $base-body-color;
   $grid-items-background: white;
-  border: 1px solid #ededed;
+  // border: 1px solid #ededed;
   $grid-item-background: white;
   $grid-item-background: desaturate(white, 95);
   $grid-item-colors:
@@ -86,7 +86,7 @@
 
     }
 
-    .grid-item .user-info {
+    .grid-item .user-info, .grid-item .alderman-info {
       text-align:left;
       float:left;
       padding: 0 0 0 1em;
@@ -113,6 +113,8 @@
   .grid-item-big {
     @include media($large-screen) {
       @include grid-item-columns($grid-item-big-columns);
+      @include omega;
+      background: $electric-blue;
     }
     p {
       @include media($medium-screen) {
@@ -128,6 +130,7 @@
       height: 28em;
     }
     p {
+      clear:both;
       // @include media($medium-screen) {
       //   max-width: 60%;
       // }
@@ -144,5 +147,37 @@
     background-position: top;
     background-size: cover;
   }
+}
+
+
+.alderman-wrapper {
+  padding-top: 0;
+  float: left;
+  h3.alderman-info {
+    text-align:left;
+    padding-left: 0 !important;
+    margin-bottom:0 !important;
+    // clear: right;
+  }
+  img {
+    clear:left;
+    padding-right: 5px;
+    margin-bottom: 3em !important;
+  }
+
+  li:last-child {
+    font-family: $header-fontface-thick;
+  }
+}
+
+.alderman-top {
+  border-bottom: 4.5px solid $electric-blue !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+.alderman-bottom {
+  border-top: 4.5px solid $electric-blue;
+  border-left: 0 !important;
+  border-right: 0 !important;
 }
 
