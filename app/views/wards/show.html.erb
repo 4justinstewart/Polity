@@ -66,8 +66,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 		<h2>Ward <%= @ward.ward_number %> Community</h2>
 	</div>
 	<% if current_user.ward_number == @ward.ward_number %>
-	<div>
-		<%=link_to "Add A Meeting", new_community_meeting_path %>
+	<div id="link">
+		<%=link_to "Add A Meeting", new_community_meeting_path, id: "add-meeting" %>
 	</div>
 	<% end %>
 	<div class="meetings">
