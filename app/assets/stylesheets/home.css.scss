@@ -37,6 +37,12 @@
       font-size: $base-font-size * 2;
       font-weight: 300;
       outline: none;
+
+      a {
+        color: white;
+        font-family: $header-fontface-thick;
+
+      }
     }
 
     .hero-copy {
