@@ -117,10 +117,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfqOZUGR6ejmHezySTCVgPJdO
 				<td>
 
 					<div class="bar-graph-indication">
-						<span class="meter ward-legislation-support" style="width:<%= vote.ward_support_percent(@ward.id) %>%">
+						<span id="support" class="meter ward-legislation-support" style="width:<%= vote.ward_support_percent(@ward.id) %>%">
 							<p><%= vote.ward_support_percent(@ward.id) %></p>
 						</span>
-						<span class = "meter ward-legislation-opposition" style="width: <%= vote.ward_opposition_percent(@ward.id) %>%">
+						<span id="oppose" class = "meter ward-legislation-opposition" style="width: <%= vote.ward_opposition_percent(@ward.id) %>%">
 							<p><%= vote.ward_opposition_percent(@ward.id) %></p>
 						</span>
 					</div>
