@@ -7,6 +7,14 @@ img[alt="oppose"] {
     transform: rotate(-180deg);
 }
 
+th, td {
+  text-align: center;
+}
+
+thead th:first-child {
+  width: 40%;
+}
+
 .accordion-tabs-minimal {
   $tab-border-color: $base-border-color;
   $tab-border: 1px solid $tab-border-color;
@@ -32,14 +40,16 @@ img[alt="oppose"] {
     }
 
     &:first-child a.tab-link {
-      border-top-left-radius: $base-border-radius; 
-      border-top-right-radius: $base-border-radius; 
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
       border-top: 0;
+      padding: 15px;
     }
 
     &:last-child a.tab-link {
-      border-bottom-left-radius: $base-border-radius; 
-      border-bottom-right-radius: $base-border-radius; 
+      border-bottom-left-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
+      padding: 15px;
 
       @include media($tab-mode) {
         border-bottom-left-radius: 0;
@@ -67,8 +77,8 @@ img[alt="oppose"] {
       color: $base-link-color;
     }
 
-    &:focus { 
-      outline: none; 
+    &:focus {
+      outline: none;
     }
 
     &.is-active {
