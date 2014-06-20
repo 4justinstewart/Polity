@@ -102,7 +102,7 @@
   .grid-item p {
       margin: auto;
       text-align:left;
-      color: transparentize($grid-item-color, .3);
+      color: $dark-grey;
       padding-top: 2em;
 
       // @include media($medium-screen) {
@@ -113,8 +113,8 @@
   .grid-item-big {
     @include media($large-screen) {
       @include grid-item-columns($grid-item-big-columns);
-      @include omega;
-      background: $electric-blue;
+      // @include omega;
+      // background: #89b7f3;
     }
     p {
       @include media($medium-screen) {
@@ -127,7 +127,9 @@
     .grid-item-big-tall {
     @include media($large-screen) {
       @include omega;
-      height: 28em;
+      height: 56em;
+      border-right: 1px solid #dddddd;
+
     }
     p {
       clear:both;
@@ -170,14 +172,14 @@
   }
 }
 
-.alderman-top {
-  border-bottom: 4.5px solid $electric-blue !important;
-  border-left: 0 !important;
-  border-right: 0 !important;
-}
-.alderman-bottom {
-  border-top: 4.5px solid $electric-blue;
-  border-left: 0 !important;
-  border-right: 0 !important;
-}
+// .alderman-top {
+//   // border-bottom: 4.5px solid #89b7f3 !important;
+//   border-left: 0 !important;
+//   border-right: 0 !important;
+// }
+// .alderman-bottom {
+//   border-top: 4.5px solid #89b7f3;
+//   border-left: 0 !important;
+//   border-right: 0 !important;
+// }
 
