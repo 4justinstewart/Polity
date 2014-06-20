@@ -107,4 +107,26 @@ header.navigation {
   float:left;
 }
 
+.alderman-info img {
+  width: 200px;
+}
+
+.voice_up {
+  background: $electric-blue;
+  margin: 3em 0;
+
+}
+
+.voice_up a {
+  // padding: 1em 0;
+  // text-transform: uppercase;
+  font-family: $header-fontface-thin;
+  color: white;
+  font-size: 24px;
+}
+
+.voice_up a:hover {
+  color: $electric-blue;
+}
+
 

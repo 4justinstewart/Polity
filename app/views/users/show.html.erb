@@ -15,14 +15,21 @@
     <%= image_tag @user.img_url %>
     <div class="user-info" style="clear: right;">
       <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-          <ul>
-            <li><%= @user.street_address1.titleize %></li>
-            <li>Chicago, IL</li>
-            <li><%= @user.zip %></li>
-        </ul>
+      <ul>
+        <li><%= @user.street_address1.titleize %></li>
+        <li>Chicago, IL</li>
+        <li><%= @user.zip %></li>
+      </ul>
     </div>
-<p>Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.</p>
-</div>
+    <p>Recently move? Update <%= link_to "your information", edit_user_path(@user) %> and connect with your new alderman.</p>
+    <div class="voice_up">
+      <%= link_to "Give Your Feedback on Legislation", legislations_path %><br>
+      <%= link_to "More about your Legislator", legislator_path(@alderman) %><br>
+      <%= link_to "See What's Happening in Your Ward...", ward_path(@ward) %><br>
+    </div>
+        <a class="twitter-timeline" href="https://twitter.com/PolityChi/lists/chicago" data-widget-id="479470480403857408">Tweets from https://twitter.com/PolityChi/lists/chicago</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
 
 
   <!-- /*=============================================
@@ -32,18 +39,18 @@
   <div class="grid-item grid-item-big alderman-top">
     <%= image_tag @alderman.img_url %>
     <div class="alderman-wrapper">
-    <h3 class="alderman-info" style="clear: right">Alderman <%= @user.alderman.first_name %> <%= @user.alderman.last_name %></h3>
-    <%= image_tag("/assets/icons/pin.png", class: "location-pin") %>
-        <ul>
-              <li><%= @ward.address1.titleize %></li>
-              <li>Chicago, IL</li>
-              <li><%= @ward.zip %></li>
-              <li><%= @ward.phone_number %></li>
-        </ul>
+    <h3 class="alderman-info" style="clear: right; text-align: left;">Alderman <%= @user.alderman.first_name %> <%= @user.alderman.last_name %></h3>
+      <%= image_tag("/assets/icons/pin.png", class: "location-pin") %>
+      <ul>
+        <li><%= @ward.address1.titleize %></li>
+        <li>Chicago, IL</li>
+        <li><%= @ward.zip %></li>
+        <li><%= @ward.phone_number %></li>
+      </ul>
 
+    </div>
+    <h2 style="clear: both; text-align: left;">GET IN TOUCH WITH YOUR ALDERMAN NOW</h2>
   </div>
-    <h2 style="clear: both">GET IN TOUCH WITH YOUR ALDERMAN NOW</h2>
-</div>
 
 
   <!-- /*=============================================
@@ -51,64 +58,43 @@
   =============================================*/ -->
 
   <div class="grid-item grid-item-big alderman-bottom" style="clear: right;">
+    <div>
+
+      <%= mail_to @alderman_email, "Send a Quick Message", subject: "CONSTITUENT FEEDBACK from #{current_user.name}", body: "Hi Alderman #{@alderman.name}, \n\n\n\n I look forward to your response,\n\n#{current_user.name}" %>
       <div>
-
-        <%= mail_to @alderman_email, "Send a Quick Message", subject: "CONSTITUENT FEEDBACK from #{current_user.name}", body: "Hi Alderman #{@alderman.name}, \n\n\n\n I look forward to your response,\n\n#{current_user.name}" %>
-        <!-- SET UP THE TWILIO AND TWITTER API HERE -->
         <%= button_to "Call #{@alderman.name} Now", twilio_call_path, :params => { alderman_phone: "#{@ward.phone_number}" }, :class => 'btn' %>
+      </div>
     </div>
-    <%= link_to "Tweet at your alderman", "https://twitter.com/intent/tweet?text=#{@alderman.twitter_handle}", :target => "_blank" %>
+    <div>
+      <%= link_to "Tweet at your alderman", "https://twitter.com/intent/tweet?text=#{@alderman.twitter_handle}", :target => "_blank" %>
+    </div>
+  </div>
 
 
-    <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
+
+  <div class="grid-item grid-item-big">
     <div id="vote-feedback">
+      <% if current_user && current_user.ward.id == @legislator.represented_ward_id %>
 
       <div>
         <%= link_to "I agree!", legislation_voices_up_path(@user_feedback.id), method: "post", id: "vote-up", remote: true, "data-type" => "json" %>
-    </div>
-    <div>
+      </div>
+      <div>
         <%= @user_feedback.title %><br>
         Your Alderman voted <%= @legislator.issue_vote(@user_feedback.id) %>
-    </div>
-    <div>
+      </div>
+      <div>
         <%= link_to "I disagree!", legislation_voices_down_path(@user_feedback.id), method: "post", id: "vote-down", remote: true, "data-type" => "json" %>
+        <%= link_to "Leave detailed feedback", new_legislation_voice_path(legislation: @user_feedback.id) %>
+      </div>
+
+
+      <% else %>
+      <div>
+        You must live in this ward to leave feedback!
+      </div>
+      <% end %>
     </div>
-    <%= link_to "Leave detailed feedback", new_legislation_voice_path(legislation: @user_feedback.id) %>
-</div>
-<% else %>
-<div>
-  You must live in this ward to leave feedback!
-</div>
-<% end %>
-</div>
-
-<div class="grid-item grid-item-big-tall">
-    <a class="twitter-timeline" href="https://twitter.com/PolityChi/lists/chicago" data-widget-id="479470480403857408">Tweets from https://twitter.com/PolityChi/lists/chicago</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</div>
-
-
-<div class="grid-item">
-
-    <div class="voice_up">
-      <%= link_to "Give Your Feedback on Legislation", legislations_path %>
-  </div>
-  <div>
-      <%= link_to "More about your Legislator", legislator_path(@alderman) %>
-  </div>
-  <div>
-      <%= link_to "See What's Happening in Your Ward...", ward_path(@ward) %>
-  </div>
-
-</div>
-
-<!-- <div class="grid-item grid-item-big-tall">
-
-
-</div>
- -->
-</div>
-
 
 </section>
 
