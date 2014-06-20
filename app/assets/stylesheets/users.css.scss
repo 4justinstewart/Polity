@@ -89,7 +89,7 @@
     .grid-item .user-info, .grid-item .alderman-info {
       text-align:left;
       float:left;
-      padding: 0 0 0 1em;
+      padding: 0 0 0 .5em;
       clear: right;
       margin-bottom: 1em;
     }
@@ -115,6 +115,7 @@
       @include grid-item-columns($grid-item-big-columns);
       // @include omega;
       // background: #89b7f3;
+      padding-left: 1em;
     }
     p {
       @include media($medium-screen) {
@@ -129,6 +130,7 @@
       @include omega;
       height: 56em;
       border-right: 1px solid #dddddd;
+      padding-right: 1em;
 
     }
     p {
