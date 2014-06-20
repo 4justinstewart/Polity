@@ -47,8 +47,8 @@
 
     window.onload = loadScript;
   </script>
-  <section>
-    
+<section class="first">
+
 <div class="meeting-details">
 <h1><%= @community_meeting.topic %></h1>
 <h3>Organizer: <%= @community_meeting.creator.name %></h3>
@@ -59,14 +59,14 @@
 </div>
 
 <h3><%= @community_meeting.address %></h3>
+<% if current_user.id == @community_meeting.creator_id %>
+  <%= link_to "Edit This Meeting", edit_community_meeting_path, id: "edit" %>
+  <%= button_to "Delete This Meeting", community_meeting_path, method: :delete, id: "delete" %>
+<% end %>
 </div>
 
 
 <div id="map-canvas" style="width: 25em; height: 25em"></div>
-<% if current_user.id == @community_meeting.creator_id %>
-  <%= button_to "Delete This Meeting", community_meeting_path, method: :delete%>
-  <%= link_to "Edit This Meeting", edit_community_meeting_path %>
-<% end %>
 <!--<div></div>-->
 
   </section>
