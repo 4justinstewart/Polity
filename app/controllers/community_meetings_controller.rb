@@ -66,6 +66,6 @@ class CommunityMeetingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_meeting_params
-      params.require(:community_meeting).permit(:creator_id, :address, :date_at, :start_at, :end_at, :topic, :ward_id, :description, :city, :state)
+      params.require(:community_meeting).permit(:creator_id, :address, :date_at, :start_at, :end_at, :topic, :ward_id, :description, :city, :state, :zip)
     end
 end
